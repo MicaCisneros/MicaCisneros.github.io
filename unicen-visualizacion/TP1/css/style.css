@@ -1,9 +1,33 @@
-*{
+* {
     margin: 0;
-    
 }
+
+.contenedorSeccion {
+    display: grid;
+    grid-template-columns: 100%;
+    background-color: #DDD7DD;
+}
+
+.contenedorJuegosCarrusel {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 15px 235px 235px 235px 235px 235px 15px;
+    grid-template-rows: 234px;
+    gap: 10px;
+    align-items: center;
+}
+
+.juegos1 {
+    /*width: 215px;*/
+    height: 214px;
+    margin: 10px;
+    background-color: black;
+}
+
+
 /***********************************Menu**************************/
-.menu{
+
+.menu {
     display: grid;
     position: fixed;
     width: 100%;
@@ -20,7 +44,6 @@
     margin-top: auto;
     margin-bottom: 0;
     border-bottom: 0;
-
 }
 
 .menu ul {
@@ -29,77 +52,83 @@
     justify-content: center;
 }
 
-.input-buscador{
+.input-buscador {
     display: flex;
     position: absolute;
-    width:150px;
+    width: 150px;
     height: 30px;
     border-radius: 30px;
 }
+
+
 /***********************************Colores de background**************************/
-.bg-violeta5{
-    background-color:  rgba(55, 0, 55, 1);
+
+.bg-violeta5 {
+    background-color: rgba(55, 0, 55, 1);
 }
 
-.bg-violeta4{
-    background-color:  rgba(83, 14, 83, 1);
+.bg-violeta4 {
+    background-color: rgba(83, 14, 83, 1);
 }
 
-.bg-violeta3{
-    background-color:  rgba(111, 37, 111, 1);
+.bg-violeta3 {
+    background-color: rgba(111, 37, 111, 1);
 }
 
-.bg-violeta2{
-    background-color:  rgba(138, 69, 138, 1);
+.bg-violeta2 {
+    background-color: rgba(138, 69, 138, 1);
 }
 
-.bg-violeta2{
-    background-color:  rgba(166, 111, 166, 1);
+.bg-violeta1 {
+    background-color: rgba(166, 111, 166, 1);
 }
 
-.bg-negro{
-    background-color:rgba(0, 0, 0, 1);
+.bg-negro {
+    background-color: rgba(0, 0, 0, 1);
 }
 
-.bg-gris-oscura{
-    background-color:rgba(35, 32, 35, 1);
+.bg-gris-oscura {
+    background-color: rgba(35, 32, 35, 1);
 }
 
-.bg-gris-claro{
-    background-color:rgba(199, 195, 199, 1);
+.bg-gris-claro {
+    background-color: rgba(199, 195, 199, 1);
 }
 
-.bg-ligth2{
-    background-color:rgba(221, 215, 221, 1);
+.bg-ligth2 {
+    background-color: rgba(221, 215, 221, 1);
 }
 
-.bg-ligth1{
-    background-color:rgba(239, 229, 239, 1);
+.bg-ligth1 {
+    background-color: rgba(239, 229, 239, 1);
 }
 
-.bg-blanco{
-    background-color:rgba(255, 255, 255, 1);
+.bg-blanco {
+    background-color: rgba(255, 255, 255, 1);
 }
 
-.bg-azul{
-    background-color:rgba(10, 139, 180, 1);
+.bg-azul {
+    background-color: rgba(10, 139, 180, 1);
 }
 
-.bg-azul{
-    background-color:rgba(50, 217, 217, 1);
+.bg-celeste {
+    background-color: rgba(50, 217, 217, 1);
 }
+
 
 /***********************************Colores de letras**************************/
-.color-blanco{
-    color:rgba(255, 255, 255, 1);
+
+.color-blanco {
+    color: rgba(255, 255, 255, 1);
 }
 
+
 /***********************************Estilos de letras**************************/
-.letra-verdana1{
+
+.letra-verdana1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
 }
-
