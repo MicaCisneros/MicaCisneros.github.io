@@ -8,22 +8,6 @@
     background-color: #DDD7DD;
 }
 
-.contenedorJuegosCarrusel {
-    margin: 20px;
-    display: grid;
-    grid-template-columns: 15px 235px 235px 235px 235px 235px 15px;
-    grid-template-rows: 234px;
-    gap: 10px;
-    align-items: center;
-}
-
-.juegos1 {
-    /*width: 215px;*/
-    height: 214px;
-    margin: 10px;
-    background-color: black;
-}
-
 
 /***********************************Menu**************************/
 
@@ -131,4 +115,60 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
+}
+
+
+/***********************************HOME**************************/
+
+.contenedorJuegosCarrusel {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 1fr repeat(5, 4fr) 1fr;
+    grid-template-rows: 234px;
+    gap: 0.5%;
+    align-items: center;
+    justify-items: center;
+}
+
+.flecha1 {
+    justify-items: center;
+}
+
+
+/*2.5% 18.4% 18.4% 18.4% 18.4% 18.4% 2.5%*/
+
+.juegos1 {
+    width: 225px;
+    height: 214px;
+    margin: 10px;
+    background-color: black;
+}
+
+.imgJuego {
+    width: 225px;
+    height: 214px;
+}
+
+
+/***********************************Categorias**************************/
+
+.contenedorCategorias {
+    margin: 30px;
+    display: grid;
+    grid-template-columns: 15% 15% 15% 15% 15% 15%;
+    gap: 0.5%;
+    align-items: center;
+    justify-items: center;
+}
+
+
+/**/
+
+.categoria {}
+
+.imgCat {
+    padding: 30px;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
 }
