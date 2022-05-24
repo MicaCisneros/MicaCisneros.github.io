@@ -1,5 +1,7 @@
 * {
     margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:14px;
 }
 
 .contenedorSeccion {
@@ -117,9 +119,36 @@
     line-height: 22px;
 }
 
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 32px;
+}
+
 
 /***********************************HOME**************************/
+.juegoPrincipal{
+    width: 100%;
+    margin-bottom: 30px;
+}
 
+.tituloCat{
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid rgba(83, 14, 83, 1);
+    margin:0px 45px 0px 45px;
+}
+
+/* .tituloCat::after{
+    content: '';
+    height: 13px;
+    width: 100%;
+    background-color: rgb(251 242 175);
+    display: block;
+    border-radius: 50px;
+} */
+
+
+/***********************************Carrusel**************************/
 .contenedorJuegosCarrusel {
     margin: 20px;
     display: grid;
@@ -128,6 +157,8 @@
     gap: 0.5%;
     align-items: center;
     justify-items: center;
+    margin-bottom: 30px;
+   
 }
 
 .flecha1 {
@@ -142,11 +173,14 @@
     height: 214px;
     margin: 10px;
     background-color: black;
+    border-radius: 20px;
+    
 }
 
 .imgJuego {
     width: 225px;
     height: 214px;
+    border-radius: 20px;
 }
 
 
@@ -155,8 +189,8 @@
 .contenedorCategorias {
     margin: 30px;
     display: grid;
-    grid-template-columns: 15% 15% 15% 15% 15% 15%;
-    gap: 0.5%;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 15px;
     align-items: center;
     justify-items: center;
 }
@@ -164,11 +198,38 @@
 
 /**/
 
-.categoria {}
+.categoria {
+    display: grid;
+    justify-items: center;
+}
 
 .imgCat {
+    margin-bottom: 15px;
     padding: 30px;
     width: 120px;
     height: 120px;
     border-radius: 100%;
+}
+
+/***********************************Juegos grandes**************************/
+.contenedorJuegosGrandes{
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) ;
+    grid-template-rows: 234px;
+    gap: 15px;
+    align-items: center;
+    justify-items: center;
+}
+
+.juegos2 {
+    width: 265px;
+    height: 230px;
+    margin: 10px;
+    background-color: black;
+}
+
+.imgJuego2{
+    width: 265px;
+    height: 230px;
 }
