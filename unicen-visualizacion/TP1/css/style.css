@@ -158,6 +158,7 @@ h2 {
 
 .juegoPrincipal {
     width: 100%;
+    height: 500px;
     margin-bottom: 30px;
 }
 
@@ -258,12 +259,14 @@ h2 {
     width: 265px;
     height: 230px;
     margin: 10px;
+    border-radius: 20px;
     background-color: black;
 }
 
 .imgJuego2 {
     width: 265px;
     height: 230px;
+    border-radius: 20px;
 }
 
 
