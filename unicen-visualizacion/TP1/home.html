@@ -12,6 +12,7 @@
 
 <body>
     <nav class="menu bg-violeta4">
+
         <ul class="letra-verdana1 color-blanco">
             <div>
                 <a href="home.html"> <img class="logo" src="img/logo-juegos.jpeg" alt=""> </a>
@@ -35,7 +36,12 @@
 
 
         </ul>
+        <div id="contenedor-loader">
 
+            <div id="loader"></div>
+            <p id="texto-loader">Loading...</p>
+
+        </div>
 
 
     </nav>
@@ -43,56 +49,71 @@
 
 
     <section class="contenedorSeccion">
+
+
+
+
         <div>
-            <img class="juegoPrincipal" src="img/juegoSimpsons.jpg" alt="Imagen alternativa en PNG">
+            <img class="juegoPrincipal" src="img/juegoSimpsons.jpg" alt="Juego de los simpsons">
         </div>
+
+
+
 
         <div class="tituloCat">
             <h1>Categorias</h1>
         </div>
         <div class="contenedorCategorias">
 
-            <div class="categoria">
-                <iframe class="imgCat bg-gris-oscuro" src="img/icon-cat-board.svg" scrolling="no">
-                    <img src="img/icon-cat-board.svg" alt="Imagen alternativa en PNG">
-                  </iframe>
-                <p>Juegos de mesa</p>
-            </div>
+            <a href="categoria.html">
+                <div class="categoria">
+                    <iframe class="imgCat bg-gris-oscuro" src="img/icon-cat-board.svg" scrolling="no">
+                        <img src="img/icon-cat-board.svg" alt="Imagen alternativa en PNG"> 
+                    </iframe>
+                    <h3>Juegos de mesa</h3>
+                </div>
+            </a>
 
-            <div class="categoria">
-                <iframe class="imgCat bg-gris-oscuro" src="img/icon-cat-action.svg" scrolling="no">
+            <a href="categoria.html">
+                <div class="categoria">
+                    <iframe class="imgCat bg-gris-oscuro" src="img/icon-cat-action.svg" scrolling="no">
                     <img src="img/icon-cat-action.svg" alt="Imagen alternativa en PNG">
                 </iframe>
-                <p>Juegos de accion</p>
-            </div>
-
-            <div class="categoria">
-                <iframe class="imgCat bg-gris-oscuro" src="img/icon-cat-classics.svg" scrolling="no">
+                    <h3>Juegos de accion</h3>
+                </div>
+            </a>
+            <a href="categoria.html">
+                <div class="categoria">
+                    <iframe class="imgCat bg-gris-oscuro" src="img/icon-cat-classics.svg" scrolling="no">
                     <img src="img/icon-cat-classics.svg" alt="Imagen alternativa en PNG">
                 </iframe>
-                <p>Juegos clasicos</p>
-            </div>
-
-            <div class="categoria">
-                <iframe class="imgCat bg-gris-oscuro" src="img/icon-cat-board.svg" scrolling="no">
-                    <p>Gráfico SVG – alternativa en formato PNG aquí</p>
-                    <img src="img/icon-cat-board.svg" alt="Imagen alternativa en PNG">
-                  </iframe>
-            </div>
-
-            <div class="categoria">
-                <iframe class="imgCat bg-gris-oscuro" src="img/icon-cat-action.svg" scrolling="no">
-                    <p>Gráfico SVG – alternativa en formato PNG aquí</p>
-                    <img src="img/icon-cat-action.svg" alt="Imagen alternativa en PNG">
+                    <h3>Juegos clasicos</h3>
+                </div>
+            </a>
+            <a href="categoria.html">
+                <div class="categoria">
+                    <iframe class="imgCat bg-gris-oscuro" src="img/icon-cat-management-makeup.svg" scrolling="no">
+                    <img src="img/icon-cat-management-makeup.svg" alt="Imagen alternativa en PNG">
                 </iframe>
-            </div>
-
-            <div class="categoria">
-                <iframe class="imgCat bg-gris-oscuro" src="img/icon-cat-classics.svg" scrolling="no">
-                    <img src="img/icon-cat-classics.svg" alt="Imagen alternativa en PNG">
+                    <h3>Juegos de maquillaje</h3>
+                </div>
+            </a>
+            <a href="categoria.html">
+                <div class="categoria">
+                    <iframe class="imgCat bg-gris-oscuro" src="img/icon-cat-multiplayer.svg" scrolling="no">
+                    <img src="img/icon-cat-.svg" alt="Imagen alternativa en PNG">
                 </iframe>
-            </div>
-
+                    <h3>Juegos multijugador</h3>
+                </div>
+            </a>
+            <a href="categoria.html">
+                <div class="categoria">
+                    <iframe class="imgCat bg-gris-oscuro" src="img/icon-cat-races.svg" scrolling="no">
+                <img src="img/icon-cat-races.svg" alt="Imagen alternativa en PNG">
+                </iframe>
+                    <h3>Juegos de carreras</h3>
+                </div>
+            </a>
         </div>
 
 
@@ -249,6 +270,7 @@
 
     </div>
 </footer>
+<script src="js/animacion-loader.js"></script>
 <script src="js/main.js"></script>
 
 </html>
