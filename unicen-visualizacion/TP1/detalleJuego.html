@@ -24,22 +24,17 @@
                 <li>Accion</li>
                 <li>Puzzle</li>
             </div>
-    
+
             <div class="buscador">
                 <input type="text" class="input-buscador">
             </div>
             <div class="iconos">
                 <i class="iconUser fa-solid fa-user"></i>
             </div>
-            
-
         </ul>
-     
-   
-        
     </nav>
 
- 
+
 
     <section class="contenedorSeccion">
         <div class="divJuego">
@@ -49,8 +44,16 @@
             <div class="divBotonPlay">
                 <button class="bg-celeste botonPlay"><i class="play fa-solid fa-play"></i>Jugar</button>
             </div>
-            
+
         </div>
+
+        <div id="contenedor-loader">
+
+            <div id="loader"></div>
+            <p id="texto-loader">Loading...</p>
+
+        </div>
+
         <div class="tituloDetalle">
             <div class="tituloJuego">
                 <h2 class="margenDetalle">Los simpsons</h2>
@@ -74,11 +77,10 @@
 
             <div class="infoJuego">
                 <h4 class="">Instrucciones</h4>
-                <p class="instruccionesJuego">Homer Simpson, que se encuentra en la Planta Nuclear de Springfield juega una aplicación de los Happy Little Elves (pequeños elfos felices) en su myPad. Una alarma detrás de él se enciende indicando una emergencia, pero él no la nota y continua jugando; la situación empeora cada segundo.
-    
-                    Cuando Homer nota la emergencia es demasiado tarde y la Planta Nuclear explota, dejando a Springfield en blanco y haciendo volar a sus habitantes por los aires. Es entonces cuando tu tomas el control del juego, dando un resultado de que Homer se ha convertido en un personaje de una aplicacion, muy parecida a la que Homer/Homero estaba jugando antes de la explosión nuclear.
-                    
-                    Entonces, tú, tomando el papel del "Dedo Celestial" (Una especie de Dios que en realidad es tu dedo, que puede construir cosas y hacer que la gente haga tareas) debes reconstruir Springfield como tu quieras y coleccionar a los personajes.</p>
+                <p class="instruccionesJuego">Homer Simpson, que se encuentra en la Planta Nuclear de Springfield juega una aplicación de los Happy Little Elves (pequeños elfos felices) en su myPad. Una alarma detrás de él se enciende indicando una emergencia, pero él no la nota y
+                    continua jugando; la situación empeora cada segundo. Cuando Homer nota la emergencia es demasiado tarde y la Planta Nuclear explota, dejando a Springfield en blanco y haciendo volar a sus habitantes por los aires. Es entonces cuando
+                    tu tomas el control del juego, dando un resultado de que Homer se ha convertido en un personaje de una aplicacion, muy parecida a la que Homer/Homero estaba jugando antes de la explosión nuclear. Entonces, tú, tomando el papel del
+                    "Dedo Celestial" (Una especie de Dios que en realidad es tu dedo, que puede construir cosas y hacer que la gente haga tareas) debes reconstruir Springfield como tu quieras y coleccionar a los personajes.</p>
             </div>
             <div class="videoJuego">
                 <h4 class="margenDetalle">Video ilustrativo</h4>
@@ -93,15 +95,15 @@
                 <img class="recomendado" src="img/juego7.jfif" alt="">
             </div>
         </div>
-            
- 
+
+
     </section>
 
-    
+
 </body>
 <footer class="bg-violeta4">
     <div class="enlacesFooter">
-        
+
         <ul class="color-blanco">
             <a class="subtitulosFooter">Empresa</a>
             <li>Condiciones de uso</li>
@@ -126,11 +128,11 @@
         <div class="logoFooter">
             <img src="img/logo-juegos.jpeg" alt="">
         </div>
-  
+
         <div class="redesSociales">
             <div>
                 <i class="icono color-blanco fa-brands fa-instagram"></i>
-            </div> 
+            </div>
             <div>
                 <i class="icono color-blanco fa-brands fa-facebook-square"></i>
             </div>
@@ -138,9 +140,10 @@
                 <i class="icono color-blanco fa-brands fa-youtube-square"></i>
             </div>
         </div>
-  
-     
+
+
     </div>
 </footer>
-<script src="js/main.js"></script>
+<script src="js/animacion-loader.js"></script>
+
 </html>
