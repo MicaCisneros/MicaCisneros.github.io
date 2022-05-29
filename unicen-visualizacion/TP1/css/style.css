@@ -203,6 +203,21 @@ h3 {
     border-radius: 50px;
 } */
 
+.triangulo {
+    width: 175px;
+    height: 50px;
+    border-top: 75px solid transparent;
+    border-left: 175px solid #8AC007;
+}
+
+.fav {
+    width: 0px;
+    height: 120px;
+    border-left: 50px solid #d9534f;
+    border-right: 50px solid #d9534f;
+    border-bottom: 35px solid transparent;
+}
+
 
 /***********************************Carrusel**************************/
 
@@ -397,13 +412,13 @@ footer a {
 
 .divImgJuegoCategoria {
     width: 100%;
-    height: 180px;
+    height: 70%;
     border-radius: 20px;
 }
 
 .imgJuegoCategoria {
     width: 100%;
-    height: 85%;
+    height: 100%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
@@ -411,6 +426,12 @@ footer a {
 .tituloJuegoCategoria {
     color: white;
     padding-left: 15px;
+    padding: 10px 18px 10px 10px;
+}
+
+.estrella-juego {
+    color: #FFC700;
+    padding-top: 7px;
 }
 
 .subMenuCategorias {
@@ -662,15 +683,16 @@ footer a {
 
 
 /*************************************Login*****************************************/
-.signup{
-    width:30%;
-    margin:auto;
-    margin-top:40px;
-    transform:rotateX(80deg) skew(40deg);
-    border-radius:5px;
-    transition:transform, box-shadow, 1s;
-    box-shadow: 0 0 0 0 rgba(0,0,0,1), 2px 2px 18px 4px rgba(0,0,0,1), -2px -2px 10px 4px rgba(0,0,0,1);
-    background:black;
+
+.signup {
+    width: 30%;
+    margin: auto;
+    margin-top: 40px;
+    transform: rotateX(80deg) skew(40deg);
+    border-radius: 5px;
+    transition: transform, box-shadow, 1s;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1), 2px 2px 18px 4px rgba(0, 0, 0, 1), -2px -2px 10px 4px rgba(0, 0, 0, 1);
+    background: black;
     border: 5px solid rgba(111, 37, 111, 1);
     margin-bottom: 40px;
 }
