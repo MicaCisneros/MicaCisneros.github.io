@@ -78,6 +78,20 @@ body {
     margin-left: 2%;
 }
 
+.avatar {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-left: 20px;
+}
+
+.img-avatar {
+    width: 100%;
+    height: auto;
+}
+
 .logo {
     display: flex;
     height: 90px;
@@ -300,14 +314,24 @@ h3 {
 .categoria {
     display: grid;
     justify-items: center;
+    width: auto;
 }
 
 .imgCat {
-    margin-bottom: 15px;
     padding: 30px;
+    width: 60px;
+    height: 60px;
+    border: rgba(35, 32, 35, 1);
+}
+
+.cont-cat {
+    margin-bottom: 15px;
     width: 120px;
     height: 120px;
-    border-radius: 100%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .categoria iframe {
