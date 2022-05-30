@@ -1,9 +1,9 @@
 temporizadorDeRetraso();
 
-let identificador;
+
 
 function temporizadorDeRetraso() {
-    identificador = setTimeout(loaderF, 3000);
+    setTimeout(loaderF, 3000);
 }
 
 
