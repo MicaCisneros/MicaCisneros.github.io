@@ -542,7 +542,7 @@ footer a {
     align-items: center;
     border-radius: 20px;
     margin-left: 10%;
-    grid-column: 2;
+    grid-column: 3;
     grid-row: 1;
 }
 
@@ -552,14 +552,14 @@ footer a {
 }
 
 .contenedorEstrellas {
-    margin-left: 55px;
-    grid-column: 4;
+    margin-left: 5px;
+    grid-column: 5;
     grid-row: 1;
 }
 
 .tituloDetalle {
     display: grid;
-    grid-template-columns: 3fr 2fr 2fr 3fr 3fr;
+    grid-template-columns: 1fr 1fr 2fr 2fr 3fr 3fr;
     margin-top: 50px;
     grid-column: 1;
     grid-auto-rows: minmax(auto, auto);
@@ -567,6 +567,99 @@ footer a {
 
 .margenDetalle {
     margin-left: 40px;
+}
+
+.btn-like :hover {
+    animation: like 2s linear infinite;
+}
+
+
+/* Keyframes */
+
+@keyframes like {
+    0%,
+    7% {
+        transform: rotateZ(0);
+    }
+    15% {
+        transform: rotateZ(-35deg);
+    }
+    20% {
+        transform: rotateZ(60deg);
+    }
+    25% {
+        transform: rotateZ(-20deg);
+    }
+    30% {
+        transform: rotateZ(30deg);
+    }
+    35% {
+        transform: rotateZ(-10deg);
+    }
+    40%,
+    100% {
+        transform: rotateZ(0);
+    }
+}
+
+.iconoLike {
+    font-size: 30px;
+}
+
+.btn-dislike :hover {
+    animation: dislike 1.4s infinite;
+}
+
+@keyframes dislike {
+    0%,
+    7% {
+        transform: translateY(0);
+    }
+    15% {
+        transform: translateY(1px);
+    }
+    20% {
+        transform: translateY(3px);
+    }
+    25% {
+        transform: translateY(6px);
+    }
+    30% {
+        transform: translateY(8px);
+    }
+    35% {
+        transform: translateY(10px);
+    }
+    40%,
+    100% {
+        transform: translateY(12px);
+    }
+}
+
+.botonLike {
+    margin-right: 10px;
+}
+
+.like {
+    display: flex;
+    align-items: center;
+    grid-column: 2;
+}
+
+.cardHeader {
+    display: grid;
+    grid-column: 1/6;
+    border-bottom: 2px solid #9c2881;
+    padding: 10px;
+    margin-right: 110px;
+}
+
+.iconoSeleccion {
+    color: rgba(10, 139, 180, 1);
+}
+
+.iconoSeleccionDislike {
+    color: rgb(180, 10, 10);
 }
 
 .instruccionesJuego {
@@ -577,7 +670,6 @@ footer a {
 }
 
 .tituloJuego {
-    display: grid;
     grid-row: 1;
     grid-column: 1;
 }
@@ -590,7 +682,7 @@ footer a {
 }
 
 .publicidad {
-    grid-column: 5;
+    grid-column: 6;
     grid-row: 1/6;
     margin-left: 27%;
     margin-bottom: 40px;
@@ -635,7 +727,7 @@ footer a {
     border: 0px;
     justify-content: center;
     align-items: center;
-    grid-column: 3;
+    grid-column: 4;
     grid-row: 1;
 }
 
@@ -684,17 +776,66 @@ footer a {
 
 /*************************************Login*****************************************/
 
+.bodyLogin {
+    padding: 0;
+    margin: 0;
+    font-family: "Libre Franklin", sans-serif;
+    background: linear-gradient(to right bottom, #dfb7d4, #9c2881);
+    /*background: url("../img/fondoLogin.jpg");*/
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
 .signup {
-    width: 30%;
+    width: 25%;
     margin: auto;
     margin-top: 40px;
-    transform: rotateX(80deg) skew(40deg);
+    transform: rotateX(70deg) skew(30deg);
     border-radius: 5px;
     transition: transform, box-shadow, 1s;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 1), 2px 2px 18px 4px rgba(0, 0, 0, 1), -2px -2px 10px 4px rgba(0, 0, 0, 1);
-    background: black;
-    border: 5px solid rgba(111, 37, 111, 1);
+    background: #3F3F3F;
+    border: 1px solid rgb(255, 255, 255);
     margin-bottom: 40px;
+}
+
+.label {
+    display: flex;
+    justify-content: start;
+}
+
+.botonLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 70%;
+    margin-top: 20px;
+    width: 80px;
+    height: 30px;
+    border: 0;
+    border-radius: 5px;
+}
+
+.logoLogin {
+    display: flex;
+    justify-content: center;
+}
+
+.contenedorOpcLogin {
+    display: flex;
+    grid-row: 4;
+    margin-top: 15px;
+}
+
+.checkRecordarme {
+    margin-right: 10px;
+}
+
+.check {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .signup:hover {
@@ -729,7 +870,7 @@ footer a {
 
 .inputLogin {
     background-color: white;
-    width: 250px;
+    width: 270px;
     height: 30px;
     border-radius: 10px;
     justify-content: start;
@@ -738,28 +879,14 @@ footer a {
 .labelInput {
     display: grid;
     justify-content: start;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .contenedorLogin {
     display: grid;
     grid-auto-rows: minmax(auto, auto);
     justify-content: center;
-}
-
-input[type=submit] {
-    margin: 30px 10px;
-    padding: 10px 80px;
-    background: #000;
-    border: 1px solid #fff;
-    border-radius: 50px;
-    color: #fff;
-    font-family: "Libre Franklin", sans-serif;
-    font-size: 15pt;
-    transition: linear-gradient, .5s;
-}
-
-input[type=submit]:hover {
-    background: linear-gradient(to right bottom, #fff, #000);
 }
 
 .linea1 {
