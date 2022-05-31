@@ -1053,21 +1053,22 @@ footer a {
 }
 
 .body-card-perfil {
-    height: 600px;
-    justify-items: end;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr 1fr;
+    grid-template-rows: auto;
+    height: auto;
 }
 
 .sup-body-perfil {
     width: 100%;
-    display: flex;
-    justify-content: flex-end;
+    grid-column: 5;
 }
 
 .seleccionar-opcion-perfil {
     box-shadow: 4px 4px 4px rgba(110, 110, 110, 0.726);
     border-radius: 5%;
     width: auto;
-    margin: 50px;
+    margin-top: 50px;
     padding: 20px;
     display: flex;
     color: white;
@@ -1077,4 +1078,55 @@ footer a {
     border-right: 1px solid #acaaaa;
     margin-right: 10px;
     padding-right: 10px;
+}
+
+.seleccionAvatar{
+    grid-column: 2/6;
+    margin-left: 10%;
+}
+
+.avatarSelec{
+    margin: 15px;
+}
+
+.seleccionAvatar h4{
+    margin-bottom: 10px;
+}
+
+.botonGuardar{
+    margin-left: 180px;
+}
+
+.juegosFav{
+    width: 300px;
+    height: 150px;
+}
+
+.seleccionFav{
+    grid-column: 2/6;
+    margin-left: 8%;
+
+}
+
+.divJuegoFav{
+    width: 300px;
+    height: 150px;
+    margin: 10px;
+    background-color: black;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.overlayFav {
+    position: absolute;
+    top: 80%;
+    width: 100%;
+    height: 33px;
+    justify-content: center;
+    background-color: #131313c4;
+    color: #fff;
+    font-weight: lighter;
 }
