@@ -13,31 +13,35 @@
 <body>
     <nav class="menu bg-violeta4">
         <ul class="letra-verdana1 color-blanco">
-            <div class="logo">
-                <img src="img/logo-juegos.jpeg" alt="">
-            </div>
-            <div class="opcionesMenu">
+                <div class="logo">
+                    <img src="img/logo-juegos.jpeg" alt="">
+                </div>
+            <div class="menuMobile">
+                <div class="opcionesMenu">
 
-                <li>Nuevos</li>
-                <li>Para ti</li>
-                <li>Chicas</li>
-                <li>Accion</li>
-                <li>Puzzle</li>
-            </div>
+                    <li>Nuevos</li>
+                    <li>Para ti</li>
+                    <li>Chicas</li>
+                    <li>Accion</li>
+                    <li>Puzzle</li>
+                    <li class="usuarioMobile">Iniciar Sesion</li>
+                    <li class="usuarioMobile">Registrarse</li>
+                </div>
 
-            <div class="buscador">
-                <input type="text" class="input-buscador">
+                <div class="buscador">
+                    <input type="text" class="input-buscador">
+                </div>
+                <div class="iconos">
+                    <i class="iconUser fa-solid fa-user"></i>
+                </div>
             </div>
-            <div class="iconos">
-                <i class="iconUser fa-solid fa-user"></i>
-            </div>
-
+            <button class="icon-menu bg-violeta4"><i class="color-blanco menuResponsive fa-solid fa-bars"></i></button>
+        
 
         </ul>
 
-
-
     </nav>
+    
 
     <section>
         <div class="contenedor-loader" id="contenedor-loader">
@@ -329,5 +333,6 @@
     </footer>
 </body>
 <script src="js/animacion-loader.js"></script>
+<script src="js/menu.js"></script>
 
 </html>
