@@ -20,6 +20,10 @@ body {
     background-color: #DDD7DD;
 }
 
+a {
+    text-decoration: none;
+}
+
 
 /***********************************Menu**************************/
 
@@ -285,6 +289,24 @@ h3 {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
+}
+
+.slide2 {
+    position: relative;
+    justify-content: center;
+}
+
+.overlay2 {
+    position: absolute;
+    top: 80%;
+    width: 100%;
+    height: 33px;
+    justify-content: center;
+    background-color: #131313c4;
+    border-radius: 0px 0px 20px 20px;
+    color: #fff;
+    font-weight: lighter;
+    padding-top: 10px;
 }
 
 .overlay h3 {
@@ -1004,11 +1026,14 @@ footer a {
 .card-perfil {
     width: 70%;
     margin: 50px;
+    box-shadow: 6px 6px 6px rgba(179, 178, 178, 0.918);
+    border-radius: 5px;
 }
 
 .header-card-perfil {
     height: 250px;
     background-image: url("../img/2.jpg");
+    border-radius: 5px 5px 0px 0px;
 }
 
 .avatar-perfil {
@@ -1032,9 +1057,24 @@ footer a {
     justify-items: end;
 }
 
+.sup-body-perfil {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .seleccionar-opcion-perfil {
-    box-shadow: 1px 6px 4px rgba(59, 59, 59, 0.692);
+    box-shadow: 4px 4px 4px rgba(110, 110, 110, 0.726);
     border-radius: 5%;
-    width: 100px;
+    width: auto;
     margin: 50px;
+    padding: 20px;
+    display: flex;
+    color: white;
+}
+
+.seleccionar-opcion-perfil a:first-child {
+    border-right: 1px solid #acaaaa;
+    margin-right: 10px;
+    padding-right: 10px;
 }
