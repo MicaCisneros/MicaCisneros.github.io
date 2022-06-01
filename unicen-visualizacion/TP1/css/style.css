@@ -1307,13 +1307,13 @@ footer a {
 
 .card-perfil {
     width: 70%;
-    margin: 50px;
+    margin: 20px;
     box-shadow: 6px 6px 6px rgba(179, 178, 178, 0.918);
     border-radius: 5px;
 }
 
 .header-card-perfil {
-    height: 250px;
+    height: 160px;
     /* background-image: url("../img/port4.jfif");
     background-repeat: no-repeat; */
     border-radius: 5px 5px 0px 0px;
@@ -1321,7 +1321,8 @@ footer a {
 
 .portada-perfil {
     width: 100%;
-    height: 250px;
+    height: 150px;
+    border-radius: 5px 5px 0px 0px;
 }
 
 .avatar-perfil {
@@ -1499,5 +1500,99 @@ footer a {
     .subMenuCategorias {
         display: grid;
         grid-template-columns: 2fr 2fr;
+    }
+}
+
+.contenedor-home-login{
+    backdrop-filter: brightness(30%);
+    filter: brightness(60%);
+}
+
+/*.bg-violeta5 {
+    background-color: rgba(55, 0, 55, 1);
+}
+
+.bg-violeta4 {
+    background-color: rgba(83, 14, 83, 1);
+}
+
+.bg-violeta3 {
+    background-color: rgba(111, 37, 111, 1);
+}
+
+.bg-violeta2 {
+    background-color: rgba(138, 69, 138, 1);
+}
+
+.bg-violeta1 {
+    background-color: rgba(166, 111, 166, 1);*/
+
+.signup2{
+    width: 25%;
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 5px;
+    transition: transform, box-shadow, 1s;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1), 2px 2px 18px 4px rgba(0, 0, 0, 1), -2px -2px 10px 4px rgba(0, 0, 0, 1);
+    background: #3F3F3F;;
+    border: 1px solid rgb(255, 255, 255);
+    margin-bottom: 40px;
+    z-index: 1;
+    position: fixed;
+    animation-name: login;
+    animation-duration: 2s;
+    color:rgba(83, 14, 83, 1);
+   
+    animation-timing-function: linear;
+}
+.signup2:hover {
+    
+    box-shadow: none;
+}
+
+.signup2 form {
+    border-radius: 0 0 5px 5px;
+    text-align: center;
+}
+
+
+.signup2 h2 {
+    border: none;
+    border-radius: 0 0 5px 5px;
+    margin: 0;
+    padding: 5px 0;
+    text-align: center;
+    color: rgb(214, 196, 37);
+}
+
+.login-contenedor{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+
+
+@keyframes login {
+    0%{
+        transform: rotateX(100deg) skew(35deg);
+    }
+    
+    25% {
+        transform: rotateX(60deg) skew(25deg);
+    }
+    40% {
+        transform: rotateX(40deg) skew(15deg);
+    }
+    60%{
+        transform: rotateX(30deg) skew(10deg);
+    }
+    80% {
+        transform: rotateX(20deg) skew(5deg);
+    }
+    100% {
+        transform: rotateX(0deg) skew(0deg);
     }
 }
