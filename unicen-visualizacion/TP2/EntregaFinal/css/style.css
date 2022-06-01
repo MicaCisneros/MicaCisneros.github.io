@@ -331,6 +331,27 @@ h3 {
     margin-bottom: 30px;
 }
 
+.contenedorPrincipal:hover .juegoPrincipal{
+    filter: brightness(30%);
+}
+
+.contenedorPrincipal:hover .overlayPrincipal{
+    display: block;
+}
+.overlayPrincipal{
+    display: none;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.botonPrincipal{
+    margin-top: 20px;
+}
+
+
 .tituloCat {
     display: flex;
     justify-content: center;
