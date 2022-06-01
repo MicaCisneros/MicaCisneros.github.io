@@ -387,6 +387,20 @@ h3 {
     justify-items: center;
 }
 
+.botonVerMas{
+    width: 300px;
+    height: 40px;
+    border: 2px solid rgba(83, 14, 83, 1);
+    background-color: rgba(83, 14, 83, 0);
+    justify-content: center;
+}
+
+.divVerMas{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
 .juegos2 {
     width: 265px;
     height: 230px;
@@ -758,7 +772,7 @@ footer a {
 }
 
 .publicidad img {
-    height: 745px;
+    height: 820px;
     width: 200px;
 }
 
@@ -832,7 +846,7 @@ footer a {
 
 .divBotonPlay {
     position: absolute;
-    top: 60%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -842,7 +856,64 @@ footer a {
     margin-right: 5px;
 }
 
-
+.botonPlay{
+	position: relative;
+	display: block;
+	border-radius: 6px;
+	text-align: center;
+	font-weight: bold;
+	max-width: 320px;
+	height: 50px;
+	margin-bottom: 60px;
+	overflow: hidden;
+	color:rgb(2, 2, 2);
+	cursor: pointer;
+	letter-spacing: 2px;
+	box-shadow:inset 0 0 0 1px rgba(0,0,0,0.1);
+	text-decoration: none;
+	transition: all ease 0.5s;
+    background-color: rgb(238, 255, 0);;
+}
+ 
+.botonPlay:after,
+.botonPlay:before{
+	width: 80px;
+	height: 200px;
+	content: '';
+	display: block;
+	background: rgba(229, 255, 0, 0.253);
+	transform: rotate(45deg);
+	top: -60px;
+	position: absolute;
+	transition: none;
+	right:-45%;
+	cursor: pointer;
+}
+ 
+.botonPlay:before{
+	left: -48%;
+}
+ 
+.botonPlay:hover{
+	text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+	background-color:  rgb(98, 15, 119);
+    color: white;
+}
+ 
+.botonPlay:hover:after,
+.botonPlay:hover:before{
+	transform: rotate(45deg), scaleX(130%);
+	background: rgba(255,255,255,0.1);
+	transition: all ease 0.5s;
+}
+ 
+.botonPlay:hover:after{
+	right: 130%;
+}
+ 
+.botonPlay:hover:before{
+	left: 130%;
+}
 /*************************************Login*****************************************/
 
 .bodyLogin {
