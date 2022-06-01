@@ -60,6 +60,7 @@ document.querySelector('#arrow-prev2').addEventListener('click', () => {
 
 
 document.querySelector('#arrow-next2').addEventListener('click', () => {
-    console.log("matenme");
     show_slide2(++slider_index2);
 });
+
+

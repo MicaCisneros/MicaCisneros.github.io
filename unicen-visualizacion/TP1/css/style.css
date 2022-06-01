@@ -812,6 +812,28 @@ footer a {
     text-align: center;
 }
 
+.iconoFavoritos{
+    color: white;
+    font-size: 30px;
+    
+}
+
+.iconoFavoritos:hover {
+    animation: corazon 2s linear infinite;
+}
+
+.color-rosa{
+color: #d449b4;
+}
+@keyframes corazon {
+    0%,
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(2);
+    }
+}
 .botonCompartir {
     height: 30px;
     width: 120px;
@@ -997,16 +1019,6 @@ footer a {
     color: #FFC700;
 }
 
-.botonFavorito {
-    height: 30px;
-    width: 120px;
-    border-radius: 20px;
-    border: 0px;
-    justify-content: center;
-    align-items: center;
-    grid-column: 4;
-    grid-row: 1;
-}
 
 .cardDetalle {
     background-color: white;

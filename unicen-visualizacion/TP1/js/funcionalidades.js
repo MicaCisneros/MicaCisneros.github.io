@@ -22,3 +22,11 @@ document.querySelector('#dislike').addEventListener('click', e => {
     boton.classList.remove("iconoSeleccion");
     boton.classList.add("color-blanco");
 });
+
+document.querySelector('.iconoFavoritos').addEventListener('click', e => {
+    e.preventDefault();
+
+    let boton = document.querySelector('.iconoFavoritos');
+
+    boton.classList.toggle("color-rosa");
+});
