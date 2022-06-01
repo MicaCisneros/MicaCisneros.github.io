@@ -133,12 +133,13 @@ a {
     padding: 0px;
     z-index: 1;
     left: -100px;
-    top: 68px;
+    top: 31px;
 }
 
 .dropdown-log-cont a p {
     border-bottom: 1px solid rgb(173, 172, 172);
     padding: 15px;
+    color: rgba(83, 14, 83, 1);
 }
 
 .dropdown-log {
@@ -148,6 +149,10 @@ a {
 
 .dropdown-log:hover .dropdown-log-cont {
     display: block;
+}
+
+.dropdown-login-header {
+    height: 37px;
 }
 
 .dropdown {
@@ -284,6 +289,10 @@ iframe .dropdown-img {
 
 .color-negro {
     color: #000000;
+}
+
+.color-violeta {
+    color: rgba(83, 14, 83, 1);
 }
 
 
@@ -1515,10 +1524,11 @@ color: #d449b4;
     }
 }
 
-.contenedor-home-login{
+.contenedor-home-login {
     backdrop-filter: brightness(30%);
     filter: brightness(60%);
 }
+
 
 /*.bg-violeta5 {
     background-color: rgba(55, 0, 55, 1);
@@ -1539,26 +1549,26 @@ color: #d449b4;
 .bg-violeta1 {
     background-color: rgba(166, 111, 166, 1);*/
 
-.signup2{
+.signup2 {
     width: 25%;
     margin: auto;
     margin-top: 40px;
     border-radius: 5px;
     transition: transform, box-shadow, 1s;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 1), 2px 2px 18px 4px rgba(0, 0, 0, 1), -2px -2px 10px 4px rgba(0, 0, 0, 1);
-    background: #3F3F3F;;
+    background: #3F3F3F;
+    ;
     border: 1px solid rgb(255, 255, 255);
     margin-bottom: 40px;
     z-index: 1;
     position: fixed;
     animation-name: login;
     animation-duration: 2s;
-    color:rgba(83, 14, 83, 1);
-   
+    color: rgba(83, 14, 83, 1);
     animation-timing-function: linear;
 }
+
 .signup2:hover {
-    
     box-shadow: none;
 }
 
@@ -1566,7 +1576,6 @@ color: #d449b4;
     border-radius: 0 0 5px 5px;
     text-align: center;
 }
-
 
 .signup2 h2 {
     border: none;
@@ -1577,28 +1586,22 @@ color: #d449b4;
     color: rgb(214, 196, 37);
 }
 
-.login-contenedor{
+.login-contenedor {
     display: flex;
     justify-content: center;
 }
 
-
-
-
-
-
 @keyframes login {
-    0%{
+    0% {
         transform: rotateX(100deg) skew(35deg);
     }
-    
     25% {
         transform: rotateX(60deg) skew(25deg);
     }
     40% {
         transform: rotateX(40deg) skew(15deg);
     }
-    60%{
+    60% {
         transform: rotateX(30deg) skew(10deg);
     }
     80% {
