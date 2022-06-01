@@ -33,10 +33,13 @@ a {
     position: static;
     align-items: center;
 }
-.menuMobile{
+
+.menuMobile {
     display: grid;
     grid-template-columns: 7fr 4fr 4fr 1fr;
+    align-items: center;
 }
+
 .menu li {
     list-style: none;
     border-right: solid 2px white;
@@ -57,13 +60,14 @@ a {
     margin-left: 20%;
 }
 
-.icon-menu{
+.icon-menu {
     display: none;
 }
 
-.usuarioMobile{
+.usuarioMobile {
     display: none;
 }
+
 .menu ul {
     display: grid;
     grid-template-columns: 1fr 10fr;
@@ -102,7 +106,9 @@ a {
     height: 50px;
     overflow: hidden;
     border-radius: 50%;
-    margin-left: 20px;
+    margin-left: 2%;
+    grid-column: 4;
+    grid-row: 1;
 }
 
 .img-avatar {
@@ -113,6 +119,25 @@ a {
 .logo {
     display: flex;
     height: 90px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 
@@ -310,7 +335,7 @@ h3 {
     justify-content: center;
 }
 
-.overlay2 {
+.title {
     position: absolute;
     top: 80%;
     width: 100%;
@@ -1094,35 +1119,34 @@ footer a {
     padding-right: 10px;
 }
 
-.seleccionAvatar{
+.seleccionAvatar {
     grid-column: 2/6;
     margin-left: 10%;
 }
 
-.avatarSelec{
+.avatarSelec {
     margin: 15px;
 }
 
-.seleccionAvatar h4{
+.seleccionAvatar h4 {
     margin-bottom: 10px;
 }
 
-.botonGuardar{
+.botonGuardar {
     margin-left: 180px;
 }
 
-.juegosFav{
+.juegosFav {
     width: 300px;
     height: 150px;
 }
 
-.seleccionFav{
+.seleccionFav {
     grid-column: 2/6;
     margin-left: 8%;
-
 }
 
-.divJuegoFav{
+.divJuegoFav {
     width: 300px;
     height: 150px;
     margin: 10px;
@@ -1145,78 +1169,44 @@ footer a {
     font-weight: lighter;
 }
 
+
 /**************************************Mobile*****************************************/
-@media only screen and (max-width: 640px){
-    
-    .icon-menu{
+
+@media only screen and (max-width: 640px) {
+    .icon-menu {
         display: block;
     }
-
-    /*.menu li {
-        display: none;
-    }
-    
-    .menu li a {
-        display: none;
-    }
-    
-    .opcionesMenu {
-        display: none;
-    }*/
-
-  
-     /*
-       .menu ul {
-        display: flex;
-        grid-template-columns: 2fr 11fr 1fr 1fr;
-        align-items: center;
-    }
-
-    .input-buscador {
-        display: none;
-    }
-    
-    .iconUser {
-        display: none;
-    }*/
-
-    .grillaSeccionCategorias{
+    .grillaSeccionCategorias {
         display: grid;
         grid-template-columns: 3fr;
     }
-
-    .menuResponsive{
+    .menuResponsive {
         font-size: 40px;
     }
-
-    .enlacesFooter{
+    .enlacesFooter {
         display: none;
     }
-
-    .iconos{
+    .iconos {
         display: none;
     }
-
-    .usuarioMobile{
+    .usuarioMobile {
         display: block;
     }
-
-    .input-buscador{
+    .input-buscador {
         margin: 0;
     }
-    .buscador{
+    .buscador {
         grid-column: 1;
         grid-row: 5;
         margin-left: 28%;
     }
-    .menu{
+    .menu {
         position: fixed;
-        top:0;
+        top: 0;
         margin-top: 0;
     }
-
-    .headerSeccion{
-        margin-top:100px;
+    .headerSeccion {
+        margin-top: 100px;
     }
     .menuMobile {
         display: grid;
@@ -1227,14 +1217,14 @@ footer a {
         background-color: rgba(83, 14, 83, 0.486);
         display: none;
     }
-    .menu ul{
+    .menu ul {
         display: flex;
     }
-    .menu li{
+    .menu li {
         border-right: none;
         justify-content: center;
     }
-    .opcionesMenu{
+    .opcionesMenu {
         display: grid;
         grid-template-columns: 1fr;
         margin-left: 0px;
@@ -1248,14 +1238,12 @@ footer a {
         background-color: rgba(83, 14, 83, 0.877);
         left: 0px;
     }
-
-    footer{
+    footer {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-
-    .subMenuCategorias{
+    .subMenuCategorias {
         display: grid;
         grid-template-columns: 2fr 2fr;
     }
