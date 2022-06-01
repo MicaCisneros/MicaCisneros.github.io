@@ -1,4 +1,6 @@
-let juegos = [{
+window.addEventListener('DOMContentLoaded', (event) => {
+   
+    let juegos = [{
         'nombre': 'Among Us',
         'calificacion': '<i class="estrella-juego fa-solid fa-star"></i><i class="estrella-juego fa-solid fa-star"></i><i class="estrella-juego fa-solid fa-star"></i><i class="estrella-juego fa-solid fa-star"></i><i class="estrella-juego fa-solid fa-star"></i>',
         'img': '<img class="imgJuegoCategoria" src="img/juego18.jfif" alt="">'
@@ -44,12 +46,9 @@ let juegos = [{
         'img': '<img class="imgJuegoCategoria" src="img/juego22.jfif" alt="">'
     },
 ];
+   
 
-
-
-
-
-
+mostrar(juegos);
 
 
 
@@ -82,6 +81,29 @@ document.querySelector('#select-ordenar').addEventListener('click', () => {
 
 })
 
+
+
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
 // function SortArray(x, y) {
 //     return x.nombre.localeCompare(y.nombre);
 // }
@@ -106,7 +128,7 @@ function mostrar(games) {
 
     contenido += '</div>';
 
-    contenedor.style.visibility = 'hidden';
+   // contenedor.style.visibility = 'hidden';
     contenedorPrevio.classList.add("juegosSeccionBusqueda");
     contenedorPrevio.innerHTML = contenido;
 
