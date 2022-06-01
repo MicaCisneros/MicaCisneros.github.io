@@ -12,46 +12,82 @@
 
 <body>
     <nav class="menu bg-violeta4">
-
         <ul class="letra-verdana1 color-blanco">
-            <div>
-                <a href="home.html"> <img class="logo" src="img/logo-juegos.jpeg" alt=""> </a>
+            <div class="logo">
+                <a href="home-log.html"> <img class="img-logo" src="img/logo-juegos.jpeg" alt=""></a>
 
             </div>
-            <div class="opcionesMenu">
+            <div class="menuMobile">
+                <div class="opcionesMenu">
+                    <li> <a href="categoria.html"> Nuevos </a></li>
+                    <li> <a href="categoria.html"> Para ti </a></li>
+                    <li> <a href="categoria.html"> Chicas </a></li>
+                    <li> <a href="categoria.html"> Accion </a></li>
+                    <li> <a href="categoria.html"> Puzzle </a></li>
+                    <li class="usuarioMobile">Iniciar Sesion</li>
+                    <li class="usuarioMobile">Registrarse</li>
+                </div>
+                <div class="buscador dropdown">
+                    <input type="text" id="buscador-desplegable" class="input-buscador">
+                    <div class="dropdown-content bg-ligth1 ">
+                        <div class="dropdown-header bg-violeta5">
+                            <a href="categoria.html">
+                                <p>Categorias</p>
+                            </a>
+                            <a href="categoria.html"><i class="fas fa-long-arrow-right"></i></a>
+                        </div>
+                        <div class="dropdown-body-cat color-negro">
+                            <div class="dropdown-item ">
+                                <iframe class="dropdown-img bg-gris-oscuro" src="img/icon-cat-action.svg" scrolling="no">
+                                    <img class="" src="img/icon-cat-board.svg" alt="categoria"> 
+                                </iframe>
+                                <p>Accion</p>
+                            </div>
+                            <div class="dropdown-item">
+                                <iframe class="dropdown-img bg-gris-oscuro" src="img/icon-cat-classics.svg" scrolling="no">
+                                    <img class="dropdown-img" src="img/icon-cat-board.svg" alt="categoria"> 
+                                </iframe>
+                                <p>Clasicos</p>
+                            </div>
+                        </div>
+                        <div class="dropdown-header bg-violeta5">
+                            <a href="buscador.html">
+                                <p>Juegos</p>
+                            </a>
+                            <a href="buscador.html"><i class="fas fa-long-arrow-right"></i> </a>
+                        </div>
+                        <div class="dropdown-body-jue color-negro">
+                            <div class="dropdown-item">
+                                <img class="dropdown-img" src="img/juego18.jfif" alt="">
+                                <p>Among Us</p>
+                            </div>
 
-                <li> <a href="categoria.html"> Nuevos </a></li>
-                <li> <a href="categoria.html"> Para ti </a></li>
-                <li> <a href="categoria.html"> Chicas </a></li>
-                <li> <a href="categoria.html"> Accion </a></li>
-                <li> <a href="categoria.html"> Puzzle </a></li>
+                            <div class="dropdown-item">
+                                <img class="dropdown-img" src="img/juego21.jfif" alt="">
+                                <p>Kirby</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="avatar ">
+                    <a href="perfilFavoritos.html"><img class="img-avatar" src="img/avatar1.png" alt=""></a>
+                </div>
             </div>
-
-            <div class="buscador">
-                <input type="text" class="input-buscador">
-            </div>
-            <div class="avatar">
-                <img class="img-avatar" src="img/avatar1.png" alt="">
-            </div>
-
-
+            <button class="icon-menu bg-violeta4"><i class="color-blanco menuResponsive fa-solid fa-bars"></i></button>
         </ul>
-        <div id="contenedor-loader">
-
-            <div id="loader"></div>
-            <p id="texto-loader">Loading...</p>
-
-        </div>
-
-
     </nav>
+
+    <div id="contenedor-loader">
+        <div id="loader"></div>
+        <p id="texto-loader">Loading...</p>
+    </div>
 
 
     <section class="seccion-perfil">
 
         <section class="card-perfil bg-ligth1">
             <div class="header-card-perfil">
-
+                <img class="portada-perfil" src="img/game.jpg" alt="">
                 <div class="avatar-perfil">
                     <img class="img-avatar-perfil" src="img/avatar3.png" alt="">
                 </div>
@@ -64,7 +100,10 @@
                         <a class="color-light" href="perfilAvatar.html" id="avatar"> Avatar</a>
                     </div>
                 </div>
+
+
                 <section class="seleccionFav">
+                    <h4>Juegos favoritos:</h4>
                     <article>
                         <div class="divJuegoFav" id="slide-2">
                             <img src="img/juego1.jfif" class="juegosFav" alt="">
@@ -85,22 +124,21 @@
                                 <p>Among Us</p>
                             </div>
                         </div>
-                        
+
                         <div class="divJuegoFav" id="slide-2">
                             <img src="img/juego15.jfif" class="juegosFav" alt="">
                             <div class="overlayFav">
                                 <p>Parkitekt</p>
                             </div>
                         </div>
-                        
-                            
+
                         <div class="divJuegoFav" id="slide-2">
                             <img src="img/juego17.jfif" class="juegosFav" alt="">
                             <div class="overlayFav">
                                 <p>Zombs royale</p>
                             </div>
                         </div>
-                        
+
                         <div class="divJuegoFav" id="slide-2">
                             <img src="img/juego4.jfif" class="juegosFav" alt="">
                             <div class="overlayFav">
@@ -114,30 +152,18 @@
                                 <p>Mario Bros</p>
                             </div>
                         </div>
-                        
-                        <div class="divJuegoFav" id="slide-2">
+
+                        <div class="divJuegoFav last" id="slide-2">
                             <img src="img/juego20.jfif" class="juegosFav" alt="">
                             <div class="overlayFav">
-                                <p>Mario Bros</p>
+                                <p>Roblox</p>
                             </div>
                         </div>
-                        
-                       
-                        
-                       
                     </article>
-            
                 </section>
-
             </div>
-
-   
         </section>
-
-
     </section>
- 
-
 
 
 
@@ -187,6 +213,7 @@
 
     <script src="js/animacion-loader.js"></script>
     <script src="js/perfil.js"></script>
+    <script src="js/buscador.js"></script>
 </body>
 
 </html>

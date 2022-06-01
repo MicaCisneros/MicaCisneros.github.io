@@ -12,14 +12,13 @@
 
 <body>
     <nav class="menu bg-violeta4">
-
         <ul class="letra-verdana1 color-blanco">
             <div class="logo">
-                <img src="img/logo-juegos.jpeg" alt="">
+                <a href="home-log.html"> <img class="img-logo" src="img/logo-juegos.jpeg" alt=""></a>
+
             </div>
             <div class="menuMobile">
                 <div class="opcionesMenu">
-
                     <li> <a href="categoria.html"> Nuevos </a></li>
                     <li> <a href="categoria.html"> Para ti </a></li>
                     <li> <a href="categoria.html"> Chicas </a></li>
@@ -28,18 +27,60 @@
                     <li class="usuarioMobile">Iniciar Sesion</li>
                     <li class="usuarioMobile">Registrarse</li>
                 </div>
-
                 <div class="buscador dropdown">
-                    <input type="text" class="input-buscador">
-                    <div class="dropdown-content bg-ligth1">
-                        <p> i wanna dieeeeeee</p>
+                    <input type="text" id="buscador-desplegable" class="input-buscador">
+                    <div class="dropdown-content bg-ligth1 ">
+                        <div class="dropdown-header bg-violeta5">
+                            <a href="categoria.html">
+                                <p>Categorias</p>
+                            </a>
+                            <a href="categoria.html"><i class="fas fa-long-arrow-right"></i></a>
+                        </div>
+                        <div class="dropdown-body-cat color-negro">
+                            <div class="dropdown-item ">
+                                <iframe class="dropdown-img bg-gris-oscuro" src="img/icon-cat-action.svg" scrolling="no">
+                                    <img class="" src="img/icon-cat-board.svg" alt="categoria"> 
+                                </iframe>
+                                <p>Accion</p>
+                            </div>
+                            <div class="dropdown-item">
+                                <iframe class="dropdown-img bg-gris-oscuro" src="img/icon-cat-classics.svg" scrolling="no">
+                                    <img class="dropdown-img" src="img/icon-cat-board.svg" alt="categoria"> 
+                                </iframe>
+                                <p>Clasicos</p>
+                            </div>
+                        </div>
+                        <div class="dropdown-header bg-violeta5">
+                            <a href="buscador.html">
+                                <p>Juegos</p>
+                            </a>
+                            <a href="buscador.html"><i class="fas fa-long-arrow-right"></i> </a>
+                        </div>
+                        <div class="dropdown-body-jue color-negro">
+                            <div class="dropdown-item">
+                                <img class="dropdown-img" src="img/juego18.jfif" alt="">
+                                <p>Among Us</p>
+                            </div>
+
+                            <div class="dropdown-item">
+                                <img class="dropdown-img" src="img/juego21.jfif" alt="">
+                                <p>Kirby</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="iconos dropdown-log">
 
-                <div class="iconos">
-                    <i class="iconUser fa-solid fa-user"></i>
+                    <a href="login.html"><i class="iconUser fa-solid fa-user"></i></a>
+                    <div class="dropdown-log-cont bg-ligth1">
+                        <a href="login.html">
+                            <p>Iniciar sesion</p>
+                        </a>
+                        <a href="registro.html">
+                            <p> Registrarse</p>
+                        </a>
+                    </div>
                 </div>
-
             </div>
             <button class="icon-menu bg-violeta4"><i class="color-blanco menuResponsive fa-solid fa-bars"></i></button>
         </ul>
@@ -50,6 +91,7 @@
 
         </div>
     </nav>
+
 
     <section class="contenedorSeccion">
 
@@ -153,7 +195,7 @@
             <div class="juegos1 slide" id="slide-2">
                 <img class="imgJuego" src="img/juego3.jfif" alt="juego1">
                 <div class="overlay">
-                    <h3>Rise culture</h3> 
+                    <h3>Rise culture</h3>
                     <button class="bg-celeste botonPlay"><i class="play fa-solid fa-play"></i>Jugar</button>
                 </div>
             </div>
@@ -425,5 +467,6 @@
 </footer>
 <script src="js/animacion-loader.js"></script>
 <script src="js/main.js"></script>
+<script src="js/buscador.js"></script>
 
 </html>
