@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(e) {
-    "use strict";
+
 
     let btn1 = document.querySelector(".icon-menu");
     btn1.addEventListener("click", cambiar);

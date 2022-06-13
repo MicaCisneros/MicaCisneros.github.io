@@ -13,4 +13,4 @@ document.getElementById("buscador-desplegable").addEventListener('keypress', eve
 document.getElementById("buscador-desplegable").addEventListener('focusout', (event) => {
     let div = document.querySelector(".dropdown-content ");
     div.classList.remove("display-show");
-  });
+});

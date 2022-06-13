@@ -287,6 +287,10 @@ iframe .dropdown-img {
     color: rgba(239, 229, 239, 1);
 }
 
+.colog-gris {
+    color: #767c80;
+}
+
 .color-negro {
     color: #000000;
 }
@@ -331,14 +335,15 @@ h3 {
     margin-bottom: 30px;
 }
 
-.contenedorPrincipal:hover .juegoPrincipal{
+.contenedorPrincipal:hover .juegoPrincipal {
     filter: brightness(30%);
 }
 
-.contenedorPrincipal:hover .overlayPrincipal{
+.contenedorPrincipal:hover .overlayPrincipal {
     display: block;
 }
-.overlayPrincipal{
+
+.overlayPrincipal {
     display: none;
     position: absolute;
     top: 60%;
@@ -347,10 +352,9 @@ h3 {
     color: white;
 }
 
-.botonPrincipal{
+.botonPrincipal {
     margin-top: 20px;
 }
-
 
 .tituloCat {
     display: flex;
@@ -720,14 +724,14 @@ footer a {
 .divImgJuegoCategoria {
     width: 100%;
     height: 70%;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 .imgJuegoCategoria {
     width: 100%;
     height: 100%;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .tituloJuegoCategoria {
@@ -842,19 +846,19 @@ footer a {
     text-align: center;
 }
 
-.iconoFavoritos{
+.iconoFavoritos {
     color: white;
     font-size: 30px;
-    
 }
 
 .iconoFavoritos:hover {
     animation: corazon 2s linear infinite;
 }
 
-.color-rosa{
-color: #d449b4;
+.color-rosa {
+    color: #d449b4;
 }
+
 @keyframes corazon {
     0%,
     50% {
@@ -864,6 +868,7 @@ color: #d449b4;
         transform: scale(2);
     }
 }
+
 .botonCompartir {
     height: 30px;
     width: 120px;
@@ -1048,7 +1053,6 @@ color: #d449b4;
 .estrellaBoton {
     color: #FFC700;
 }
-
 
 .cardDetalle {
     background-color: white;
@@ -1399,7 +1403,7 @@ color: #d449b4;
     box-shadow: 4px 4px 4px rgba(110, 110, 110, 0.726);
     border-radius: 5%;
     width: auto;
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 20px;
     display: flex;
     color: white;
@@ -1439,15 +1443,56 @@ color: #d449b4;
 }
 
 .divJuegoFav {
-    width: 300px;
+    width: 200px;
     height: 150px;
-    margin: 10px;
-    background-color: black;
-    position: relative;
+    margin-left: 10px;
     display: inline-block;
-    text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.article-juegos {
+    margin-bottom: 30px;
+}
+
+.titulo-favoritos {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-left: 12px;
+}
+
+.titulo-icono {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.sub {
+    /* margin-right: 20px; */
+    border-bottom: 1px solid #989c9e;
+}
+
+.heart-fav {
+    font-size: 50px;
+    height: auto;
+}
+
+.seleccionFav i {
+    font-size: 10px;
+}
+
+.seleccionFav .estrella-juego {
+    padding-top: 0px;
+}
+
+.seleccionFav .tituloJuegoCategoria {
+    padding: 3px 1px 1px 15px;
 }
 
 .overlayFav {
@@ -1631,4 +1676,85 @@ color: #d449b4;
     100% {
         transform: rotateX(0deg) skew(0deg);
     }
+}
+
+
+/******************************* LOGIN - REGISTRO  ************************************/
+
+
+/*CARD*/
+
+.cards-wrapper {
+    margin-top: 50px;
+}
+
+.card-container {
+    perspective: 1200px;
+}
+
+.card {
+    margin: 0 auto;
+    height: 500px;
+    width: 500px;
+    max-width: 80%;
+    position: relative;
+    border-radius: 25px;
+    transition: all 1s ease;
+    transform-style: preserve-3d;
+    box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.2)
+}
+
+.rotated {
+    transform: rotateY(-180deg);
+    transition-duration: 3s;
+}
+
+.card-contents {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+}
+
+.cards-wrapper h2,
+.cards-wrapper p {
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+.cards-wrapper h2 {
+    font-size: 3em;
+    margin: 0 auto;
+}
+
+hr {
+    width: 50%;
+    margin: 20px auto;
+}
+
+.card-depth {
+    transform: translateZ(100px) scale(0.98);
+    perspective: inherit;
+}
+
+.card-front {
+    background: linear-gradient(to top left, #3a6186, #89253e);
+    transform-style: preserve-3d;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    transition-duration: 3s;
+    background: linear-gradient(to top left, #ffa17f, #00223e);
+    transform-style: preserve-3d;
 }
