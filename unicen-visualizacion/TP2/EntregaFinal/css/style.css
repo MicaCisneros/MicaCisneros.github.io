@@ -846,6 +846,14 @@ footer a {
     text-align: center;
 }
 
+.contenedorFavoritos {
+    grid-row: 1;
+    grid-column: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .iconoFavoritos {
     color: white;
     font-size: 30px;
@@ -869,15 +877,18 @@ footer a {
     }
 }
 
+.contenedorCompartir {
+    grid-column: 6;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+}
+
 .botonCompartir {
     height: 30px;
     width: 120px;
-    justify-content: center;
-    align-items: center;
     border-radius: 20px;
-    margin-left: 10%;
-    grid-column: 3;
-    grid-row: 1;
+    grid-column: 4;
 }
 
 .estrella {
@@ -887,16 +898,25 @@ footer a {
 
 .contenedorEstrellas {
     margin-left: 5px;
-    grid-column: 5;
+    grid-column: 2;
     grid-row: 1;
+    margin-top: 30px;
 }
 
 .tituloDetalle {
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr 2fr 3fr 3fr;
+    grid-template-columns: 1fr 3fr 2fr 2fr 2fr;
     margin-top: 50px;
     grid-column: 1;
     grid-auto-rows: minmax(auto, auto);
+}
+
+.imgDetalle {
+    height: 80px;
+    width: 100px;
+    border-radius: 5px;
+    grid-row: 1/2;
+    grid-column: 1/2;
 }
 
 .margenDetalle {
@@ -977,15 +997,27 @@ footer a {
 .like {
     display: flex;
     align-items: center;
-    grid-column: 2;
+    justify-content: end;
+    grid-column: 4;
+    grid-row: 1;
 }
 
 .cardHeader {
     display: grid;
-    grid-column: 1/6;
-    border-bottom: 2px solid #9c2881;
-    padding: 10px;
-    margin-right: 110px;
+    grid-column: 1/5;
+    grid-template-columns: 1fr 4fr 3fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    /*margin-right: 195px;¨*/
+}
+
+.subDetalle {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #b8acb5;
+}
+
+.subDetalle2 {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #cfc4cc;
 }
 
 .iconoSeleccion {
@@ -1005,7 +1037,7 @@ footer a {
 
 .tituloJuego {
     grid-row: 1;
-    grid-column: 1;
+    grid-column: 2;
 }
 
 .infoJuego {
@@ -1016,19 +1048,31 @@ footer a {
 }
 
 .publicidad {
-    grid-column: 6;
-    grid-row: 1/6;
+    grid-column: 5/6;
+    grid-row: 1/5;
     margin-left: 27%;
-    margin-bottom: 40px;
+}
+
+.publicidad2 {
+    grid-column: 5/6;
+    grid-row: 4/8;
+    margin-left: 27%;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.publicidad2 img {
+    height: 400px;
+    width: 150px;
 }
 
 .publicidad img {
-    height: 820px;
-    width: 200px;
+    height: 400px;
+    width: 150px;
 }
 
 .recomendado {
-    width: 300px;
+    width: 280px;
     height: 150px;
     box-shadow: 1px 6px 4px rgba(59, 59, 59, 0.692);
     border-radius: 5px;
@@ -1037,17 +1081,31 @@ footer a {
 .recomendadosFila1 {
     display: grid;
     grid-template-columns: 3fr 3fr 3fr;
-    grid-column: 1/3;
+    grid-template-rows: 1fr 1fr;
+    grid-column: 1/4;
     grid-row: 4/5;
     gap: 20px;
-    margin-top: 40px;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+.recomendadosTitulos {
+    grid-row: 4;
+    grid-column: 1/5;
+    height: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .videoJuego {
     display: grid;
-    grid-column: 1;
+    grid-column: 1/5;
     grid-row: 3;
     margin-top: 10px;
+}
+
+.video {
+    margin-top: 20px;
 }
 
 .estrellaBoton {
