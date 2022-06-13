@@ -751,6 +751,7 @@ footer a {
     gap: 20px;
     grid-template-rows: 50px;
     margin: 30px;
+    margin-bottom: 50px;
 }
 
 .categoria-sm {
@@ -1541,15 +1542,15 @@ footer a {
     height: auto;
 }
 
-.seleccionFav i {
+.card-perfil i {
     font-size: 10px;
 }
 
-.seleccionFav .estrella-juego {
+.card-perfil .estrella-juego {
     padding-top: 0px;
 }
 
-.seleccionFav .tituloJuegoCategoria {
+.card-perfil .tituloJuegoCategoria {
     padding: 3px 1px 1px 15px;
 }
 
