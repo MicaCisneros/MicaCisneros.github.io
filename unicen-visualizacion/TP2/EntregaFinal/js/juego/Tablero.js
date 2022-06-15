@@ -7,6 +7,8 @@ class Tablero {
         this.w = w;
         this.h = h;
         this.color = color;
+        this.posXAux = this.posX+130;
+        this.posYAux=this.posY;
     }
 
     draw() {
@@ -19,5 +21,23 @@ class Tablero {
         //     this.ctx.fillRect(260,95,600,460);
         // ctx.strokeRect(0, 0, 50, 50);
         // this.ctx.closePath();
+
+
+    }
+
+    drawJuego(){
+        this.ctx.fillStyle="#407F7F";
+        this.ctx.lineWidth = 2;
+        this.ctx.fillRect(this.posX, this.posY, this.w, this.h);
+    
+        for(let col = 0;col<8;col++){
+            this.posXAux+= 50;
+            this.posYAux=this.posY;
+            for (let row = 0; row < 7; row++) {
+                this.posYAux+= 50;
+                let ficha = new Ficha(this.posXAux, this.posYAux, 15, "#ffffff", this.ctx, this.color);
+                ficha.draw();
+            }
+        }
     }
 }

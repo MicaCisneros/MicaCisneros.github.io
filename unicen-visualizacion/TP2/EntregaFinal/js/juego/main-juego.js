@@ -36,6 +36,8 @@ function drawTablero() {
     let table = new Tablero(ctx, posX, posY, w, h, color);
     table.draw();
 
+    let tablero = new Tablero(ctx, 250, posY, 700, 400, '#ffffff');
+    tablero.drawJuego();
 }
 
 
@@ -49,23 +51,23 @@ function addFicha() {
    
   
     let color = '#039000';
-    let color2 = '#ff0000';
+    let color2 = '#ff2221';
     for (let i = 0; i < cantFig / 2; i++) {
-        let posX = (Math.round(Math.random() * 170)) + 45;
+        let posX = (Math.round(Math.random() * 160)) + 45;
        
-        let posY = (Math.round(Math.random() * 360) + 65);
+        let posY = (Math.round(Math.random() * 350) + 65);
         console.log('x: ',posX);
         console.log('Y : ' , posY);
-        let ficha = new Ficha(posX, posY, 12, color, ctx);
+        let ficha = new Ficha(posX, posY, 15, color, ctx, '#017000');
 
         fichas.push(ficha);
         ficha.draw();
     }
 
     for (let i = cantFig / 2; i < cantFig; i++) {
-        let posX = Math.round(Math.random() * 170) + 985;
-        let posY = Math.round((Math.random() * 360) + 65);
-        let ficha = new Ficha(posX, posY, 15, color2, ctx);
+        let posX = Math.round(Math.random() * 160) + 985;
+        let posY = Math.round((Math.random() * 350) + 65);
+        let ficha = new Ficha(posX, posY, 15, color2, ctx,'#ff0000');
 
 
         ficha.draw();

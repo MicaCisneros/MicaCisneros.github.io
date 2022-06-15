@@ -1,9 +1,10 @@
 class Ficha {
 
-    constructor(posX, posY, radio, color, contexto) {
+    constructor(posX, posY, radio, color, contexto,colorBorde) {
         this.posX = posX;
         this.posY = posY;
         this.fill = color;
+        this.colorBorde = colorBorde;
         this.ctx = contexto;
         this.radio = radio;
         this.resaltado = false;
@@ -66,7 +67,7 @@ class Ficha {
         this.ctx.arc(this.posX, this.posY, this.radio, 0, 2 * Math.PI);
         this.ctx.fill();
         //this.ctx.arc(this.posX, this.posY, 10, 0, 2 * Math.PI);
-        this.ctx.strokeStyle = ' #017000';
+        this.ctx.strokeStyle = this.colorBorde;
         this.ctx.lineWidth = 5;
         ctx.stroke();
         
