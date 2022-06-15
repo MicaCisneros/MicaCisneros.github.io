@@ -61,18 +61,15 @@ class Ficha {
     // }
 
     draw() {
-
         this.ctx.fillStyle = this.fill;
         this.ctx.beginPath();
         this.ctx.arc(this.posX, this.posY, this.radio, 0, 2 * Math.PI);
-
-        //this.ctx.fill;
+        this.ctx.fill();
 
         if (this.resaltado) {
             this.ctx.strokeStyle = this.resaltadoEstilo;
             this.ctx.lineWidth = 4;
             this.ctx.stroke();
-
         }
         this.ctx.closePath();
     }

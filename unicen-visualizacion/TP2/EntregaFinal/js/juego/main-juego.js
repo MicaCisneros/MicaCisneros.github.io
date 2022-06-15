@@ -2,10 +2,11 @@ let canvas = document.querySelector("#myCanvas");
 let ctx = canvas.getContext("2d");
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
-
+let tablero = new Tablero(this.ctx);
+tablero.draw();
 let cantFig = 20;
 
-let figuras = [];
+let fichas = [];
 let ultimaFigClickeada = null;
 let isMouseDown = null;
 
@@ -35,13 +36,23 @@ this.addFicha();
 function addFicha() {
     console.log(2);
 
-    let color = '#007755';
-
-    for (let i = 0; i < cantFig; i++) {
-        let posX = Math.round(Math.random() * canvasWidth);
+    let color = '#017000';
+    let color2 = '#ff0000';
+    for (let i = 0; i < cantFig/2; i++) {
+        let posX = Math.round(Math.random() * canvasWidth/4);
         let posY = Math.round(Math.random() * canvasHeight);
-        let ficha = new Ficha(posX, posY, 10, color, ctx);
+        let ficha = new Ficha(posX, posY, 30, color, ctx);
 
+        fichas.push(ficha);
+        ficha.draw();
+    }
+
+    for (let i = cantFig/2; i < cantFig; i++) {
+        let posX = Math.round(Math.random() * canvasWidth/4 + canvasWidth/2);
+        let posY = Math.round(Math.random() * canvasHeight);
+        let ficha = new Ficha(posX, posY, 30, color2, ctx);
+
+        fichas.push(ficha);
         ficha.draw();
         figuras.push(ficha);
     }
