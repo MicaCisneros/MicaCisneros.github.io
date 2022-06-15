@@ -3,14 +3,11 @@ let ctx = canvas.getContext("2d");
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
 
-
 let cantFig = 20;
 
 let fichas = [];
 let ultimaFigClickeada = null;
 let isMouseDown = null;
-
-
 
 
 this.drawJuego();
@@ -28,7 +25,6 @@ function drawTablero() {
     let posY = 50;
     let w = 200;
     let h = 400;
-    console.log(w);
     let tabl = new Tablero(ctx, posX, posY, w, h, color);
     tabl.draw();
 
@@ -48,17 +44,15 @@ function drawTablero() {
 
 function addFicha() {
     console.log(2);
-   
-  
+
+
     let color = '#039000';
     let color2 = '#ff2221';
     for (let i = 0; i < cantFig / 2; i++) {
         let posX = (Math.round(Math.random() * 160)) + 45;
-       
+
         let posY = (Math.round(Math.random() * 350) + 65);
-        console.log('x: ',posX);
-        console.log('Y : ' , posY);
-        let ficha = new Ficha(posX, posY, 15, color, ctx, '#017000');
+        let ficha = new Ficha(posX, posY, 15, color, ctx, '#017000', i);
 
         fichas.push(ficha);
         ficha.draw();
@@ -67,7 +61,7 @@ function addFicha() {
     for (let i = cantFig / 2; i < cantFig; i++) {
         let posX = Math.round(Math.random() * 160) + 985;
         let posY = Math.round((Math.random() * 350) + 65);
-        let ficha = new Ficha(posX, posY, 15, color2, ctx,'#ff0000');
+        let ficha = new Ficha(posX, posY, 15, color2, ctx, '#ff0000', i);
 
 
         ficha.draw();
@@ -147,10 +141,10 @@ function onMouseUp(e) {
 /* cada figura se fija si clickeo en ella*/
 function buscarFiguraSeleccionada(x, y) {
     for (let i = 0; i < fichas.length; i++) {
-        const f = fichas[i];
+        const fi = fichas[i];
 
-        if (f.isPointInside(x, y)) {
-            return f;
+        if (fi.isPointInside(x, y)) {
+            return fi;
         }
     }
 }

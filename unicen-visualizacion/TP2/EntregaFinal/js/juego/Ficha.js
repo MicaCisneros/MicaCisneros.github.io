@@ -1,6 +1,6 @@
 class Ficha {
 
-    constructor(posX, posY, radio, color, contexto,colorBorde) {
+    constructor(posX, posY, radio, color, contexto, colorBorde, id) {
         this.posX = posX;
         this.posY = posY;
         this.fill = color;
@@ -9,6 +9,7 @@ class Ficha {
         this.radio = radio;
         this.resaltado = false;
         this.resaltadoEstilo = 'purple';
+        this.id = id;
     }
 
 
@@ -17,8 +18,8 @@ class Ficha {
     }
 
     setPosicion(x, y) {
-        posX = x;
-        posY = y;
+        this.posX = x;
+        this.posY = y;
     }
 
     getPosition() {
@@ -70,7 +71,7 @@ class Ficha {
         this.ctx.strokeStyle = this.colorBorde;
         this.ctx.lineWidth = 5;
         ctx.stroke();
-        
+
 
         if (this.resaltado) {
             this.ctx.strokeStyle = this.resaltadoEstilo;
@@ -86,6 +87,7 @@ class Ficha {
 
 
     isPointInside(x, y) {
+        console.log(x, y)
         let _x = this.posX - x;
         let _y = this.posY - y;
         return Math.sqrt(_x * _x + _y * _y) < this.radio;
