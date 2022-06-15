@@ -17,8 +17,8 @@ class Ficha {
     }
 
     setPosicion(x, y) {
-        posX = x;
-        posY = y;
+        this.posX = x;
+        this.posY = y;
     }
 
     getPosition() {
