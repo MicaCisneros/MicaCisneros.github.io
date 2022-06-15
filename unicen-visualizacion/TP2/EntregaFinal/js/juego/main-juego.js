@@ -43,6 +43,7 @@ function addFicha() {
         let ficha = new Ficha(posX, posY, 10, color, ctx);
 
         ficha.draw();
+        figuras.push(ficha);
     }
 }
 

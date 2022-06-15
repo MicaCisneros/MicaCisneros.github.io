@@ -61,10 +61,11 @@ class Ficha {
     // }
 
     draw() {
-        console.log(this);
+
+        this.ctx.fillStyle = this.fill;
         this.ctx.beginPath();
         this.ctx.arc(this.posX, this.posY, this.radio, 0, 2 * Math.PI);
-        this.ctx.fillStyle = this.fill;
+
         //this.ctx.fill;
 
         if (this.resaltado) {
