@@ -12,8 +12,10 @@ class Tablero {
     draw() {
         // this.ctx.fillStyle(color);
         //this.ctx.beginPath();
+        this.ctx.strokeStyle="#407F7F";
+        this.ctx.lineWidth = 2;
         this.ctx.strokeRect(this.posX, this.posY, this.w, this.h);
-        //     this.ctx.fillStyle="#407F7F";
+        
         //     this.ctx.fillRect(260,95,600,460);
         // ctx.strokeRect(0, 0, 50, 50);
         // this.ctx.closePath();

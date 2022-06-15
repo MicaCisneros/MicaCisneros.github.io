@@ -65,6 +65,11 @@ class Ficha {
         this.ctx.beginPath();
         this.ctx.arc(this.posX, this.posY, this.radio, 0, 2 * Math.PI);
         this.ctx.fill();
+        //this.ctx.arc(this.posX, this.posY, 10, 0, 2 * Math.PI);
+        this.ctx.strokeStyle = ' #017000';
+        this.ctx.lineWidth = 5;
+        ctx.stroke();
+        
 
         if (this.resaltado) {
             this.ctx.strokeStyle = this.resaltadoEstilo;
