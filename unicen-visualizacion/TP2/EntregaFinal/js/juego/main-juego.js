@@ -92,10 +92,10 @@ function addFicha() {
 // }, 333)
 
 /**borro y redibujo todo */
-// function limpiarCanvas() {
-//     ctx.fillStyle = "#FFFFFF"
-//     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-// }
+function limpiarCanvas() {
+   ctx.fillStyle = "#FFFFFF"
+   ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+}
 
 
 /* EVENTOS PARA DETECTAR CUANDO QUIERE ARRASTRAR UNA FICHA*/
@@ -115,13 +115,14 @@ function onMouseDown(e) {
 
     //chequeo si selecciono otra figura (o clickeo en otro lado)
     //coordenadas de donde clickeó, dentro del canvas x layer
-    let figuraClickeada = buscarFiguraSeleccionada(e.layerX, e.layerY);
-
+    let x = e.layerX - e.currentTarget.offsetLeft;
+    let y = e.layerY - e.currentTarget.offsetTop; 
+    let figuraClickeada = buscarFiguraSeleccionada(x,y);
+ 
     if (figuraClickeada != null) {
         figuraClickeada.setResaltado(true);
         ultimaFigClickeada = figuraClickeada;
     }
-
     // drawFigura();
 }
 
