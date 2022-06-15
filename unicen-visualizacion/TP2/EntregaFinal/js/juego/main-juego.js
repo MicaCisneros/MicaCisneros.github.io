@@ -2,30 +2,41 @@ let canvas = document.querySelector("#myCanvas");
 let ctx = canvas.getContext("2d");
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
-let tablero = new Tablero(this.ctx);
-tablero.draw();
+
+
 let cantFig = 20;
 
 let fichas = [];
 let ultimaFigClickeada = null;
 let isMouseDown = null;
 
-// draw();
 
-// function draw() {
-//     //const canvas = document.getElementById('canvas');
-//     //if (canvas.getContext) {
-//     //  const ctx = canvas.getContext('2d');
 
-//     ctx.beginPath();
-//     ctx.moveTo(75, 50);
-//     ctx.lineTo(100, 75);
-//     ctx.lineTo(100, 25);
-//     ctx.fill();
-//     // }
-// }
 
-this.addFicha();
+this.drawJuego();
+
+function drawJuego() {
+    // let tab = new Tablero(this.ctx);
+    // tab.draw();
+    this.addFicha();
+    drawTablero();
+}
+
+function drawTablero() {
+    let color = "#000000";
+    let posX = 30;
+    let posY = 50;
+    let w = 200;
+    let h = 400;
+    console.log(w);
+    let tabl = new Tablero(ctx, posX, posY, w, h, color);
+    tabl.draw();
+
+    posX = 970
+    let table = new Tablero(ctx, posX, posY, w, h, color);
+    table.draw();
+
+}
 
 
 // function drawFigura() {
@@ -38,23 +49,23 @@ function addFicha() {
 
     let color = '#017000';
     let color2 = '#ff0000';
-    for (let i = 0; i < cantFig/2; i++) {
-        let posX = Math.round(Math.random() * canvasWidth/4);
-        let posY = Math.round(Math.random() * canvasHeight);
-        let ficha = new Ficha(posX, posY, 30, color, ctx);
+    for (let i = 0; i < cantFig / 2; i++) {
+        let posX = Math.round((Math.random() * 200) + 30);
+        let posY = Math.round((Math.random() * 400) + 50);
+        let ficha = new Ficha(posX, posY, 15, color, ctx);
 
         fichas.push(ficha);
         ficha.draw();
     }
 
-    for (let i = cantFig/2; i < cantFig; i++) {
-        let posX = Math.round(Math.random() * canvasWidth/4 + canvasWidth/2);
-        let posY = Math.round(Math.random() * canvasHeight);
-        let ficha = new Ficha(posX, posY, 30, color2, ctx);
+    for (let i = cantFig / 2; i < cantFig; i++) {
+        let posX = Math.round(Math.random() * 200) + 970;
+        let posY = Math.round((Math.random() * 400) + 50);
+        let ficha = new Ficha(posX, posY, 15, color2, ctx);
 
-        fichas.push(ficha);
+
         ficha.draw();
-        figuras.push(ficha);
+        fichas.push(ficha);
     }
 }
 
@@ -129,8 +140,8 @@ function onMouseUp(e) {
 
 /* cada figura se fija si clickeo en ella*/
 function buscarFiguraSeleccionada(x, y) {
-    for (let i = 0; i < figuras.length; i++) {
-        const f = figuras[i];
+    for (let i = 0; i < fichas.length; i++) {
+        const f = fichas[i];
 
         if (f.isPointInside(x, y)) {
             return f;
