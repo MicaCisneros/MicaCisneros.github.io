@@ -63,14 +63,15 @@ class Ficha {
     // }
 
     draw() {
+
         this.ctx.fillStyle = this.fill;
         this.ctx.beginPath();
         this.ctx.arc(this.posX, this.posY, this.radio, 0, 2 * Math.PI);
         this.ctx.fill();
         //this.ctx.arc(this.posX, this.posY, 10, 0, 2 * Math.PI);
-        this.ctx.strokeStyle = this.colorBorde;
-        this.ctx.lineWidth = 5;
-        ctx.stroke();
+        // this.ctx.strokeStyle = this.colorBorde;
+        // this.ctx.lineWidth = 5;
+        // ctx.stroke();
 
 
         if (this.resaltado) {
@@ -87,7 +88,7 @@ class Ficha {
 
 
     isPointInside(x, y) {
-        console.log(x, y)
+        // console.log(this.id);
         let _x = this.posX - x;
         let _y = this.posY - y;
         return Math.sqrt(_x * _x + _y * _y) < this.radio;

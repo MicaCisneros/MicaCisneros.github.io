@@ -91,10 +91,20 @@ function addFicha() {
 //     addFiguras();
 // }, 333)
 
+function drawAll() {
+    this.drawTablero();
+    for (let i = 0; i < fichas.length; i++) {
+        fichas[i].draw();
+    }
+}
+
 /**borro y redibujo todo */
 function limpiarCanvas() {
-   ctx.fillStyle = "#FFFFFF"
-   ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+    // ctx.fillStyle = "#FFFFFF"
+    // ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+    // drawAll();
+    canvas.width = canvas.width;
+    // drawAll();
 }
 
 
@@ -110,27 +120,31 @@ function onMouseDown(e) {
     //le saco el resaltado a la figura que ya tenia seleccionada
     if (ultimaFigClickeada != null) {
         ultimaFigClickeada.setResaltado(false);
+        //limpiarCanvas();
         ultimaFigClickeada = null
     }
 
     //chequeo si selecciono otra figura (o clickeo en otro lado)
     //coordenadas de donde clickeó, dentro del canvas x layer
     let x = e.layerX - e.currentTarget.offsetLeft;
-    let y = e.layerY - e.currentTarget.offsetTop; 
-    let figuraClickeada = buscarFiguraSeleccionada(x,y);
- 
+    let y = e.layerY - e.currentTarget.offsetTop;
+    let figuraClickeada = buscarFiguraSeleccionada(x, y);
+
     if (figuraClickeada != null) {
         figuraClickeada.setResaltado(true);
+        // limpiarCanvas();
         ultimaFigClickeada = figuraClickeada;
     }
-    // drawFigura();
+    limpiarCanvas();
+    drawAll();
 }
 
 /*  CUANDO MUEVO EL MOUSE ARRASTRANDO UN OBJETO  */
 function onMouseMove(e) {
     if (isMouseDown && ultimaFigClickeada != null) {
-        ultimaFigClickeada.setPosicion(e.layerX, e.layerY);
-        // drawFigura();
+        ultimaFigClickeada.setPosicion(e.layerX - e.currentTarget.offsetLeft, e.layerY - e.currentTarget.offsetTop);
+        limpiarCanvas();
+        drawAll();
     }
 }
 
@@ -145,6 +159,7 @@ function buscarFiguraSeleccionada(x, y) {
         const fi = fichas[i];
 
         if (fi.isPointInside(x, y)) {
+            console.log(fi);
             return fi;
         }
     }
@@ -155,9 +170,10 @@ function buscarFiguraSeleccionada(x, y) {
 /*****************************************************************************/
 
 function getPosMouse(canvas, evento) {
-    let cont = canvas.getBoundingClientRect();
+    let clientRect = canvas.getBoundingClientRect();
     return {
-        x: Math.round(evento.clientX - clientRect.left),
-        y: Math.round(evento.clientY - clientRect.top)
+        // evento.clientX -canvas.offsetLeft
+        x: Math.round(evento.clientX - canvas.offsetLeft),
+        y: Math.round(evento.clientY - canvas.offsetLeft)
     }
 }
