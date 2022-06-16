@@ -1,6 +1,6 @@
 class Ficha {
 
-    constructor(posX, posY, radio, color, contexto, colorBorde, id) {
+    constructor(posX, posY, radio, color, contexto, colorBorde, id, jugador) {
         this.posX = posX;
         this.posY = posY;
         this.fill = color;
@@ -9,6 +9,7 @@ class Ficha {
         this.radio = radio;
         this.resaltado = false;
         this.resaltadoEstilo = 'purple';
+        this.jugador = jugador;
         this.id = id;
     }
 
@@ -22,6 +23,10 @@ class Ficha {
         this.posY = y;
     }
 
+    getJugador(){
+        console.log(this.jugador);
+        return this.jugador;
+    }
     getPosition() {
         return {
             x: this.getPosX(),
