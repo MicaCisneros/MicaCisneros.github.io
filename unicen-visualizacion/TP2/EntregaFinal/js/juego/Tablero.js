@@ -30,14 +30,19 @@ class Tablero {
         this.ctx.lineWidth = 2;
         this.ctx.fillRect(this.posX, this.posY, this.w, this.h);
     
+        let matriz = [];
+        let arrayAux = []
         for(let col = 0;col<8;col++){
             this.posXAux+= 50;
             this.posYAux=this.posY;
             for (let row = 0; row < 7; row++) {
                 this.posYAux+= 50;
+                
                 let ficha = new Ficha(this.posXAux, this.posYAux, 15, "#ffffff", this.ctx, this.color);
                 ficha.draw();
+                arrayAux.push(ficha)
             }
+            matriz.push(arrayAux);
         }
     }
 }
