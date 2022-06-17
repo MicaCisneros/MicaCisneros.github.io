@@ -4,7 +4,7 @@ let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
 
 let cantFig = 20;
-let turno = 1;
+
 let fichas = [];
 let ultimaFigClickeada = null;
 let isMouseDown = null;
@@ -25,12 +25,12 @@ function drawTablero() {
     let posY = 50;
     let w = 200;
     let h = 400;
-    let tabl = new Tablero(ctx, posX, posY, w, h, color);
-    tabl.draw();
+    let latIzq = new Tablero(ctx, posX, posY, w, h, color);
+    latIzq.draw();
 
-    posX = 970
-    let table = new Tablero(ctx, posX, posY, w, h, color);
-    table.draw();
+    posX = 970;
+    let latDer = new Tablero(ctx, posX, posY, w, h, color);
+    latDer.draw();
 
     let tablero = new Tablero(ctx, 250, posY, 700, 400, '#ffffff');
     tablero.drawJuego();
@@ -42,34 +42,59 @@ function drawTablero() {
 
 // }
 
+// function addFicha() {
+//     console.log(2);
+
+
+//     let color = '#039000';
+//     let color2 = '#ff2221';
+//     for (let i = 0; i < cantFig / 2; i++) {
+//         let posX = (Math.round(Math.random() * 160)) + 45;
+
+//         let posY = (Math.round(Math.random() * 350) + 65);
+//         let ficha = new Ficha(posX, posY, 15, color, ctx, '#017000', i);
+
+//         fichas.push(ficha);
+//         ficha.draw();
+//     }
+
+//     for (let i = cantFig / 2; i < cantFig; i++) {
+//         let posX = Math.round(Math.random() * 160) + 985;
+//         let posY = Math.round((Math.random() * 350) + 65);
+//         let ficha = new Ficha(posX, posY, 15, color2, ctx, '#ff0000', i);
+
+
+//         ficha.draw();
+//         fichas.push(ficha);
+//     }
+// }
+
+
+
 function addFicha() {
-    let color = '#039000';
-    let color2 = '#ff2221';
-    for (let i = 0; i < cantFig / 2; i++) {
-        let posX = (Math.round(Math.random() * 160)) + 45;
-
-        let posY = (Math.round(Math.random() * 350) + 65);
-        let ficha = new Ficha(posX, posY, 15, color, ctx, '#017000', i,1);
-
-        fichas.push(ficha);
-        ficha.draw();
-    }
-
-    for (let i = cantFig / 2; i < cantFig; i++) {
-        let posX = Math.round(Math.random() * 160) + 985;
-        let posY = Math.round((Math.random() * 350) + 65);
-        let ficha = new Ficha(posX, posY, 15, color2, ctx, '#ff0000', i, 2);
+    console.log(2);
 
 
-        ficha.draw();
-        fichas.push(ficha);
+    let colorRojo = '#039000';
+    let colorAzul = '#ff2221';
+    for (let i = 0; i < cantFig; i++) {
+        let posXRoja = (Math.round(Math.random() * 160)) + 45;
+        let posYRoja = (Math.round(Math.random() * 350) + 65);
+        let fichaRoja = new Ficha(posXRoja, posYRoja, 15, colorRojo, ctx, '#017000', i);
+        let posXAzul = Math.round(Math.random() * 160) + 985;
+        let posYAzul = Math.round((Math.random() * 350) + 65);
+        let fichaAzul = new Ficha(posXAzul, posYAzul, 15, colorAzul, ctx, '#ff0000', i);
+        fichaRoja.draw();
+        fichaAzul.draw();
+        fichas.push(fichaRoja);
+        fichas.push(fichaAzul);
+
     }
 }
 
 
-function insertarFicha(){
 
-}
+
 
 // function drawFicha() {
 
@@ -104,7 +129,6 @@ function limpiarCanvas() {
     // ctx.fillRect(0, 0, canvasWidth, canvasHeight);
     // drawAll();
     canvas.width = canvas.width;
-    // drawAll();
 }
 
 
@@ -129,28 +153,22 @@ function onMouseDown(e) {
     let x = e.layerX - e.currentTarget.offsetLeft;
     let y = e.layerY - e.currentTarget.offsetTop;
     let figuraClickeada = buscarFiguraSeleccionada(x, y);
-    
-    if (figuraClickeada != null) {
-        if(figuraClickeada.getJugador() == turno){
-            figuraClickeada.setResaltado(true);
-            // limpiarCanvas();
-            ultimaFigClickeada = figuraClickeada;
-        }
-        limpiarCanvas();
-        drawAll();
-    }
 
+    if (figuraClickeada != null) {
+        figuraClickeada.setResaltado(true);
+        // limpiarCanvas();
+        ultimaFigClickeada = figuraClickeada;
+    }
+    limpiarCanvas();
+    drawAll();
 }
 
 /*  CUANDO MUEVO EL MOUSE ARRASTRANDO UN OBJETO  */
 function onMouseMove(e) {
-    
     if (isMouseDown && ultimaFigClickeada != null) {
-        if(ultimaFigClickeada.getJugador() == turno){
-            ultimaFigClickeada.setPosicion(e.layerX - e.currentTarget.offsetLeft, e.layerY - e.currentTarget.offsetTop);
-            limpiarCanvas();
-            drawAll();
-        }
+        ultimaFigClickeada.setPosicion(e.layerX - e.currentTarget.offsetLeft, e.layerY - e.currentTarget.offsetTop);
+        limpiarCanvas();
+        drawAll();
     }
 }
 
