@@ -18,6 +18,14 @@ class Ficha {
         this.fill = fill;
     }
 
+    getColor(){
+        return this.color;
+    }
+
+    setColor(color){
+        this.fill = color;
+    }
+
     setPosicion(x, y) {
         this.posX = x;
         this.posY = y;
@@ -83,5 +91,11 @@ class Ficha {
     }
 
 
+    getId(){
+        return this.id;
+    }
 
+    setId(id){
+        this.id = id;
+    }
 }

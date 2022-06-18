@@ -9,7 +9,7 @@ let fichas = [];
 let ultimaFigClickeada = null;
 let isMouseDown = null;
 
-
+let tablero = null;
 this.drawJuego();
 
 function drawJuego() {
@@ -17,6 +17,7 @@ function drawJuego() {
     // tab.draw();
     this.addFicha();
     drawTablero();
+    iniciarJuego();
 }
 
 function drawTablero() {
@@ -31,9 +32,12 @@ function drawTablero() {
     posX = 970;
     let latDer = new Tablero(ctx, posX, posY, w, h, color);
     latDer.draw();
+}
 
-    let tablero = new Tablero(ctx, 250, posY, 700, 400, '#ffffff');
-    tablero.drawJuego();
+function iniciarJuego(){
+    let posY = 50;
+    tablero = new Tablero(ctx, 250, posY, 700, 400, '#ffffff');
+    tablero.iniciarJuego();
 }
 
 
@@ -118,6 +122,7 @@ function addFicha() {
 
 function drawAll() {
     this.drawTablero();
+    tablero.drawJuego();
     for (let i = 0; i < fichas.length; i++) {
         fichas[i].draw();
     }
@@ -174,6 +179,22 @@ function onMouseMove(e) {
 
 /*  CUANDO SUELTO EL OBJETO  */
 function onMouseUp(e) {
+    if(ultimaFigClickeada != null){
+        
+        for (let i = 0; i < fichas.length; i++) {
+            if(tablero.checkInsert(ultimaFigClickeada) != -1){
+                if(JSON.stringify(fichas[i]) === JSON.stringify(ultimaFigClickeada)){
+                    let col = tablero.checkInsert(ultimaFigClickeada);
+                    tablero.insertarFicha(col);
+                    fichas.splice(i,1);
+                    cantFig--;
+                    limpiarCanvas();
+                    drawAll();
+                }
+            }
+  
+        }
+    }
     isMouseDown = false;
 }
 
