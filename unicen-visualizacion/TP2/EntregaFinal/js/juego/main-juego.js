@@ -207,7 +207,7 @@ function cambiarTurno(){
     if(turno == 1){
         turno = 2;
     }else if(turno == 2){
-        turno = 2
+        turno = 1
     }
 }
 /* cada figura se fija si clickeo en ella*/
