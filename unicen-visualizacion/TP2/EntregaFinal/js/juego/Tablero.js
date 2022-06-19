@@ -65,7 +65,6 @@ class Tablero {
                 ficha.draw();
                 this.matriz[col][row]=ficha;
             }
-           console.log(this.matriz);
         }
     }
     insertarFicha(col){
@@ -73,24 +72,24 @@ class Tablero {
                 if(this.matriz[col][row].getId() != 0){
                     console.log("hola");
                     this.matriz[col][row].setId(0);
-                    this.matriz[col][row].setColor("#347F7F");
-                    row=7;
+                    this.matriz[col][row].setColor("#039000");
+                    break;
                 }
                
             }
     }
 
     checkInsert(ficha){
-        this.posXAux = this.posX;
-        this.posYAux = this.posY+70 ;
+        this.posXAux = this.posX+145;
+        this.posYAux = this.posY+75 ;
         for (let col = 0; col < 7; col++){
             this.posXAux += 50;
-          
-            if (this.posXAux < ficha.getPosX() && ficha.getPosX() > this.posXAux-5 
-                && this.posYAux > ficha.getPosY() && ficha.getPosY()<  this.posYAux-5){
+            if ((this.posXAux > ficha.getPosX()) && (ficha.getPosX() > this.posXAux-5) 
+                && (this.posYAux > ficha.getPosY()) && (ficha.getPosY() <  this.posYAux-5)){
                     return col;
             }
         }
+        console.log(this.matriz);
         return -1;
     }
 }
