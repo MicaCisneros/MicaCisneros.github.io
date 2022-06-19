@@ -34,7 +34,7 @@ function drawTablero() {
     latDer.draw();
 }
 
-function iniciarJuego(){
+function iniciarJuego() {
     let posY = 50;
     tablero = new Tablero(ctx, 250, posY, 700, 400, '#ffffff');
     tablero.iniciarJuego();
@@ -84,10 +84,10 @@ function addFicha() {
     for (let i = 0; i < cantFig; i++) {
         let posXRoja = (Math.round(Math.random() * 160)) + 45;
         let posYRoja = (Math.round(Math.random() * 350) + 65);
-        let fichaRoja = new Ficha(posXRoja, posYRoja, 15, colorRojo, ctx, '#017000', i,1);
+        let fichaRoja = new Ficha(posXRoja, posYRoja, 15, colorRojo, ctx, '#017000', i, 1);
         let posXAzul = Math.round(Math.random() * 160) + 985;
         let posYAzul = Math.round((Math.random() * 350) + 65);
-        let fichaAzul = new Ficha(posXAzul, posYAzul, 15, colorAzul, ctx, '#ff0000', i,2);
+        let fichaAzul = new Ficha(posXAzul, posYAzul, 15, colorAzul, ctx, '#ff0000', i, 2);
         fichaRoja.draw();
         fichaAzul.draw();
         fichas.push(fichaRoja);
@@ -160,7 +160,7 @@ function onMouseDown(e) {
     let figuraClickeada = buscarFiguraSeleccionada(x, y);
 
     if (figuraClickeada != null) {
-        if(figuraClickeada.getJugador() == turno){
+        if (figuraClickeada.getJugador() == turno) {
             figuraClickeada.setResaltado(true);
             // limpiarCanvas();
             ultimaFigClickeada = figuraClickeada;
@@ -173,7 +173,7 @@ function onMouseDown(e) {
 /*  CUANDO MUEVO EL MOUSE ARRASTRANDO UN OBJETO  */
 function onMouseMove(e) {
     if (isMouseDown && ultimaFigClickeada != null) {
-        if(ultimaFigClickeada.getJugador() == turno){
+        if (ultimaFigClickeada.getJugador() == turno) {
             ultimaFigClickeada.setPosicion(e.layerX - e.currentTarget.offsetLeft, e.layerY - e.currentTarget.offsetTop);
             limpiarCanvas();
             drawAll();
@@ -183,18 +183,20 @@ function onMouseMove(e) {
 
 /*  CUANDO SUELTO EL OBJETO  */
 function onMouseUp(e) {
-    if(ultimaFigClickeada != null){
-        
+    if (ultimaFigClickeada != null) {
+
         for (let i = 0; i < fichas.length; i++) {
-            if(tablero.checkInsert(ultimaFigClickeada) != -1){
-                if(JSON.stringify(fichas[i]) === JSON.stringify(ultimaFigClickeada)){
+            if (tablero.checkInsert(ultimaFigClickeada) != -1) {
+                if (JSON.stringify(fichas[i]) === JSON.stringify(ultimaFigClickeada)) {
                     let col = tablero.checkInsert(ultimaFigClickeada);
-                    tablero.insertarFicha(col,turno);
-                    fichas.splice(i,1);
+                    tablero.insertarFicha(col, turno);
+                    fichas.splice(i, 1);
                     cantFig--;
+                    tablero.esGanador(turno);
                     cambiarTurno();
                     limpiarCanvas();
                     drawAll();
+
                 }
             }
         }
@@ -202,10 +204,10 @@ function onMouseUp(e) {
     isMouseDown = false;
 }
 
-function cambiarTurno(){
-    if(turno == 1){
+function cambiarTurno() {
+    if (turno == 1) {
         turno = 2;
-    }else if(turno == 2){
+    } else if (turno == 2) {
         turno = 1
     }
 }

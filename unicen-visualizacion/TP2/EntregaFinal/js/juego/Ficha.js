@@ -18,11 +18,11 @@ class Ficha {
         this.fill = fill;
     }
 
-    getColor(){
+    getColor() {
         return this.color;
     }
 
-    setColor(color){
+    setColor(color) {
         this.fill = color;
     }
 
@@ -34,6 +34,12 @@ class Ficha {
     getJugador() {
         return this.jugador;
     }
+
+    setJugador(jug) {
+        console.log("LLEGUEE");
+        this.jugador = jug;
+    }
+
     getPosition() {
         return {
             x: this.getPosX(),
@@ -90,11 +96,11 @@ class Ficha {
     }
 
 
-    getId(){
+    getId() {
         return this.id;
     }
 
-    setId(id){
+    setId(id) {
         this.id = id;
     }
 }
