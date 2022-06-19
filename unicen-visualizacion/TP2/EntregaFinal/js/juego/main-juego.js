@@ -189,10 +189,11 @@ function onMouseUp(e) {
             if (tablero.checkInsert(ultimaFigClickeada) != -1) {
                 if (JSON.stringify(fichas[i]) === JSON.stringify(ultimaFigClickeada)) {
                     let col = tablero.checkInsert(ultimaFigClickeada);
-                    tablero.insertarFicha(col, turno);
+                    let fila = tablero.insertarFicha(col, turno);
+                    console.log(fila);
                     fichas.splice(i, 1);
                     cantFig--;
-                    tablero.esGanador(turno);
+                    tablero.esGanador(turno, col, fila);
                     cambiarTurno();
                     limpiarCanvas();
                     drawAll();

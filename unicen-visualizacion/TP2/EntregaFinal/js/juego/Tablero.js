@@ -69,6 +69,7 @@ class Tablero {
     }
     insertarFicha(col, turno) {
 
+        let rowAux = -1;
         for (let row = 5; row >= 0; row--) {
             if (this.matriz[col][row].getId() != 0) {
                 console.log("hola");
@@ -81,25 +82,31 @@ class Tablero {
                     this.matriz[col][row].setColor("#ff2221");
                 }
 
-
+                rowAux = row;
 
                 break;
+
             }
 
         }
 
+        return rowAux;
     }
 
-    esGanador(jugador) {
+    esGanador(jugador, col, fila) {
         let exito = this.checkHorizontal(jugador)
-        if(!exito){
+        if (!exito) {
             exito = this.checkVertical(jugador);
-            if(!exito){
-                exito = this.checkDiagonal(jugador);
+            if (!exito) {
+                exito = this.checkDiagonalIzq(jugador, col, fila);
+                if (!exito) {
+                    exito = this.checkDiagonalDer(jugador, col, fila);
+                }
             }
         }
-        
-        
+
+
+
         // this.checkVertical(jugador);
 
     }
@@ -111,7 +118,7 @@ class Tablero {
 
             for (let j = 0; j < 6; j++) {
                 let jug = this.matriz[i][j].getJugador();
-                
+
                 if (jugador == jug) {
 
                     contador++;
@@ -135,9 +142,9 @@ class Tablero {
         for (let j = 0; j < 6; j++) {
             for (let i = 0; i < 7; i++) {
 
-            
+
                 let jug = this.matriz[i][j].getJugador();
-                
+
                 if (jugador == jug) {
 
                     contador++;
@@ -154,7 +161,45 @@ class Tablero {
 
     }
 
+    checkDiagonalIzq(jugador, col, fila) {
+        let contador = 0;
+        while (col < 7 && fila < 6) {
+            let jug = this.matriz[col][fila].getJugador();
+            if (jugador == jug) {
 
+                contador++;
+                console.log(contador);
+            } else { contador = 0; }
+            col++;
+            fila++;
+
+        }
+        if (contador == 4) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    checkDiagonalDer(jugador, col, fila) {
+        let contador = 0;
+        while (col < 7 && fila < 6) {
+            let jug = this.matriz[col][fila].getJugador();
+            if (jugador == jug) {
+
+                contador++;
+                console.log(contador);
+            } else { contador = 0; }
+            col--;
+            fila++;
+
+        }
+        if (contador == 4) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     checkInsert(ficha) {
         this.posXAux = this.posX + 145;
