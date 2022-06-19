@@ -2,7 +2,7 @@ let canvas = document.querySelector("#myCanvas");
 let ctx = canvas.getContext("2d");
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
-
+let hayGanador = false;
 let cantFig = 20;
 let turno = 1;
 let fichas = [];
@@ -160,7 +160,7 @@ function onMouseDown(e) {
     let figuraClickeada = buscarFiguraSeleccionada(x, y);
 
     if (figuraClickeada != null) {
-        if (figuraClickeada.getJugador() == turno) {
+        if (figuraClickeada.getJugador() == turno && hayGanador == false) {
             figuraClickeada.setResaltado(true);
             // limpiarCanvas();
             ultimaFigClickeada = figuraClickeada;
@@ -193,7 +193,8 @@ function onMouseUp(e) {
                     console.log(fila);
                     fichas.splice(i, 1);
                     cantFig--;
-                    tablero.esGanador(turno, col, fila);
+                    hayGanador = tablero.esGanador(turno, col, fila);
+                    console.log(hayGanador);
                     cambiarTurno();
                     limpiarCanvas();
                     drawAll();
@@ -224,6 +225,9 @@ function buscarFiguraSeleccionada(x, y) {
     }
 }
 
+function getGanador(){
+    return hayGanador;
+}
 
 
 /*****************************************************************************/

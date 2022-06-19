@@ -105,6 +105,7 @@ class Tablero {
             }
         }
 
+        return exito;
 
 
         // this.checkVertical(jugador);
@@ -123,15 +124,15 @@ class Tablero {
 
                     contador++;
                     console.log(contador);
+                    if (contador == 4) {
+                        return true;
+                    }
                 } else { contador = 0; }
             }
 
         }
-        if (contador == 4) {
-            return true;
-        } else {
-            return false;
-        }
+        return false;
+
 
     }
 
@@ -183,7 +184,7 @@ class Tablero {
 
     checkDiagonalDer(jugador, col, fila) {
         let contador = 0;
-        while (col < 7 && fila < 6) {
+        while (col > 0 && fila < 6) {
             let jug = this.matriz[col][fila].getJugador();
             if (jugador == jug) {
 
