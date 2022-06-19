@@ -67,12 +67,19 @@ class Tablero {
             }
         }
     }
-    insertarFicha(col){
+    insertarFicha(col,turno){
             for (let row = 5; row >= 0; row--) {
                 if(this.matriz[col][row].getId() != 0){
                     console.log("hola");
                     this.matriz[col][row].setId(0);
-                    this.matriz[col][row].setColor("#039000");
+                    if(turno == 1){
+                        this.matriz[col][row].setColor("#039000");
+                    } else if(turno == 2){
+                        this.matriz[col][row].setColor("#ff2221");
+                    }
+                    
+                    
+                    
                     break;
                 }
                
