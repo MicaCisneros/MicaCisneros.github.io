@@ -4,7 +4,7 @@ let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
 
 let cantFig = 20;
-
+let turno = 1;
 let fichas = [];
 let ultimaFigClickeada = null;
 let isMouseDown = null;
@@ -84,10 +84,10 @@ function addFicha() {
     for (let i = 0; i < cantFig; i++) {
         let posXRoja = (Math.round(Math.random() * 160)) + 45;
         let posYRoja = (Math.round(Math.random() * 350) + 65);
-        let fichaRoja = new Ficha(posXRoja, posYRoja, 15, colorRojo, ctx, '#017000', i);
+        let fichaRoja = new Ficha(posXRoja, posYRoja, 15, colorRojo, ctx, '#017000', i,1);
         let posXAzul = Math.round(Math.random() * 160) + 985;
         let posYAzul = Math.round((Math.random() * 350) + 65);
-        let fichaAzul = new Ficha(posXAzul, posYAzul, 15, colorAzul, ctx, '#ff0000', i);
+        let fichaAzul = new Ficha(posXAzul, posYAzul, 15, colorAzul, ctx, '#ff0000', i,2);
         fichaRoja.draw();
         fichaAzul.draw();
         fichas.push(fichaRoja);
@@ -160,9 +160,11 @@ function onMouseDown(e) {
     let figuraClickeada = buscarFiguraSeleccionada(x, y);
 
     if (figuraClickeada != null) {
-        figuraClickeada.setResaltado(true);
-        // limpiarCanvas();
-        ultimaFigClickeada = figuraClickeada;
+        if(figuraClickeada.getJugador() == turno){
+            figuraClickeada.setResaltado(true);
+            // limpiarCanvas();
+            ultimaFigClickeada = figuraClickeada;
+        }
     }
     limpiarCanvas();
     drawAll();
@@ -171,9 +173,11 @@ function onMouseDown(e) {
 /*  CUANDO MUEVO EL MOUSE ARRASTRANDO UN OBJETO  */
 function onMouseMove(e) {
     if (isMouseDown && ultimaFigClickeada != null) {
-        ultimaFigClickeada.setPosicion(e.layerX - e.currentTarget.offsetLeft, e.layerY - e.currentTarget.offsetTop);
-        limpiarCanvas();
-        drawAll();
+        if(ultimaFigClickeada.getJugador() == turno){
+            ultimaFigClickeada.setPosicion(e.layerX - e.currentTarget.offsetLeft, e.layerY - e.currentTarget.offsetTop);
+            limpiarCanvas();
+            drawAll();
+        }
     }
 }
 
@@ -185,9 +189,10 @@ function onMouseUp(e) {
             if(tablero.checkInsert(ultimaFigClickeada) != -1){
                 if(JSON.stringify(fichas[i]) === JSON.stringify(ultimaFigClickeada)){
                     let col = tablero.checkInsert(ultimaFigClickeada);
-                    tablero.insertarFicha(col);
+                    tablero.insertarFicha(col,turno);
                     fichas.splice(i,1);
                     cantFig--;
+                    cambiarTurno();
                     limpiarCanvas();
                     drawAll();
                 }
@@ -197,6 +202,13 @@ function onMouseUp(e) {
     isMouseDown = false;
 }
 
+function cambiarTurno(){
+    if(turno == 1){
+        turno = 2;
+    }else if(turno == 2){
+        turno = 1
+    }
+}
 /* cada figura se fija si clickeo en ella*/
 function buscarFiguraSeleccionada(x, y) {
     for (let i = 0; i < fichas.length; i++) {

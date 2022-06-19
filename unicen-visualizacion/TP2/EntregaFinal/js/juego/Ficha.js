@@ -32,7 +32,6 @@ class Ficha {
     }
 
     getJugador() {
-        console.log(this.jugador);
         return this.jugador;
     }
     getPosition() {
