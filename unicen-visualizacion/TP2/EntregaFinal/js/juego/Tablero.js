@@ -28,8 +28,8 @@ class Tablero {
 
     }
 
-    drawFichas(){
-        for(let i = 0; i < 42; i++){
+    drawFichas() {
+        for (let i = 0; i < 42; i++) {
             let ficha = new Ficha(this.posXAux, this.posYAux, 15, "#ffffff", this.ctx, this.color);
             this.fichas.push(ficha);
         }
@@ -39,7 +39,7 @@ class Tablero {
         this.ctx.fillStyle = "#407F7F";
         this.ctx.lineWidth = 2;
         this.ctx.fillRect(this.posX, this.posY, this.w, this.h);
-      
+
         for (let col = 0; col < 7; col++) {
             for (let row = 0; row < 6; row++) {
                 let ficha = this.matriz[col][row];
@@ -48,7 +48,7 @@ class Tablero {
         }
     }
 
-    iniciarJuego(){
+    iniciarJuego() {
         this.ctx.fillStyle = "#407F7F";
         this.ctx.lineWidth = 2;
         this.ctx.fillRect(this.posX, this.posY, this.w, this.h);
@@ -56,39 +56,39 @@ class Tablero {
         this.matriz = [];
         for (let col = 0; col < 7; col++) {
             this.posXAux += 50;
-            this.posYAux = this.posY+50;
+            this.posYAux = this.posY + 50;
             this.matriz[col] = [];
             for (let row = 0; row < 6; row++) {
                 this.posYAux += 50;
 
                 let ficha = new Ficha(this.posXAux, this.posYAux, 15, "#ffffff", this.ctx, this.color);
                 ficha.draw();
-                this.matriz[col][row]=ficha;
+                this.matriz[col][row] = ficha;
             }
-           console.log(this.matriz);
+            //console.log(this.matriz);
         }
     }
-    insertarFicha(col){
-            for (let row = 5; row >= 0; row--) {
-                if(this.matriz[col][row].getId() != 0){
-                    console.log("hola");
-                    this.matriz[col][row].setId(0);
-                    this.matriz[col][row].setColor("#347F7F");
-                    row=7;
-                }
-               
+    insertarFicha(col) {
+        for (let row = 5; row >= 0; row--) {
+            if (this.matriz[col][row].getId() != 0) {
+                console.log("hola");
+                this.matriz[col][row].setId(0);
+                this.matriz[col][row].setColor("#347F7F");
+                row = 7;
             }
+
+        }
     }
 
-    checkInsert(ficha){
+    checkInsert(ficha) {
         this.posXAux = this.posX;
-        this.posYAux = this.posY+70 ;
-        for (let col = 0; col < 7; col++){
+        this.posYAux = this.posY + 70;
+        for (let col = 0; col < 7; col++) {
             this.posXAux += 50;
-          
-            if (this.posXAux < ficha.getPosX() && ficha.getPosX() > this.posXAux-5 
-                && this.posYAux > ficha.getPosY() && ficha.getPosY()<  this.posYAux-5){
-                    return col;
+
+            if (this.posXAux < ficha.getPosX() && ficha.getPosX() > this.posXAux - 5 &&
+                this.posYAux > ficha.getPosY() && ficha.getPosY() < this.posYAux - 5) {
+                return col;
             }
         }
         return -1;

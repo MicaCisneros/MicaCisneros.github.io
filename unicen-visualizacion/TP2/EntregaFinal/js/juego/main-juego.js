@@ -192,7 +192,6 @@ function onMouseUp(e) {
                     drawAll();
                 }
             }
-  
         }
     }
     isMouseDown = false;
