@@ -91,23 +91,27 @@ class Tablero {
     }
 
     esGanador(jugador) {
-
-        let exito = this.checkHorizontalDer(jugador);
+        let exito = this.checkHorizontal(jugador)
+        if(!exito){
+            exito = this.checkVertical(jugador);
+            if(!exito){
+                exito = this.checkDiagonal(jugador);
+            }
+        }
+        
+        
         // this.checkVertical(jugador);
 
     }
 
-    checkHorizontalDer(jugador) {
+    checkVertical(jugador) {
 
         let contador = 0;
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 7; i++) {
 
-            for (let j = 0; i < 4; j++) {
-
+            for (let j = 0; j < 6; j++) {
                 let jug = this.matriz[i][j].getJugador();
-                console.log(this.matriz[i][j]);
-
-                console.log(jug);
+                
                 if (jugador == jug) {
 
                     contador++;
@@ -125,44 +129,30 @@ class Tablero {
     }
 
 
-    // checkVertical(jugador) {
+    checkHorizontal(jugador) {
 
-    //     let contador = 0;
-    //     for (let j = 5; i > 0; j--) {
+        let contador = 0;
+        for (let j = 0; j < 6; j++) {
+            for (let i = 0; i < 7; i++) {
 
-    //         for (let i = 6; i > 0; i--) {
+            
+                let jug = this.matriz[i][j].getJugador();
+                
+                if (jugador == jug) {
 
+                    contador++;
+                    console.log(contador);
+                } else { contador = 0; }
+            }
 
+        }
+        if (contador == 4) {
+            return true;
+        } else {
+            return false;
+        }
 
-    //             let jug = this.matriz[j][i].getJugador();
-    //             console.log(this.matriz[i][j]);
-
-    //             console.log(jug);
-    //             if (jugador == jug) {
-
-    //                 contador++;
-    //                 console.log(contador);
-    //             } else { contador = 0; }
-    //         }
-
-    //     }
-    //     // let i = 0;
-    //     // while(i<)
-    //     // if (contador == 4) {
-    //     //     return true;
-    //     // } else {
-    //     //     return false;
-    //     // }
-
-    //     /*  while((fila<MAXFILAS-1)&&(contador<=4) && (tablero[fila][col]==tablero[fila+1][col]) ){
-    //     contador++;
-    //     fila++;
-    // }//fin while x columna
-    //  if (contador==4){
-    //   terminado=true;
-    // }*/
-
-    // }
+    }
 
 
 
