@@ -50,7 +50,7 @@ function drawTablero() {
 
 function iniciarJuego() {
     let posY = 50;
-    tablero = new Tablero(ctx, 250, posY, 700, 400, '#ffffff');
+    tablero = new Tablero(ctx, 250, posY, 700, 400, '#ffffff',tamanio);
     tablero.iniciarJuego(tamanio);
 }
 

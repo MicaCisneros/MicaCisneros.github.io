@@ -1,6 +1,6 @@
 class Tablero {
 
-    constructor(ctx, posX, posY, w, h, color) {
+    constructor(ctx, posX, posY, w, h, color, tamanio) {
         this.ctx = ctx;
         this.posX = posX;
         this.posY = posY;
@@ -11,6 +11,17 @@ class Tablero {
         this.posYAux = this.posY;
         this.matriz = [];
         this.fichas = []
+        this.tamanio = tamanio;
+        if (this.tamanio == 4) {
+            this.columnas = 6;
+            this.filas = 5;
+        } else if (this.tamanio == 5) {
+            this.columnas = 7;
+            this.filas = 6;
+        } else if (this.tamanio == 6) {
+            this.columnas = 8;
+            this.filas = 7;
+        }
         this.drawFichas();
     }
 
@@ -36,27 +47,27 @@ class Tablero {
     }
 
     drawJuego(tamanio) {
-        let columnas = 6;
-        let filas = 5;
-        if (tamanio == 4) {
-            columnas = 6;
-            filas = 5;
-        } else if (tamanio == 5) {
-            columnas = 7;
-            filas = 6;
-        } else if (tamanio == 6) {
-            columnas = 8;
-            filas = 7;
-        } else if (tamanio == 7) {
-            columnas = 9;
-            filas = 8;
-        }
+        // let columnas = 6;
+        // let filas = 5;
+        // if (tamanio == 4) {
+        //     columnas = 6;
+        //     filas = 5;
+        // } else if (tamanio == 5) {
+        //     columnas = 7;
+        //     filas = 6;
+        // } else if (tamanio == 6) {
+        //     columnas = 8;
+        //     filas = 7;
+        // } else if (tamanio == 7) {
+        //     columnas = 9;
+        //     filas = 8;
+        // }
         this.ctx.fillStyle = "#407F7F";
         this.ctx.lineWidth = 2;
         this.ctx.fillRect(this.posX, this.posY, this.w, this.h);
 
-        for (let col = 0; col < columnas; col++) {
-            for (let row = 0; row < filas; row++) {
+        for (let col = 0; col < this.columnas; col++) {
+            for (let row = 0; row < this.filas; row++) {
                 let ficha = this.matriz[col][row];
                 ficha.draw();
             }
@@ -64,31 +75,31 @@ class Tablero {
     }
 
     iniciarJuego(tamanio) {
-        let columnas = 6;
-        let filas = 5;
-        if (tamanio == 4) {
-            columnas = 6;
-            filas = 5;
-        } else if (tamanio == 5) {
-            columnas = 7;
-            filas = 6;
-        } else if (tamanio == 6) {
-            columnas = 8;
-            filas = 7;
-        } else if (tamanio == 7) {
-            columnas = 9;
-            filas = 8;
-        }
+        // let columnas = 6;
+        // let filas = 5;
+        // if (tamanio == 4) {
+        //     columnas = 6;
+        //     filas = 5;
+        // } else if (tamanio == 5) {
+        //     columnas = 7;
+        //     filas = 6;
+        // } else if (tamanio == 6) {
+        //     columnas = 8;
+        //     filas = 7;
+        // } else if (tamanio == 7) {
+        //     columnas = 9;
+        //     filas = 8;
+        // }
         this.ctx.fillStyle = "#407F7F";
         this.ctx.lineWidth = 2;
         this.ctx.fillRect(this.posX, this.posY, this.w, this.h);
         this.posXAux += 15;
         this.matriz = [];
-        for (let col = 0; col < columnas; col++) {
+        for (let col = 0; col < this.columnas; col++) {
             this.posXAux += 50;
-            this.posYAux = this.posY + 50;
+            this.posYAux = this.posY + 30;
             this.matriz[col] = [];
-            for (let row = 0; row < filas; row++) {
+            for (let row = 0; row < this.filas; row++) {
                 this.posYAux += 50;
 
                 let ficha = new Ficha(this.posXAux, this.posYAux, 15, "#ffffff", this.ctx, this.color);
@@ -100,7 +111,7 @@ class Tablero {
     insertarFicha(col, turno) {
 
         let rowAux = -1;
-        for (let row = 5; row >= 0; row--) {
+        for (let row = this.filas-1; row >= 0; row--) {
             if (this.matriz[col][row].getId() != 0) {
                 console.log("hola");
                 this.matriz[col][row].setId(0);
@@ -145,16 +156,16 @@ class Tablero {
     checkVertical(jugador) {
 
         let contador = 0;
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < this.columnas; i++) {
 
-            for (let j = 0; j < 6; j++) {
+            for (let j = 0; j < this.filas; j++) {
                 let jug = this.matriz[i][j].getJugador();
 
                 if (jugador == jug) {
 
                     contador++;
                     console.log(contador);
-                    if (contador == 4) {
+                    if (contador == this.tamanio) {
                         return true;
                     }
                 } else { contador = 0; }
@@ -170,8 +181,8 @@ class Tablero {
     checkHorizontal(jugador) {
 
         let contador = 0;
-        for (let j = 0; j < 6; j++) {
-            for (let i = 0; i < 7; i++) {
+        for (let j = 0; j < this.filas; j++) {
+            for (let i = 0; i < this.columnas; i++) {
 
 
                 let jug = this.matriz[i][j].getJugador();
@@ -184,7 +195,7 @@ class Tablero {
             }
 
         }
-        if (contador == 4) {
+        if (contador == this.tamanio) {
             return true;
         } else {
             return false;
@@ -194,7 +205,7 @@ class Tablero {
 
     checkDiagonalIzq(jugador, col, fila) {
         let contador = 0;
-        while (col < 7 && fila < 6) {
+        while (col < this.columnas && fila < this.filas) {
             let jug = this.matriz[col][fila].getJugador();
             if (jugador == jug) {
 
@@ -205,7 +216,7 @@ class Tablero {
             fila++;
 
         }
-        if (contador == 4) {
+        if (contador == this.tamanio) {
             return true;
         } else {
             return false;
@@ -214,7 +225,7 @@ class Tablero {
 
     checkDiagonalDer(jugador, col, fila) {
         let contador = 0;
-        while (col > 0 && fila < 6) {
+        while (col > 0 && fila < this.filas) {
             let jug = this.matriz[col][fila].getJugador();
             if (jugador == jug) {
 
@@ -225,7 +236,7 @@ class Tablero {
             fila++;
 
         }
-        if (contador == 4) {
+        if (contador == this.tamanio) {
             return true;
         } else {
             return false;
@@ -234,11 +245,13 @@ class Tablero {
 
     checkInsert(ficha) {
         this.posXAux = this.posX + 145;
-        this.posYAux = this.posY + 75;
-        for (let col = 0; col < 7; col++) {
+        this.posYAux = this.posY + 45;
+        for (let col = 0; col < this.columnas; col++) {
             this.posXAux += 50;
+            console.log(this.posYAux,ficha.getPosY(),this.posYAux - 5)
+            console.log(this.posXAux,ficha.getPosX(),this.posXAux - 5)
             if ((this.posXAux > ficha.getPosX()) && (ficha.getPosX() > this.posXAux - 5) &&
-                (this.posYAux > ficha.getPosY()) && (ficha.getPosY() < this.posYAux - 5)) {
+                (this.posYAux > ficha.getPosY()) && (ficha.getPosY() > this.posYAux - 5)) {
                 return col;
             }
         }
