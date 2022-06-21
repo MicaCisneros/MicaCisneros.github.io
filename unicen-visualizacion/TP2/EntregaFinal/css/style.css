@@ -1850,3 +1850,23 @@ hr {
 .modo-juego select {
     margin-left: 15px;
 }
+
+.cartelGanador{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 500px;
+    top: 200px;
+}
+
+.cartelGanadorVisible{
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    left: 400px;
+    top: 150px;
+}
+
+.canvasJuego{
+    filter: blur(10px);
+}

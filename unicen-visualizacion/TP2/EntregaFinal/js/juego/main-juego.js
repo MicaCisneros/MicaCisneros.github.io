@@ -11,13 +11,15 @@ let isMouseDown = null;
 let tamanio = 4;
 var ganador1 = document.querySelector("#winnerone");
 let turnoJugador = document.getElementById("turno-jug");
-
+let cartel1 = document.querySelector("#winner1");
+let cartel2 = document.querySelector("#winner2");
 
 //Seleccion de modo de juego (4-5 o 6 en fila)
 document.querySelector('#select-tamanio').addEventListener('click', () => {
     let tam = document.querySelector('#select-tamanio').value;;
     tamanio = tam;
     fichas = [];
+    
     limpiarCanvas();
     drawJuego();
 });
@@ -25,6 +27,12 @@ document.querySelector('#select-tamanio').addEventListener('click', () => {
 //Reiniciar juego (4-5 o 6 en fila)
 document.querySelector('#reiniciar').addEventListener('click', () => {
 
+    hayGanador = false;
+    cartel1.classList.remove("cartelGanadorVisible");
+    cartel1.classList.add("cartelGanador");
+    cartel2.classList.remove("cartelGanadorVisible");
+    cartel2.classList.add("cartelGanador");
+    canvas.classList.remove("canvasJuego");
     fichas = [];
     limpiarCanvas();
     drawJuego();
@@ -40,7 +48,7 @@ function drawJuego() {
     this.addFicha();
     drawTablero();
     iniciarJuego();
-    imprimirTurno()
+    imprimirTurno();
 }
 
 
@@ -229,6 +237,7 @@ function onMouseUp(e) {
                     cantFig--;
                     hayGanador = tablero.esGanador(turno, col, fila);
                     if (hayGanador) {
+                        canvas.classList.add("canvasJuego");
                         showGanador(hayGanador);
                     }
                     console.log(hayGanador);
@@ -286,10 +295,17 @@ function getPosMouse(canvas, evento) {
     }
 }
 
-/*************************************** */
+/****************************************/
 function showGanador(jugador) {
-    console.log("gano jug:" + jugador);
+    
+    if(jugador == 1){
+        cartel1.classList.toggle("cartelGanadorVisible");
+        cartel1.classList.toggle("cartelGanador");
+    }else {
+        cartel2.classList.toggle("cartelGanadorVisible");
+        cartel2.classList.toggle("cartelGanador");
+    }
 
-    ctx.drawImage(ganador1, 100, 100);
 
 }
+

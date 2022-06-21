@@ -75,7 +75,6 @@ class Tablero {
     }
 
     iniciarJuego(tamanio) {
-
         this.ctx.fillStyle = "#2e2735";
         this.ctx.lineWidth = 2;
         this.ctx.fillRect(this.posX, this.posY, this.w, this.h);
@@ -149,7 +148,7 @@ class Tablero {
         }
 
         // if (exito) {
-        //     this.showGanador(exito);
+        //     this.showGanador(jugador);
         // }
         return exito;
     }
