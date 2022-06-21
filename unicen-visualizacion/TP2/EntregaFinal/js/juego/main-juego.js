@@ -12,6 +12,8 @@ let tamanio = 4;
 var ganador1 = document.querySelector("#winnerone");
 let turnoJugador = document.getElementById("turno-jug");
 
+
+//Seleccion de modo de juego (4-5 o 6 en fila)
 document.querySelector('#select-tamanio').addEventListener('click', () => {
     let tam = document.querySelector('#select-tamanio').value;;
     tamanio = tam;
@@ -20,10 +22,13 @@ document.querySelector('#select-tamanio').addEventListener('click', () => {
     drawJuego();
 });
 
-function imprimirTurno() {
-    // let jug = fichas[0].getJugador();
-    turnoJugador.innerHTML = "Jugador " + turno;
-}
+//Reiniciar juego (4-5 o 6 en fila)
+document.querySelector('#reiniciar').addEventListener('click', () => {
+
+    fichas = [];
+    limpiarCanvas();
+    drawJuego();
+});
 
 let tablero = null;
 this.drawJuego(4);
@@ -58,6 +63,7 @@ function iniciarJuego() {
     tablero = new Tablero(ctx, 250, posY, 700, 400, '#ffffff', tamanio);
     tablero.iniciarJuego(tamanio);
 }
+
 
 
 // function drawFigura() {
@@ -245,6 +251,13 @@ function cambiarTurno() {
         turno = 1
     }
 }
+
+//muestra a que jugador le toca jugar
+function imprimirTurno() {
+    // let jug = fichas[0].getJugador();
+    turnoJugador.innerHTML = "Jugador " + turno;
+}
+
 /* cada figura se fija si clickeo en ella*/
 function buscarFiguraSeleccionada(x, y) {
     for (let i = 0; i < fichas.length; i++) {
