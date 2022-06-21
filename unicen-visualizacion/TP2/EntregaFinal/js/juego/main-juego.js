@@ -13,6 +13,7 @@ let tamanio = 4;
 document.querySelector('#select-tamanio').addEventListener('click', () => {
     let tam = document.querySelector('#select-tamanio').value;;
     tamanio = tam;
+    fichas = [];
     limpiarCanvas();
     drawJuego();
 });
