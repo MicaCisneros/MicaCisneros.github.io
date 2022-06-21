@@ -10,6 +10,7 @@ let ultimaFigClickeada = null;
 let isMouseDown = null;
 let tamanio = 4;
 var ganador1 = document.querySelector("#winnerone");
+let turnoJugador = document.getElementById("turno-jug");
 
 document.querySelector('#select-tamanio').addEventListener('click', () => {
     let tam = document.querySelector('#select-tamanio').value;;
@@ -18,6 +19,11 @@ document.querySelector('#select-tamanio').addEventListener('click', () => {
     limpiarCanvas();
     drawJuego();
 });
+
+function imprimirTurno() {
+    // let jug = fichas[0].getJugador();
+    turnoJugador.innerHTML = "Jugador " + turno;
+}
 
 let tablero = null;
 this.drawJuego(4);
@@ -29,6 +35,7 @@ function drawJuego() {
     this.addFicha();
     drawTablero();
     iniciarJuego();
+    imprimirTurno()
 }
 
 
@@ -220,6 +227,7 @@ function onMouseUp(e) {
                     }
                     console.log(hayGanador);
                     cambiarTurno();
+                    imprimirTurno();
                     limpiarCanvas();
                     drawAll();
 

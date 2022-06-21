@@ -252,6 +252,10 @@ iframe .dropdown-img {
     background-color: rgba(35, 32, 35, 1);
 }
 
+.bg-dark {
+    background-color: rgb(46, 39, 53);
+}
+
 .bg-gris-claro {
     background-color: rgba(199, 195, 199, 1);
 }
@@ -1825,4 +1829,24 @@ hr {
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.header-game {
+    display: flex;
+    width: 1090px;
+    height: 100px;
+    margin-top: 50px;
+    margin-left: 30px;
+    align-items: center;
+    justify-content: space-between;
+    color: #989c9e;
+    padding: 0px 30px 0px 30px;
+}
+
+.modo-juego {
+    display: flex;
+}
+
+.modo-juego select {
+    margin-left: 15px;
 }
