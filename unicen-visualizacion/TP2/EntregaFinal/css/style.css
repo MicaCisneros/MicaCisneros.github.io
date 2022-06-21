@@ -1817,3 +1817,12 @@ hr {
     background: linear-gradient(to top left, #ffa17f, #00223e);
     transform-style: preserve-3d;
 }
+
+
+/**************************************  JUEGO  *******************************************/
+
+.section-game {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

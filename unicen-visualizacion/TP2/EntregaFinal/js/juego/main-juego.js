@@ -9,6 +9,7 @@ let fichas = [];
 let ultimaFigClickeada = null;
 let isMouseDown = null;
 let tamanio = 4;
+var ganador1 = document.querySelector("#winnerone");
 
 document.querySelector('#select-tamanio').addEventListener('click', () => {
     let tam = document.querySelector('#select-tamanio').value;;
@@ -30,9 +31,6 @@ function drawJuego() {
     iniciarJuego();
 }
 
-function seleccionarTamanio() {
-
-}
 
 function drawTablero() {
     let color = "#000000";
@@ -50,7 +48,7 @@ function drawTablero() {
 
 function iniciarJuego() {
     let posY = 50;
-    tablero = new Tablero(ctx, 250, posY, 700, 400, '#ffffff',tamanio);
+    tablero = new Tablero(ctx, 250, posY, 700, 400, '#ffffff', tamanio);
     tablero.iniciarJuego(tamanio);
 }
 
@@ -217,6 +215,9 @@ function onMouseUp(e) {
                     fichas.splice(i, 1);
                     cantFig--;
                     hayGanador = tablero.esGanador(turno, col, fila);
+                    if (hayGanador) {
+                        showGanador(hayGanador);
+                    }
                     console.log(hayGanador);
                     cambiarTurno();
                     limpiarCanvas();
@@ -262,4 +263,12 @@ function getPosMouse(canvas, evento) {
         x: Math.round(evento.clientX - canvas.offsetLeft),
         y: Math.round(evento.clientY - canvas.offsetLeft)
     }
+}
+
+/*************************************** */
+function showGanador(jugador) {
+    console.log("gano jug:" + jugador);
+
+    ctx.drawImage(ganador1, 100, 100);
+
 }

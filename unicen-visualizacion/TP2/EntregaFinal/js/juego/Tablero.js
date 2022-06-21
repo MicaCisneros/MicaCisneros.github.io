@@ -75,21 +75,7 @@ class Tablero {
     }
 
     iniciarJuego(tamanio) {
-        // let columnas = 6;
-        // let filas = 5;
-        // if (tamanio == 4) {
-        //     columnas = 6;
-        //     filas = 5;
-        // } else if (tamanio == 5) {
-        //     columnas = 7;
-        //     filas = 6;
-        // } else if (tamanio == 6) {
-        //     columnas = 8;
-        //     filas = 7;
-        // } else if (tamanio == 7) {
-        //     columnas = 9;
-        //     filas = 8;
-        // }
+
         this.ctx.fillStyle = "#407F7F";
         this.ctx.lineWidth = 2;
         this.ctx.fillRect(this.posX, this.posY, this.w, this.h);
@@ -108,12 +94,28 @@ class Tablero {
             }
         }
     }
+
+    checkInsert(ficha) {
+        this.posXAux = this.posX + 145;
+        this.posYAux = this.posY + 45;
+        for (let col = 0; col < this.columnas; col++) {
+            this.posXAux += 50;
+
+            if ((this.posXAux + 15 > ficha.getPosX()) && (ficha.getPosX() > this.posXAux - 15) &&
+                (this.posYAux + 15 > ficha.getPosY()) && (ficha.getPosY() > this.posYAux - 15)) {
+                return col;
+            }
+        }
+
+        return -1;
+    }
+
     insertarFicha(col, turno) {
 
         let rowAux = -1;
-        for (let row = this.filas-1; row >= 0; row--) {
+        for (let row = this.filas - 1; row >= 0; row--) {
             if (this.matriz[col][row].getId() != 0) {
-                console.log("hola");
+
                 this.matriz[col][row].setId(0);
                 this.matriz[col][row].setJugador(turno);
 
@@ -146,11 +148,10 @@ class Tablero {
             }
         }
 
+        // if (exito) {
+        //     this.showGanador(exito);
+        // }
         return exito;
-
-
-        // this.checkVertical(jugador);
-
     }
 
     checkVertical(jugador) {
@@ -164,9 +165,10 @@ class Tablero {
                 if (jugador == jug) {
 
                     contador++;
-                    console.log(contador);
+
                     if (contador == this.tamanio) {
-                        return true;
+                        console.log(contador);
+                        return jugador;
                     }
                 } else { contador = 0; }
             }
@@ -196,7 +198,7 @@ class Tablero {
 
         }
         if (contador == this.tamanio) {
-            return true;
+            return jugador;
         } else {
             return false;
         }
@@ -217,7 +219,7 @@ class Tablero {
 
         }
         if (contador == this.tamanio) {
-            return true;
+            return jugador;
         } else {
             return false;
         }
@@ -237,25 +239,13 @@ class Tablero {
 
         }
         if (contador == this.tamanio) {
-            return true;
+            return jugador;
         } else {
             return false;
         }
     }
 
-    checkInsert(ficha) {
-        this.posXAux = this.posX + 145;
-        this.posYAux = this.posY + 45;
-        for (let col = 0; col < this.columnas; col++) {
-            this.posXAux += 50;
-            console.log(this.posYAux,ficha.getPosY(),this.posYAux - 5)
-            console.log(this.posXAux,ficha.getPosX(),this.posXAux - 5)
-            if ((this.posXAux > ficha.getPosX()) && (ficha.getPosX() > this.posXAux - 5) &&
-                (this.posYAux > ficha.getPosY()) && (ficha.getPosY() > this.posYAux - 5)) {
-                return col;
-            }
-        }
-        // console.log(this.matriz);
-        return -1;
-    }
+
+
+
 }
