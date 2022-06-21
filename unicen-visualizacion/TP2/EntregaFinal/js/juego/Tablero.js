@@ -35,30 +35,60 @@ class Tablero {
         }
     }
 
-    drawJuego() {
+    drawJuego(tamanio) {
+        let columnas = 6;
+        let filas = 5;
+        if (tamanio == 4) {
+            columnas = 6;
+            filas = 5;
+        } else if (tamanio == 5) {
+            columnas = 7;
+            filas = 6;
+        } else if (tamanio == 6) {
+            columnas = 8;
+            filas = 7;
+        } else if (tamanio == 7) {
+            columnas = 9;
+            filas = 8;
+        }
         this.ctx.fillStyle = "#407F7F";
         this.ctx.lineWidth = 2;
         this.ctx.fillRect(this.posX, this.posY, this.w, this.h);
 
-        for (let col = 0; col < 7; col++) {
-            for (let row = 0; row < 6; row++) {
+        for (let col = 0; col < columnas; col++) {
+            for (let row = 0; row < filas; row++) {
                 let ficha = this.matriz[col][row];
                 ficha.draw();
             }
         }
     }
 
-    iniciarJuego() {
+    iniciarJuego(tamanio) {
+        let columnas = 6;
+        let filas = 5;
+        if (tamanio == 4) {
+            columnas = 6;
+            filas = 5;
+        } else if (tamanio == 5) {
+            columnas = 7;
+            filas = 6;
+        } else if (tamanio == 6) {
+            columnas = 8;
+            filas = 7;
+        } else if (tamanio == 7) {
+            columnas = 9;
+            filas = 8;
+        }
         this.ctx.fillStyle = "#407F7F";
         this.ctx.lineWidth = 2;
         this.ctx.fillRect(this.posX, this.posY, this.w, this.h);
         this.posXAux += 15;
         this.matriz = [];
-        for (let col = 0; col < 7; col++) {
+        for (let col = 0; col < columnas; col++) {
             this.posXAux += 50;
             this.posYAux = this.posY + 50;
             this.matriz[col] = [];
-            for (let row = 0; row < 6; row++) {
+            for (let row = 0; row < filas; row++) {
                 this.posYAux += 50;
 
                 let ficha = new Ficha(this.posXAux, this.posYAux, 15, "#ffffff", this.ctx, this.color);

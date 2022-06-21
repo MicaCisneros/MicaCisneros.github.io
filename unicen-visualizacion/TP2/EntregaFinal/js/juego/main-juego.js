@@ -3,21 +3,34 @@ let ctx = canvas.getContext("2d");
 let canvasWidth = canvas.width;
 let canvasHeight = canvas.height;
 let hayGanador = false;
-let cantFig = 20;
+let cantFig = 21;
 let turno = 1;
 let fichas = [];
 let ultimaFigClickeada = null;
 let isMouseDown = null;
+let tamanio = 4;
+
+document.querySelector('#select-tamanio').addEventListener('click', () => {
+    let tam = document.querySelector('#select-tamanio').value;;
+    tamanio = tam;
+    limpiarCanvas();
+    drawJuego();
+});
 
 let tablero = null;
-this.drawJuego();
+this.drawJuego(4);
 
 function drawJuego() {
     // let tab = new Tablero(this.ctx);
     // tab.draw();
+
     this.addFicha();
     drawTablero();
     iniciarJuego();
+}
+
+function seleccionarTamanio() {
+
 }
 
 function drawTablero() {
@@ -37,7 +50,7 @@ function drawTablero() {
 function iniciarJuego() {
     let posY = 50;
     tablero = new Tablero(ctx, 250, posY, 700, 400, '#ffffff');
-    tablero.iniciarJuego();
+    tablero.iniciarJuego(tamanio);
 }
 
 
@@ -78,6 +91,15 @@ function iniciarJuego() {
 function addFicha() {
     console.log(2);
 
+    if (tamanio == 4) {
+        cantFig = 21;
+    } else if (tamanio == 5) {
+        cantFig = 24;
+    } else if (tamanio == 6) {
+        cantFig = 28;
+    } else if (tamanio == 6) {
+        cantFig = 32;
+    }
 
     let colorRojo = '#039000';
     let colorAzul = '#ff2221';
@@ -95,7 +117,6 @@ function addFicha() {
 
     }
 }
-
 
 
 
@@ -122,7 +143,8 @@ function addFicha() {
 
 function drawAll() {
     this.drawTablero();
-    tablero.drawJuego();
+    tablero.drawJuego(tamanio);
+    console.log(fichas.length);
     for (let i = 0; i < fichas.length; i++) {
         fichas[i].draw();
     }
@@ -225,7 +247,7 @@ function buscarFiguraSeleccionada(x, y) {
     }
 }
 
-function getGanador(){
+function getGanador() {
     return hayGanador;
 }
 
