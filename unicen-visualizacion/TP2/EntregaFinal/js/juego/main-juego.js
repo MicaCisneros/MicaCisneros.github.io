@@ -19,7 +19,7 @@ document.querySelector('#select-tamanio').addEventListener('click', () => {
     let tam = document.querySelector('#select-tamanio').value;;
     tamanio = tam;
     fichas = [];
-    
+
     limpiarCanvas();
     drawJuego();
 });
@@ -158,9 +158,13 @@ function addFicha() {
 //     }
 // }
 
-// setTimeout(() => {
-//     addFiguras();
-// }, 333)
+setTimeout(() => {
+    fichas = [];
+    turno = 1;
+    limpiarCanvas();
+    drawJuego();
+    //addFiguras();
+}, 333)
 
 function drawAll() {
     this.drawTablero();
@@ -298,15 +302,14 @@ function getPosMouse(canvas, evento) {
 
 /****************************************/
 function showGanador(jugador) {
-    
-    if(jugador == 1){
+
+    if (jugador == 1) {
         cartel1.classList.toggle("cartelGanadorVisible");
         cartel1.classList.toggle("cartelGanador");
-    }else {
+    } else {
         cartel2.classList.toggle("cartelGanadorVisible");
         cartel2.classList.toggle("cartelGanador");
     }
 
 
 }
-
