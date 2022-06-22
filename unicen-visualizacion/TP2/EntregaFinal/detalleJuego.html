@@ -81,12 +81,12 @@
 
     <section class="contenedorSeccion">
         <div class="divJuego">
-            <div class="header-game bg-dark">
+            <div class="header-game blurear bg-dark">
                 <div>
                     <h2> 4 En Fila</h2>
                     <button id="reiniciar">Reiniciar</button>
                 </div>
-        
+
                 <div>
                     <p>Turno: <span id="turno-jug"> </span></p>
                     <span id="timer"></span>
@@ -103,15 +103,20 @@
                     </select>
                 </div>
             </div>
-        
-            <div>
-        
-                    <canvas id="myCanvas" width="1200" height="500"></canvas>
-        
-                    <img id="winner1" class="cartelGanador" src="img/winner1Va.png" alt="">
-                    <img id="winner2" class="cartelGanador" src="img/winner2.png" alt="">
+
+            <div class="iniciar-juego">
+                <img src="img/4enLinea.png" alt="">
+                <button id="iniciar" class="bg-celeste botonPlay"><i class="play fa-solid fa-play"></i>Jugar</button>
             </div>
-        
+
+            <div>
+
+                <canvas id="myCanvas" class="myCanvas blurear" width="1200" height="500"></canvas>
+
+                <img id="winner1" class="cartelGanador" src="img/winner1Va.png" alt="">
+                <img id="winner2" class="cartelGanador" src="img/winner2.png" alt="">
+            </div>
+
         </div>
 
         <div id="contenedor-loader">
@@ -161,14 +166,13 @@
 
             <div class="infoJuego">
                 <h4 class="subDetalle2">Instrucciones</h4>
-                <p class="instruccionesJuego">Se juega siempre entre 2 jugadores y sobre un tablero de 7x6 casillas.
-                    En cada turno cada jugador coloca una ficha de su color en una columna y esta cae hasta la
-                    primera casilla disponible. 
-                    El que consigue ubicar 4 fichas del mismo color seguidas en horizontal, vertical u oblicuo gana.</p>
+                <p class="instruccionesJuego">Se juega siempre entre 2 jugadores y sobre un tablero de 7x6 casillas. En cada turno cada jugador coloca una ficha de su color en una columna y esta cae hasta la primera casilla disponible. El que consigue ubicar 4 fichas del mismo color
+                    seguidas en horizontal, vertical u oblicuo gana.</p>
             </div>
             <div class="videoJuego">
                 <h4 class="margenDetalle subDetalle2">Video ilustrativo</h4>
-                    <iframe class="margenDetalle video" width="330" height="165" src="https://www.youtube.com/embed/KFn5v2BImGQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="margenDetalle video" width="330" height="165" src="https://www.youtube.com/embed/KFn5v2BImGQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
 
             <h4 class="recomendadosTitulos margenDetalle subDetalle2">Juegos recomendados</h4>

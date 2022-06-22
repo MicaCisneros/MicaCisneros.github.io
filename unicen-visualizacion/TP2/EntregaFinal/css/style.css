@@ -1826,8 +1826,6 @@ hr {
 
 /**************************************  JUEGO  *******************************************/
 
-
-
 .header-game {
     display: flex;
     width: 1100px;
@@ -1867,4 +1865,26 @@ hr {
 
 .canvasJuego {
     filter: blur(10px);
+}
+
+.blurear {
+    filter: blur(2px);
+}
+
+.iniciar-juego {
+    position: absolute;
+    z-index: 2;
+    left: 500px;
+    top: 10px;
+}
+
+#iniciar {
+    position: absolute;
+    z-index: 2;
+    top: 350px;
+    left: 140px;
+}
+
+.ocultar {
+    display: none;
 }

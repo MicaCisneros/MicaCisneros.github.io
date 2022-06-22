@@ -13,25 +13,38 @@ var ganador1 = document.querySelector("#winnerone");
 let turnoJugador = document.getElementById("turno-jug");
 let cartel1 = document.querySelector("#winner1");
 let cartel2 = document.querySelector("#winner2");
+let headerGame = document.querySelector(".header-game");
+let cartelInicio = document.querySelector(".iniciar-juego");
+let timer = null;
 
 let timerVariable = setInterval(countUpTimer, 1000);
 let totalSeconds = 0;
 
+
+document.querySelector('#iniciar').addEventListener('click', () => {
+    canvas.classList.remove("blurear");
+    headerGame.classList.remove("blurear");
+    cartelInicio.classList.add("ocultar");
+    this.drawJuego(4);
+    timer = setTimeout(reiniciar, 300000);
+});
+
+
 function countUpTimer() {
-  ++totalSeconds;
-  var hour = Math.floor(totalSeconds / 3600);
-  var minute = Math.floor((totalSeconds - hour * 3600) / 60);
-  var seconds = totalSeconds - (hour * 3600 + minute * 60);
-  document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
+    ++totalSeconds;
+    var hour = Math.floor(totalSeconds / 3600);
+    var minute = Math.floor((totalSeconds - hour * 3600) / 60);
+    var seconds = totalSeconds - (hour * 3600 + minute * 60);
+    document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
 }
 //Seleccion de modo de juego (4-5 o 6 en fila)
 document.querySelector('#select-tamanio').addEventListener('click', () => {
     let tam = document.querySelector('#select-tamanio').value;
     console.log(tam);
-    if(tam){
+    if (tam) {
         tamanio = tam;
         fichas = [];
-    
+
         limpiarCanvas();
         drawJuego();
     }
@@ -40,12 +53,13 @@ document.querySelector('#select-tamanio').addEventListener('click', () => {
 
 //Reiniciar juego (4-5 o 6 en fila)
 document.querySelector('#reiniciar').addEventListener('click', () => {
-reiniciar();
+    reiniciar();
 });
 
 
 
-function reiniciar(){
+
+function reiniciar() {
     hayGanador = false;
     cartel1.classList.remove("cartelGanadorVisible");
     cartel1.classList.add("cartelGanador");
@@ -59,12 +73,11 @@ function reiniciar(){
     clearInterval(timerVariable);
     totalSeconds = 0;
     timerVariable = setInterval(countUpTimer, 1000)
-    timer = setTimeout(reiniciar,300000);
+    timer = setTimeout(reiniciar, 300000);
 }
 
 let tablero = null;
-this.drawJuego(4);
-let timer = setTimeout(reiniciar,300000);
+
 
 
 function drawJuego() {
