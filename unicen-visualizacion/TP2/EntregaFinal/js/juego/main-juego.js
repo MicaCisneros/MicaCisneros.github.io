@@ -146,18 +146,18 @@ function addFicha() {
     }
 
     let colorRojo = '#039000';
-    let colorAzul = '#ff2221';
+    let colorAmarrilla = '#ff2221';
     for (let i = 0; i < cantFig; i++) {
-        let posXRoja = (Math.round(Math.random() * 160)) + 45;
-        let posYRoja = (Math.round(Math.random() * 350) + 65);
-        let fichaRoja = new Ficha(posXRoja, posYRoja, 15, colorRojo, ctx, '#017000', i, 1);
-        let posXAzul = Math.round(Math.random() * 160) + 985;
-        let posYAzul = Math.round((Math.random() * 350) + 65);
-        let fichaAzul = new Ficha(posXAzul, posYAzul, 15, colorAzul, ctx, '#ff0000', i, 2);
-        fichaRoja.draw();
-        fichaAzul.draw();
+        let posXAmarrilla = (Math.round(Math.random() * 160)) + 45;
+        let posYAmarrilla = (Math.round(Math.random() * 350) + 65);
+        let posXRoja = Math.round(Math.random() * 160) + 985;
+        let posYRoja = Math.round((Math.random() * 350) + 65);
+        let fichaRoja = new Ficha(posXRoja, posYRoja, 15, colorRojo, ctx, '#017000', i, 2);
+        let fichaAmarrilla = new Ficha(posXAmarrilla, posYAmarrilla, 15, colorAmarrilla, ctx, '#ff0000', i, 1);
+        fichaRoja.draw(2);
+        fichaAmarrilla.draw(1);
         fichas.push(fichaRoja);
-        fichas.push(fichaAzul);
+        fichas.push(fichaAmarrilla);
 
     }
 }

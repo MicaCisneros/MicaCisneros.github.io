@@ -11,8 +11,19 @@ class Ficha {
         this.resaltadoEstilo = 'purple';
         this.jugador = jugador;
         this.id = id;
+        this.img = new Image();
+        if(jugador == 1){
+            this.img.src = "img/fichaAmarrilla2.png"; 
+        }else{
+            this.img.src = "img/fichaRosa.png";
+        }
+        
     }
 
+
+    setImg(img){
+        this.img.src = img;
+    }
 
     setFill(fill) {
         this.fill = fill;
@@ -64,10 +75,30 @@ class Ficha {
     }
 
     draw() {
+        this.ctx.fillStyle = this.img;
+        this.ctx.beginPath();
+        //this.ctx.arc(this.posX, this.posY, this.radio, 0, 2 * Math.PI);
+        this.ctx.drawImage(this.img, this.posX - 18, this.posY - 18, this.radio * 2.5, this.radio * 2.5);
+        this.ctx.fill();
+        //this.ctx.arc(this.posX, this.posY, 10, 0, 2 * Math.PI);
+        // this.ctx.strokeStyle = this.colorBorde;
+        // this.ctx.lineWidth = 5;
+        // ctx.stroke();
 
+
+        if (this.resaltado) {
+            this.ctx.strokeStyle = this.resaltadoEstilo;
+            this.ctx.lineWidth = 4;
+            this.ctx.stroke();
+        }
+        this.ctx.closePath();
+    }
+
+    drawFichaTablero(){
         this.ctx.fillStyle = this.fill;
         this.ctx.beginPath();
         this.ctx.arc(this.posX, this.posY, this.radio, 0, 2 * Math.PI);
+        //this.ctx.drawImage(this.img,this.posX, this.posY);
         this.ctx.fill();
         //this.ctx.arc(this.posX, this.posY, 10, 0, 2 * Math.PI);
         // this.ctx.strokeStyle = this.colorBorde;

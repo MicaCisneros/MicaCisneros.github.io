@@ -69,7 +69,14 @@ class Tablero {
         for (let col = 0; col < this.columnas; col++) {
             for (let row = 0; row < this.filas; row++) {
                 let ficha = this.matriz[col][row];
-                ficha.draw();
+                if(ficha.getId() == 0){
+                    ficha.draw();
+                    console.log("hoña");
+                }else{
+                    ficha.drawFichaTablero();
+                }
+                
+
             }
         }
     }
@@ -88,7 +95,7 @@ class Tablero {
                 this.posYAux += 50;
 
                 let ficha = new Ficha(this.posXAux, this.posYAux, 15, "#ffffff", this.ctx, this.color);
-                ficha.draw();
+                ficha.drawFichaTablero();
                 this.matriz[col][row] = ficha;
             }
         }
@@ -119,9 +126,9 @@ class Tablero {
                 this.matriz[col][row].setJugador(turno);
 
                 if (turno == 1) {
-                    this.matriz[col][row].setColor("#039000");
+                    this.matriz[col][row].setImg("img/fichaAmarrilla2.png");
                 } else if (turno == 2) {
-                    this.matriz[col][row].setColor("#ff2221");
+                    this.matriz[col][row].setImg("img/fichaRosa.png");
                 }
 
                 rowAux = row;
