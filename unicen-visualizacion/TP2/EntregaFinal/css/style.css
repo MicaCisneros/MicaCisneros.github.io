@@ -849,6 +849,7 @@ footer a {
     position: relative;
     display: inline-block;
     text-align: center;
+    background-color: rgb(192, 215, 223);
 }
 
 .contenedorFavoritos {
@@ -1837,6 +1838,7 @@ hr {
     height: 100px;
     margin-top: 50px;
     margin-left: 30px;
+    margin-left: 100px;
     align-items: center;
     justify-content: space-between;
     color: #989c9e;
@@ -1849,4 +1851,24 @@ hr {
 
 .modo-juego select {
     margin-left: 15px;
+}
+
+.cartelGanador{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 500px;
+    top: 200px;
+}
+
+.cartelGanadorVisible{
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    left: 400px;
+    top: 150px;
+}
+
+.canvasJuego{
+    filter: blur(10px);
 }

@@ -81,13 +81,35 @@
 
     <section class="contenedorSeccion">
         <div class="divJuego">
-            <img class="juegoDetalle" src="img/juegoSimpsons.jpg" alt="Imagen alternativa en PNG">
-            <h2 class="texto-encima color-blanco">Los simpsons</h2>
-            <div class="color-blanco centrado">¡Juega hoy y crea tu propio Springfield lleno de vida!</div>
-            <div class="divBotonPlay">
-                <button class="bg-celeste botonPlay"><i class="play fa-solid fa-play"></i>Jugar</button>
+            <div class="header-game bg-dark">
+                <div>
+                    <h2> 4 En Fila</h2>
+                    <button id="reiniciar">Reiniciar</button>
+                </div>
+        
+                <div>
+                    <p>Turno: <span id="turno-jug"> </span></p>
+                </div>
+                <div class="modo-juego">
+                    <p>Modo de juego: </p>
+                    <select name="" id="select-tamanio">
+                        <!-- <option>Seleccione</option> -->
+                        <option  value="4">4 En Fila</option>
+                        <option  value="5">5 En Fila</option>
+                        <option value="6"> 6 En Fila</option>
+                        <!-- <option value="7">7 En Fila</option> -->
+                    </select>
+                </div>
             </div>
-
+        
+            <div>
+        
+                    <canvas id="myCanvas" width="1200" height="500"></canvas>
+        
+                    <img id="winner1" class="cartelGanador" src="img/winner1Va.png" alt="">
+                    <img id="winner2" class="cartelGanador" src="img/winner2.png" alt="">
+            </div>
+        
         </div>
 
         <div id="contenedor-loader">
@@ -100,10 +122,10 @@
         <div class="tituloDetalle">
             <div class="cardHeader subDetalle margenDetalle">
                 <div class="imagenDetalle">
-                    <img class="imgDetalle" src="img/juego3.jfif" alt="juego1">
+                    <img class="imgDetalle" src="img/Juego4EnLinea.jpeg" alt="juego1">
                 </div>
                 <div class="tituloJuego">
-                    <h2 class="margenDetalle">Los simpsons</h2>
+                    <h2 class="margenDetalle">4 En Linea</h2>
                 </div>
                 <div class="like">
                     <div class="botonLike">
@@ -137,15 +159,14 @@
 
             <div class="infoJuego">
                 <h4 class="subDetalle2">Instrucciones</h4>
-                <p class="instruccionesJuego">Homer Simpson, que se encuentra en la Planta Nuclear de Springfield juega una aplicación de los Happy Little Elves (pequeños elfos felices) en su myPad. Una alarma detrás de él se enciende indicando una emergencia, pero él no la nota y
-                    continua jugando; la situación empeora cada segundo. Cuando Homer nota la emergencia es demasiado tarde y la Planta Nuclear explota, dejando a Springfield en blanco y haciendo volar a sus habitantes por los aires. Es entonces cuando
-                    tu tomas el control del juego, dando un resultado de que Homer se ha convertido en un personaje de una aplicacion, muy parecida a la que Homer/Homero estaba jugando antes de la explosión nuclear. Entonces, tú, tomando el papel del
-                    "Dedo Celestial" (Una especie de Dios que en realidad es tu dedo, que puede construir cosas y hacer que la gente haga tareas) debes reconstruir Springfield como tu quieras y coleccionar a los personajes.</p>
+                <p class="instruccionesJuego">Se juega siempre entre 2 jugadores y sobre un tablero de 7x6 casillas.
+                    En cada turno cada jugador coloca una ficha de su color en una columna y esta cae hasta la
+                    primera casilla disponible. 
+                    El que consigue ubicar 4 fichas del mismo color seguidas en horizontal, vertical u oblicuo gana.</p>
             </div>
             <div class="videoJuego">
                 <h4 class="margenDetalle subDetalle2">Video ilustrativo</h4>
-                <iframe class="margenDetalle video" width="330" height="165" src="https://www.youtube.com/embed/FEwKtrbM1n8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+                    <iframe class="margenDetalle video" width="330" height="165" src="https://www.youtube.com/embed/KFn5v2BImGQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
             <h4 class="recomendadosTitulos margenDetalle subDetalle2">Juegos recomendados</h4>
@@ -211,5 +232,9 @@
 <script src="js/funcionalidades.js"></script>
 <script src="js/animacion-loader.js"></script>
 <script src="js/buscador.js"></script>
+<script src="js/juego/Tablero.js"></script>
+<script src="js/juego/Ficha.js"></script>
+<script src="js/juego/Juego.js"></script>
+<script src="js/juego/main-juego.js"></script>
 
 </html>
