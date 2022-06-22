@@ -269,6 +269,6 @@ function getPosMouse(canvas, evento) {
 function showGanador(jugador) {
     console.log("gano jug:" + jugador);
 
-    ctx.drawImage(ganador1, 100, 100);
+    ctx.drawImage(ganador1, 10, 10);
 
 }
