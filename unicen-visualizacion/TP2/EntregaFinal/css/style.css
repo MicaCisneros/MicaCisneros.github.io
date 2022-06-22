@@ -252,6 +252,10 @@ iframe .dropdown-img {
     background-color: rgba(35, 32, 35, 1);
 }
 
+.bg-dark {
+    background-color: rgb(46, 39, 53);
+}
+
 .bg-gris-claro {
     background-color: rgba(199, 195, 199, 1);
 }
@@ -359,7 +363,7 @@ h3 {
 .tituloCat {
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid rgba(83, 14, 83, 1);
+    border-bottom: 2px solid rgb(102, 102, 102);
     margin: 10px 40px 10px 40px;
     padding: 10px;
 }
@@ -478,9 +482,6 @@ h3 {
     }
 }
 
-
-/*2.5% 18.4% 18.4% 18.4% 18.4% 18.4% 2.5%*/
-
 .juegos1 {
     width: 225px;
     height: 214px;
@@ -490,6 +491,8 @@ h3 {
     position: relative;
     display: inline-block;
     text-align: center;
+    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.685);
+    border: 1px solid rgba(124, 124, 124, 0.582);
 }
 
 .imgJuego {
@@ -635,6 +638,7 @@ h3 {
     margin: 10px;
     border-radius: 20px;
     background-color: black;
+    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.685);
 }
 
 .imgJuego2 {
@@ -845,6 +849,7 @@ footer a {
     position: relative;
     display: inline-block;
     text-align: center;
+    background-color: rgb(192, 215, 223);
 }
 
 .contenedorFavoritos {
@@ -1825,4 +1830,45 @@ hr {
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+.header-game {
+    display: flex;
+    width: 1090px;
+    height: 100px;
+    margin-top: 50px;
+    margin-left: 30px;
+    margin-left: 100px;
+    align-items: center;
+    justify-content: space-between;
+    color: #989c9e;
+    padding: 0px 30px 0px 30px;
+}
+
+.modo-juego {
+    display: flex;
+}
+
+.modo-juego select {
+    margin-left: 15px;
+}
+
+.cartelGanador {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 500px;
+    top: 200px;
+}
+
+.cartelGanadorVisible {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    left: 400px;
+    top: 150px;
+}
+
+.canvasJuego {
+    filter: blur(10px);
 }

@@ -10,11 +10,31 @@ let ultimaFigClickeada = null;
 let isMouseDown = null;
 let tamanio = 4;
 var ganador1 = document.querySelector("#winnerone");
+let turnoJugador = document.getElementById("turno-jug");
+let cartel1 = document.querySelector("#winner1");
+let cartel2 = document.querySelector("#winner2");
 
+//Seleccion de modo de juego (4-5 o 6 en fila)
 document.querySelector('#select-tamanio').addEventListener('click', () => {
     let tam = document.querySelector('#select-tamanio').value;;
     tamanio = tam;
     fichas = [];
+
+    limpiarCanvas();
+    drawJuego();
+});
+
+//Reiniciar juego (4-5 o 6 en fila)
+document.querySelector('#reiniciar').addEventListener('click', () => {
+
+    hayGanador = false;
+    cartel1.classList.remove("cartelGanadorVisible");
+    cartel1.classList.add("cartelGanador");
+    cartel2.classList.remove("cartelGanadorVisible");
+    cartel2.classList.add("cartelGanador");
+    canvas.classList.remove("canvasJuego");
+    fichas = [];
+    turno = 1;
     limpiarCanvas();
     drawJuego();
 });
@@ -29,6 +49,7 @@ function drawJuego() {
     this.addFicha();
     drawTablero();
     iniciarJuego();
+    imprimirTurno();
 }
 
 
@@ -51,6 +72,7 @@ function iniciarJuego() {
     tablero = new Tablero(ctx, 250, posY, 700, 400, '#ffffff', tamanio);
     tablero.iniciarJuego(tamanio);
 }
+
 
 
 // function drawFigura() {
@@ -136,9 +158,13 @@ function addFicha() {
 //     }
 // }
 
-// setTimeout(() => {
-//     addFiguras();
-// }, 333)
+setTimeout(() => {
+    fichas = [];
+    turno = 1;
+    limpiarCanvas();
+    drawJuego();
+    //addFiguras();
+}, 333)
 
 function drawAll() {
     this.drawTablero();
@@ -216,10 +242,12 @@ function onMouseUp(e) {
                     cantFig--;
                     hayGanador = tablero.esGanador(turno, col, fila);
                     if (hayGanador) {
+                        canvas.classList.add("canvasJuego");
                         showGanador(hayGanador);
                     }
                     console.log(hayGanador);
                     cambiarTurno();
+                    imprimirTurno();
                     limpiarCanvas();
                     drawAll();
 
@@ -237,6 +265,13 @@ function cambiarTurno() {
         turno = 1
     }
 }
+
+//muestra a que jugador le toca jugar
+function imprimirTurno() {
+    // let jug = fichas[0].getJugador();
+    turnoJugador.innerHTML = "Jugador " + turno;
+}
+
 /* cada figura se fija si clickeo en ella*/
 function buscarFiguraSeleccionada(x, y) {
     for (let i = 0; i < fichas.length; i++) {
@@ -265,10 +300,20 @@ function getPosMouse(canvas, evento) {
     }
 }
 
-/*************************************** */
+/****************************************/
 function showGanador(jugador) {
-    console.log("gano jug:" + jugador);
 
+<<<<<<< HEAD
     ctx.drawImage(ganador1, 10, 10);
+=======
+    if (jugador == 1) {
+        cartel1.classList.toggle("cartelGanadorVisible");
+        cartel1.classList.toggle("cartelGanador");
+    } else {
+        cartel2.classList.toggle("cartelGanadorVisible");
+        cartel2.classList.toggle("cartelGanador");
+    }
+
+>>>>>>> 146274b6153e407c144aba3132f687bd9d733f85
 
 }
