@@ -14,19 +14,38 @@ let turnoJugador = document.getElementById("turno-jug");
 let cartel1 = document.querySelector("#winner1");
 let cartel2 = document.querySelector("#winner2");
 
+let timerVariable = setInterval(countUpTimer, 1000);
+let totalSeconds = 0;
+
+function countUpTimer() {
+  ++totalSeconds;
+  var hour = Math.floor(totalSeconds / 3600);
+  var minute = Math.floor((totalSeconds - hour * 3600) / 60);
+  var seconds = totalSeconds - (hour * 3600 + minute * 60);
+  document.getElementById("timer").innerHTML = hour + ":" + minute + ":" + seconds;
+}
 //Seleccion de modo de juego (4-5 o 6 en fila)
 document.querySelector('#select-tamanio').addEventListener('click', () => {
-    let tam = document.querySelector('#select-tamanio').value;;
-    tamanio = tam;
-    fichas = [];
+    let tam = document.querySelector('#select-tamanio').value;
+    console.log(tam);
+    if(tam){
+        tamanio = tam;
+        fichas = [];
+    
+        limpiarCanvas();
+        drawJuego();
+    }
 
-    limpiarCanvas();
-    drawJuego();
 });
 
 //Reiniciar juego (4-5 o 6 en fila)
 document.querySelector('#reiniciar').addEventListener('click', () => {
+reiniciar();
+});
 
+
+
+function reiniciar(){
     hayGanador = false;
     cartel1.classList.remove("cartelGanadorVisible");
     cartel1.classList.add("cartelGanador");
@@ -37,10 +56,16 @@ document.querySelector('#reiniciar').addEventListener('click', () => {
     turno = 1;
     limpiarCanvas();
     drawJuego();
-});
+    clearInterval(timerVariable);
+    totalSeconds = 0;
+    timerVariable = setInterval(countUpTimer, 1000)
+    timer = setTimeout(reiniciar,300000);
+}
 
 let tablero = null;
 this.drawJuego(4);
+let timer = setTimeout(reiniciar,300000);
+
 
 function drawJuego() {
     // let tab = new Tablero(this.ctx);
@@ -113,13 +138,11 @@ function addFicha() {
     console.log(2);
 
     if (tamanio == 4) {
-        cantFig = 21;
+        cantFig = 15;
     } else if (tamanio == 5) {
-        cantFig = 24;
+        cantFig = 21;
     } else if (tamanio == 6) {
         cantFig = 28;
-    } else if (tamanio == 6) {
-        cantFig = 32;
     }
 
     let colorRojo = '#039000';
@@ -158,13 +181,10 @@ function addFicha() {
 //     }
 // }
 
-setTimeout(() => {
-    fichas = [];
-    turno = 1;
-    limpiarCanvas();
-    drawJuego();
-    //addFiguras();
-}, 333)
+// setTimeout(() => {
+//     reiniciar();
+//     //addFiguras();
+// }, 333)
 
 function drawAll() {
     this.drawTablero();
@@ -302,10 +322,7 @@ function getPosMouse(canvas, evento) {
 
 /****************************************/
 function showGanador(jugador) {
-
-<<<<<<< HEAD
-    ctx.drawImage(ganador1, 10, 10);
-=======
+    clearInterval(timerVariable);
     if (jugador == 1) {
         cartel1.classList.toggle("cartelGanadorVisible");
         cartel1.classList.toggle("cartelGanador");
@@ -313,7 +330,28 @@ function showGanador(jugador) {
         cartel2.classList.toggle("cartelGanadorVisible");
         cartel2.classList.toggle("cartelGanador");
     }
-
->>>>>>> 146274b6153e407c144aba3132f687bd9d733f85
-
 }
+
+
+
+
+
+
+
+
+
+
+
+// let cronometro = document.getElementById("timer");
+// let identificadorIntervaloDeTiempo;
+// let valor = 5;
+// // repetirCadaSegundo()
+
+// // function repetirCadaSegundo() {
+//   identificadorIntervaloDeTiempo = setInterval(mandarMensaje, 1000);
+// // }
+
+// function mandarMensaje() {
+//     valor++;
+//   cronometro.innerHTML = "Ha pasado"+valor+ "segundo.";
+// }

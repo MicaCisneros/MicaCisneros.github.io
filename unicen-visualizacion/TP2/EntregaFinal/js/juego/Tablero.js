@@ -191,16 +191,17 @@ class Tablero {
                 if (jugador == jug) {
 
                     contador++;
-                    console.log(contador);
+                    if (contador == this.tamanio) {
+                        return jugador;
+                    }
+                   
                 } else { contador = 0; }
             }
 
         }
-        if (contador == this.tamanio) {
-            return jugador;
-        } else {
+        
             return false;
-        }
+        
 
     }
 
@@ -211,17 +212,18 @@ class Tablero {
             if (jugador == jug) {
 
                 contador++;
-                console.log(contador);
+                if (contador == this.tamanio) {
+                    return jugador;
+                }
+                
             } else { contador = 0; }
             col++;
             fila++;
 
         }
-        if (contador == this.tamanio) {
-            return jugador;
-        } else {
+       
             return false;
-        }
+        
     }
 
     checkDiagonalDer(jugador, col, fila) {
@@ -232,16 +234,17 @@ class Tablero {
 
                 contador++;
                 console.log(contador);
+                if (contador == this.tamanio) {
+                    return jugador;
+                }
             } else { contador = 0; }
             col--;
             fila++;
 
         }
-        if (contador == this.tamanio) {
-            return jugador;
-        } else {
+       
             return false;
-        }
+      
     }
 
 
