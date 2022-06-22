@@ -363,7 +363,7 @@ h3 {
 .tituloCat {
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid rgba(83, 14, 83, 1);
+    border-bottom: 2px solid rgb(102, 102, 102);
     margin: 10px 40px 10px 40px;
     padding: 10px;
 }
@@ -494,6 +494,8 @@ h3 {
     position: relative;
     display: inline-block;
     text-align: center;
+    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.685);
+    border: 1px solid rgba(124, 124, 124, 0.582);
 }
 
 .imgJuego {
@@ -639,6 +641,7 @@ h3 {
     margin: 10px;
     border-radius: 20px;
     background-color: black;
+    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.685);
 }
 
 .imgJuego2 {
@@ -1853,7 +1856,7 @@ hr {
     margin-left: 15px;
 }
 
-.cartelGanador{
+.cartelGanador {
     display: none;
     position: absolute;
     z-index: 1;
@@ -1861,7 +1864,7 @@ hr {
     top: 200px;
 }
 
-.cartelGanadorVisible{
+.cartelGanadorVisible {
     display: flex;
     position: absolute;
     z-index: 1;
@@ -1869,6 +1872,6 @@ hr {
     top: 150px;
 }
 
-.canvasJuego{
+.canvasJuego {
     filter: blur(10px);
 }
