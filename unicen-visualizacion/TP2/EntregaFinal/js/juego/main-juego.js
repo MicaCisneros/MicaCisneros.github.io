@@ -16,17 +16,19 @@ let cartel2 = document.querySelector("#winner2");
 let headerGame = document.querySelector(".header-game");
 let cartelInicio = document.querySelector(".iniciar-juego");
 let timer = null;
-
-let timerVariable = setInterval(countUpTimer, 1000);
+let iniciado = false;
+let timerVariable = null;
 let totalSeconds = 0;
-
+let tablero = null;
+this.drawJuego(4);
 
 document.querySelector('#iniciar').addEventListener('click', () => {
     canvas.classList.remove("blurear");
     headerGame.classList.remove("blurear");
     cartelInicio.classList.add("ocultar");
-    this.drawJuego(4);
+    iniciado = true;
     timer = setTimeout(reiniciar, 300000);
+    timerVariable = setInterval(countUpTimer, 1000);
 });
 
 
@@ -39,21 +41,27 @@ function countUpTimer() {
 }
 //Seleccion de modo de juego (4-5 o 6 en fila)
 document.querySelector('#select-tamanio').addEventListener('click', () => {
-    let tam = document.querySelector('#select-tamanio').value;
-    console.log(tam);
-    if (tam) {
-        tamanio = tam;
-        fichas = [];
-
-        limpiarCanvas();
-        drawJuego();
+    if(iniciado){
+        let tam = document.querySelector('#select-tamanio').value;
+        console.log(tam);
+        if (tam) {
+            tamanio = tam;
+            fichas = [];
+    
+            limpiarCanvas();
+            drawJuego();
+        }
     }
+
 
 });
 
 //Reiniciar juego (4-5 o 6 en fila)
 document.querySelector('#reiniciar').addEventListener('click', () => {
-    reiniciar();
+    if(iniciado){
+        reiniciar();
+    }
+    
 });
 
 
@@ -76,7 +84,7 @@ function reiniciar() {
     timer = setTimeout(reiniciar, 300000);
 }
 
-let tablero = null;
+
 
 
 
@@ -161,6 +169,8 @@ function addFicha() {
     let colorRojo = '#039000';
     let colorAmarrilla = '#ff2221';
     for (let i = 0; i < cantFig; i++) {
+        this.img = new Image();
+        this.img.src = "img/fichaAmarrilla2.png"; 
         let posXAmarrilla = (Math.round(Math.random() * 160)) + 45;
         let posYAmarrilla = (Math.round(Math.random() * 350) + 65);
         let posXRoja = Math.round(Math.random() * 160) + 985;
@@ -218,77 +228,89 @@ function limpiarCanvas() {
 
 
 /* EVENTOS PARA DETECTAR CUANDO QUIERE ARRASTRAR UNA FICHA*/
-canvas.addEventListener('mousedown', onMouseDown, false);
-canvas.addEventListener('mouseup', onMouseUp, false);
-canvas.addEventListener('mousemove', onMouseMove, false);
+
+    canvas.addEventListener('mousedown', onMouseDown, false);
+    canvas.addEventListener('mouseup', onMouseUp, false);
+    canvas.addEventListener('mousemove', onMouseMove, false);
+
 
 /*  CUANDO CLICKEO  */
 function onMouseDown(e) {
-    isMouseDown = true;
+    if(iniciado){
+        isMouseDown = true;
 
-    //le saco el resaltado a la figura que ya tenia seleccionada
-    if (ultimaFigClickeada != null) {
-        ultimaFigClickeada.setResaltado(false);
-        //limpiarCanvas();
-        ultimaFigClickeada = null
-    }
-
-    //chequeo si selecciono otra figura (o clickeo en otro lado)
-    //coordenadas de donde clickeó, dentro del canvas x layer
-    let x = e.layerX - e.currentTarget.offsetLeft;
-    let y = e.layerY - e.currentTarget.offsetTop;
-    let figuraClickeada = buscarFiguraSeleccionada(x, y);
-
-    if (figuraClickeada != null) {
-        if (figuraClickeada.getJugador() == turno && hayGanador == false) {
-            figuraClickeada.setResaltado(true);
-            // limpiarCanvas();
-            ultimaFigClickeada = figuraClickeada;
+        //le saco el resaltado a la figura que ya tenia seleccionada
+        if (ultimaFigClickeada != null) {
+            ultimaFigClickeada.setResaltado(false);
+            //limpiarCanvas();
+            ultimaFigClickeada = null
         }
+    
+        //chequeo si selecciono otra figura (o clickeo en otro lado)
+        //coordenadas de donde clickeó, dentro del canvas x layer
+        let x = e.layerX - e.currentTarget.offsetLeft;
+        let y = e.layerY - e.currentTarget.offsetTop;
+        let figuraClickeada = buscarFiguraSeleccionada(x, y);
+    
+        if (figuraClickeada != null) {
+            if (figuraClickeada.getJugador() == turno && hayGanador == false) {
+                figuraClickeada.setResaltado(true);
+                // limpiarCanvas();
+                ultimaFigClickeada = figuraClickeada;
+            }
+        }
+        limpiarCanvas();
+        drawAll();
     }
-    limpiarCanvas();
-    drawAll();
+
 }
 
 /*  CUANDO MUEVO EL MOUSE ARRASTRANDO UN OBJETO  */
 function onMouseMove(e) {
-    if (isMouseDown && ultimaFigClickeada != null) {
-        if (ultimaFigClickeada.getJugador() == turno) {
-            ultimaFigClickeada.setPosicion(e.layerX - e.currentTarget.offsetLeft, e.layerY - e.currentTarget.offsetTop);
-            limpiarCanvas();
-            drawAll();
+    if(iniciado){
+        if (isMouseDown && ultimaFigClickeada != null) {
+            if (ultimaFigClickeada.getJugador() == turno) {
+                ultimaFigClickeada.setPosicion(e.layerX - e.currentTarget.offsetLeft, e.layerY - e.currentTarget.offsetTop);
+                limpiarCanvas();
+                drawAll();
+            }
         }
     }
+
 }
 
 /*  CUANDO SUELTO EL OBJETO  */
 function onMouseUp(e) {
-    if (ultimaFigClickeada != null) {
+    if(iniciado){
 
-        for (let i = 0; i < fichas.length; i++) {
-            if (tablero.checkInsert(ultimaFigClickeada) != -1) {
-                if (JSON.stringify(fichas[i]) === JSON.stringify(ultimaFigClickeada)) {
-                    let col = tablero.checkInsert(ultimaFigClickeada);
-                    let fila = tablero.insertarFicha(col, turno);
-                    console.log(fila);
-                    fichas.splice(i, 1);
-                    cantFig--;
-                    hayGanador = tablero.esGanador(turno, col, fila);
-                    if (hayGanador) {
-                        canvas.classList.add("canvasJuego");
-                        showGanador(hayGanador);
+        if (ultimaFigClickeada != null) {
+
+            for (let i = 0; i < fichas.length; i++) {
+                if (tablero.checkInsert(ultimaFigClickeada) != -1) {
+                    if (JSON.stringify(fichas[i]) === JSON.stringify(ultimaFigClickeada)) {
+                        let col = tablero.checkInsert(ultimaFigClickeada);
+                        let fila = tablero.insertarFicha(col, turno);
+                        console.log(fila);
+                        fichas.splice(i, 1);
+                        cantFig--;
+                        hayGanador = tablero.esGanador(turno, col, fila);
+                        if (hayGanador) {
+                            canvas.classList.add("canvasJuego");
+                            showGanador(hayGanador);
+                        }
+                        console.log(hayGanador);
+                        cambiarTurno();
+                        imprimirTurno();
+                        limpiarCanvas();
+                        drawAll();
+    
                     }
-                    console.log(hayGanador);
-                    cambiarTurno();
-                    imprimirTurno();
-                    limpiarCanvas();
-                    drawAll();
-
                 }
             }
         }
+        isMouseDown = false;
     }
-    isMouseDown = false;
+   
 }
 
 function cambiarTurno() {

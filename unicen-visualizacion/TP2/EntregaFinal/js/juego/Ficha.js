@@ -20,7 +20,6 @@ class Ficha {
         
     }
 
-
     setImg(img){
         this.img.src = img;
     }
@@ -78,7 +77,10 @@ class Ficha {
         this.ctx.fillStyle = this.img;
         this.ctx.beginPath();
         //this.ctx.arc(this.posX, this.posY, this.radio, 0, 2 * Math.PI);
+       
         this.ctx.drawImage(this.img, this.posX - 18, this.posY - 18, this.radio * 2.5, this.radio * 2.5);
+        
+       
         this.ctx.fill();
         //this.ctx.arc(this.posX, this.posY, 10, 0, 2 * Math.PI);
         // this.ctx.strokeStyle = this.colorBorde;
