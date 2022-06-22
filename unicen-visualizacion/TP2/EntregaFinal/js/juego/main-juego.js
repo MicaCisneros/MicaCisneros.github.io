@@ -26,6 +26,7 @@ document.querySelector('#select-tamanio').addEventListener('click', () => {
 document.querySelector('#reiniciar').addEventListener('click', () => {
 
     fichas = [];
+    turno = 1;
     limpiarCanvas();
     drawJuego();
 });
