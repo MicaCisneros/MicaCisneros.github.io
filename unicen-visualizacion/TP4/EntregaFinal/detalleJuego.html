@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JuegosYa</title>
+    <script src="https://kit.fontawesome.com/f2271d3f87.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav class="menu bg-violeta4">
+        <ul class="letra-verdana1 color-blanco">
+            <div class="logo">
+                <a href="home-log.html"> <img class="img-logo" src="img/logo-juegos.jpeg" alt=""></a>
+
+            </div>
+            <div class="menuMobile">
+                <div class="opcionesMenu">
+                    <li> <a href="categoria.html"> Nuevos </a></li>
+                    <li> <a href="categoria.html"> Para ti </a></li>
+                    <li> <a href="categoria.html"> Chicas </a></li>
+                    <li> <a href="categoria.html"> Accion </a></li>
+                    <li> <a href="categoria.html"> Puzzle </a></li>
+                    <li class="usuarioMobile">Iniciar Sesion</li>
+                    <li class="usuarioMobile">Registrarse</li>
+                </div>
+                <div class="buscador dropdown">
+                    <input type="text" id="buscador-desplegable" class="input-buscador">
+                    <div class="dropdown-content bg-ligth1 ">
+                        <div class="dropdown-header bg-violeta5">
+                            <a href="categoria.html">
+                                <p>Categorias</p>
+                            </a>
+                            <a href="categoria.html"><i class="fas fa-long-arrow-right"></i></a>
+                        </div>
+                        <div class="dropdown-body-cat color-negro">
+                            <div class="dropdown-item ">
+                                <iframe class="dropdown-img bg-gris-oscuro" src="img/icon-cat-action.svg" scrolling="no">
+                                    <img class="" src="img/icon-cat-board.svg" alt="categoria"> 
+                                </iframe>
+                                <p>Accion</p>
+                            </div>
+                            <div class="dropdown-item">
+                                <iframe class="dropdown-img bg-gris-oscuro" src="img/icon-cat-classics.svg" scrolling="no">
+                                    <img class="dropdown-img" src="img/icon-cat-board.svg" alt="categoria"> 
+                                </iframe>
+                                <p>Clasicos</p>
+                            </div>
+                        </div>
+                        <div class="dropdown-header bg-violeta5">
+                            <a href="buscador.html">
+                                <p>Juegos</p>
+                            </a>
+                            <a href="buscador.html"><i class="fas fa-long-arrow-right"></i> </a>
+                        </div>
+                        <div class="dropdown-body-jue color-negro">
+                            <div class="dropdown-item">
+                                <img class="dropdown-img" src="img/juego18.jfif" alt="">
+                                <p>Among Us</p>
+                            </div>
+
+                            <div class="dropdown-item">
+                                <img class="dropdown-img" src="img/juego21.jfif" alt="">
+                                <p>Kirby</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="avatar ">
+                    <a href="perfilFavoritos.html"><img class="img-avatar" src="img/avatar1.png" alt=""></a>
+                </div>
+            </div>
+            <button class="icon-menu bg-violeta4"><i class="color-blanco menuResponsive fa-solid fa-bars"></i></button>
+        </ul>
+    </nav>
+
+
+
+    <section class="contenedorSeccion">
+        <div class="divJuego">
+            <div class="header-game blurear bg-dark">
+                <div>
+                    <h2> 4 En Fila</h2>
+                    <button id="reiniciar">Reiniciar</button>
+                </div>
+
+                <div>
+                    <p>Turno: <span id="turno-jug"> </span></p>
+                    <span id="timer"></span>
+                </div>
+                <div class="modo-juego">
+                    <p>Modo de juego: </p>
+                    <select name="" id="select-tamanio">
+                        <!-- <option>Seleccione</option> -->
+                        <option value="">Seleccione</option>
+                        <option  value="4">4 En Fila</option>
+                        <option  value="5">5 En Fila</option>
+                        <option value="6"> 6 En Fila</option>
+                        <!-- <option value="7">7 En Fila</option> -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="iniciar-juego">
+                <img src="img/4enLinea.png" alt="">
+                <button id="iniciar" class="bg-celeste botonPlay"><i class="play fa-solid fa-play"></i>Jugar</button>
+            </div>
+
+            <div>
+
+                <canvas id="myCanvas" class="myCanvas blurear" width="1200" height="500"></canvas>
+
+                <img id="winner1" class="cartelGanador" src="img/winner1Va.png" alt="">
+                <img id="winner2" class="cartelGanador" src="img/winner2.png" alt="">
+            </div>
+
+        </div>
+
+        <div id="contenedor-loader">
+
+            <div id="loader"></div>
+            <p id="texto-loader">Loading...</p>
+
+        </div>
+
+        <div class="tituloDetalle">
+            <div class="cardHeader subDetalle margenDetalle">
+                <div class="imagenDetalle">
+                    <img class="imgDetalle" src="img/Juego4EnLinea.jpeg" alt="juego1">
+                </div>
+                <div class="tituloJuego">
+                    <h2 class="margenDetalle">4 En Linea</h2>
+                </div>
+                <div class="like">
+                    <div class="botonLike">
+                        <a class="btn-like" href=""><i class="iconoLike color-blanco fa-regular fa-thumbs-up" id="like"></i></a>
+                    </div>
+                    <a class="btn-dislike" href=""><i class="iconoLike color-blanco fa-regular fa-thumbs-down" id="dislike"></i></a>
+
+
+                </div>
+                <div class="contenedorFavoritos">
+                    <a class="botonFavoritos" href=""><i class="fa-solid fa-heart iconoFavoritos"></i></a>
+                </div>
+                <div class="contenedorCompartir">
+                    <button class="botonCompartir color-blanco bg-gris-oscuro"><i class="fa-solid fa-share-nodes"></i> Compartir</button>
+                </div>
+
+                <div class="contenedorEstrellas margenDetalle">
+                    <i class="estrella fa-solid fa-star"></i>
+                    <i class="estrella fa-solid fa-star"></i>
+                    <i class="estrella fa-solid fa-star"></i>
+                    <i class="estrella fa-solid fa-star"></i>
+                    <i class="estrella fa-solid fa-star"></i>
+                </div>
+            </div>
+            <div class="publicidad">
+                <img src="img/publicidad1.jpg" alt="">
+            </div>
+            <div class="publicidad2">
+                <img src="img/publicidad1.jpg" alt="">
+            </div>
+
+            <div class="infoJuego">
+                <h4 class="subDetalle2">Instrucciones</h4>
+                <p class="instruccionesJuego">Se juega siempre entre 2 jugadores y sobre un tablero de 7x6 casillas. En cada turno cada jugador coloca una ficha de su color en una columna y esta cae hasta la primera casilla disponible. El que consigue ubicar 4 fichas del mismo color
+                    seguidas en horizontal, vertical u oblicuo gana.</p>
+            </div>
+            <div class="videoJuego">
+                <h4 class="margenDetalle subDetalle2">Video ilustrativo</h4>
+                <iframe class="margenDetalle video" width="330" height="165" src="https://www.youtube.com/embed/KFn5v2BImGQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+            <h4 class="recomendadosTitulos margenDetalle subDetalle2">Juegos recomendados</h4>
+
+            <div class="recomendadosFila1 margenDetalle">
+                <img class="recomendado" src="img/juego1.jfif" alt="">
+                <img class="recomendado" src="img/juego2.jfif" alt="">
+                <img class="recomendado" src="img/juego4.jfif" alt="">
+                <img class="recomendado" src="img/juego5.jfif" alt="">
+                <img class="recomendado" src="img/juego7.jfif" alt="">
+                <img class="recomendado" src="img/juego7.jfif" alt="">
+            </div>
+        </div>
+
+
+    </section>
+
+
+</body>
+<footer class="bg-violeta4">
+    <div class="enlacesFooter">
+
+        <ul class="color-blanco">
+            <a class="subtitulosFooter">Empresa</a>
+            <li>Condiciones de uso</li>
+            <li>Politicas de privacidad</li>
+            <li>Cookies</li>
+            <li>Consentimientos de cookies</li>
+        </ul>
+        <ul class="color-blanco">
+            <a class="subtitulosFooter">Idiomas</a>
+            <li>Español</li>
+            <li>Ingles</li>
+            <li>Frances</li>
+        </ul>
+        <ul class="color-blanco">
+            <a class="subtitulosFooter">Asistencia</a>
+            <li>Ayuda</li>
+            <li>FAQ</li>
+
+        </ul>
+    </div>
+    <div>
+        <div class="logoFooter">
+            <img src="img/logo-juegos.jpeg" alt="">
+        </div>
+
+        <div class="redesSociales">
+            <div>
+                <i class="icono color-blanco fa-brands fa-instagram"></i>
+            </div>
+            <div>
+                <i class="icono color-blanco fa-brands fa-facebook-square"></i>
+            </div>
+            <div>
+                <i class="icono color-blanco fa-brands fa-youtube-square"></i>
+            </div>
+        </div>
+
+
+    </div>
+</footer>
+<script src="js/funcionalidades.js"></script>
+<script src="js/animacion-loader.js"></script>
+<script src="js/buscador.js"></script>
+<script src="js/juego/Tablero.js"></script>
+<script src="js/juego/Ficha.js"></script>
+<script src="js/juego/Juego.js"></script>
+<script src="js/juego/main-juego.js"></script>
+
+</html>

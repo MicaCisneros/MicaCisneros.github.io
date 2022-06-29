@@ -1890,3 +1890,40 @@ hr {
 }
 
 
+/*********************************  GAME-LOOP  *******************************/
+
+#back-game {
+    background: url(../img/fondo-1.jpg);
+    width: 600px;
+    height: 350px;
+    animation: movefondo 9s linear infinite;
+}
+
+@keyframes movefondo {
+    0% {
+        background-position: 350px;
+    }
+    100% {
+        background-position: 0px;
+    }
+}
+
+#personaje {
+    background: url(../img/perso2-removebg-preview.png);
+    /* background: url(../img/avatar2.png);*/
+    width: 100px;
+    height: 200px;
+    position: relative;
+    z-index: 1;
+    top: 200px;
+    animation: caminar 9s linear infinite;
+}
+
+@keyframes caminar {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -500px;
+    }
+}
