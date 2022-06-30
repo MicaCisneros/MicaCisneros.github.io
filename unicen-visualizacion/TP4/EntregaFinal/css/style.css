@@ -1892,7 +1892,7 @@ hr {
 
 /*********************************  GAME-LOOP  *******************************/
 
-#back-game {
+/* #back-game {
     background: url(../img/fondo-1.jpg);
     width: 600px;
     height: 350px;
@@ -1911,7 +1911,7 @@ hr {
 #personaje {
     background: url(../img/perso2-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
-    width: 100px;
+    /* width: 100px;
     height: 200px;
     position: relative;
     z-index: 1;
@@ -1926,4 +1926,121 @@ hr {
     100% {
         background-position: -500px;
     }
+}  */
+
+.fondo-loop{
+  
+    width: 80%;
+    height: 10%;
+    position: absolute;
+    left:0;
+    background-repeat: repeat-x; 
+    background-size: cover;
 }
+.cielo{
+    background: url(../img/loop/cielo.jpg);
+    animation: movimiento 19s linear infinite;
+    min-height: 500px; 
+}
+
+.nubes{
+    background-image: url("../img/loop/nubes-1-removebg-preview.png");
+    animation: movimiento 18s linear infinite;
+    min-height: 160px; 
+    z-index: 4;
+}
+
+.nubes-2{
+    background: url(../img/loop/nubes-4-removebg-preview.png);
+    animation: movimiento 40s linear infinite;
+    z-index: 3;
+    min-height: 160px; 
+    top: 100px;
+    
+  
+}
+
+.piso{
+    background-image: url("../img/loop/piso-1-removebg-preview.png");
+    animation: movimiento 20s linear infinite;
+    min-height: 400px; 
+    width: 80%;
+    height: 10%;
+    top: 200px;
+    z-index: 2;
+  
+}
+
+@keyframes movimiento {
+    0% { background-position-x:  0px;}
+    100% { background-position-x:  -1920px;}
+}
+
+#personaje {
+    background-image: url("../img/loop/red-bird-removebg-preview.png");
+    /* background: url(../img/avatar2.png);*/
+     width: 150px;
+    height: 178px;
+    position: absolute;
+    z-index: 5;
+    top: 200px;
+    animation: caminar 1s steps(9) infinite;
+}
+
+@keyframes caminar {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -1398px;
+    }
+} 
+
+#muerte {
+    background-image: url("../img/loop/tvsea8doggj61-removebg-preview.png");
+    /* background: url(../img/avatar2.png);*/
+     width: 150px;
+    height: 178px;
+    position: absolute;
+    z-index: 5;
+    top: 200px;
+    animation: boom 1s steps(4) infinite;
+}
+
+@keyframes boom {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -686px;
+    }
+}
+
+#bomba{
+    background-image: url("../img/loop/bomba-removebg-preview.png");
+    /* background: url(../img/avatar2.png);*/
+     width: 1000px;
+    height: 54px;
+    position: absolute;
+    z-index: 5;
+    top: 200px;
+    animation: bombita 11s linear infinite;
+    background-repeat: no-repeat;
+    /* left:800px; */
+}
+
+@keyframes bombita {
+    0% {
+        background-position: 800px;
+    }
+    40% {
+        background-position: 600px;
+    }
+    80% {
+        background-position: 286px;
+    }
+    100% {
+        background-position: 0px;
+    }
+}
+
