@@ -1892,6 +1892,7 @@ hr {
 
 /*********************************  GAME-LOOP  *******************************/
 
+
 /* #back-game {
     background: url(../img/fondo-1.jpg);
     width: 600px;
@@ -1911,7 +1912,9 @@ hr {
 #personaje {
     background: url(../img/perso2-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
-    /* width: 100px;
+
+
+/* width: 100px;
     height: 200px;
     position: relative;
     z-index: 1;
@@ -1928,58 +1931,71 @@ hr {
     }
 }  */
 
-.fondo-loop{
-  
+.fondo-loop {
     width: 80%;
     height: 10%;
     position: absolute;
-    left:0;
-    background-repeat: repeat-x; 
+    left: 0;
+    background-repeat: repeat-x;
     background-size: cover;
 }
-.cielo{
+
+.cielo {
     background: url(../img/loop/cielo.jpg);
     animation: movimiento 19s linear infinite;
-    min-height: 500px; 
+    min-height: 500px;
 }
 
-.nubes{
-    background-image: url("../img/loop/nubes-1-removebg-preview.png");
+.nubes {
+    background: url(../img/loop/nubes-12-removebg-preview.png);
     animation: movimiento 18s linear infinite;
-    min-height: 160px; 
+    min-height: 162px;
+    top: 60px;
     z-index: 4;
 }
 
-.nubes-2{
+.nubes-2 {
     background: url(../img/loop/nubes-4-removebg-preview.png);
     animation: movimiento 40s linear infinite;
     z-index: 3;
-    min-height: 160px; 
-    top: 100px;
-    
-  
+    min-height: 198px;
+    /* top: 20px; */
+    filter: brightness(80%);
 }
 
-.piso{
-    background-image: url("../img/loop/piso-1-removebg-preview.png");
-    animation: movimiento 20s linear infinite;
-    min-height: 400px; 
+.arbustos {
+    background-image: url("../img/loop/arbustos-removebg-preview.png");
+    animation: movimiento 40s linear infinite;
+    min-height: 400px;
     width: 80%;
     height: 10%;
     top: 200px;
     z-index: 2;
-  
+}
+
+.piso {
+    background: url(../img/loop/solopiso-removebg-preview.png);
+    animation: movimiento 20s linear infinite;
+    min-height: 149px;
+    width: 80%;
+    /* height: 10%; */
+    top: 350px;
+    z-index: 2;
 }
 
 @keyframes movimiento {
-    0% { background-position-x:  0px;}
-    100% { background-position-x:  -1920px;}
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: -1920px;
+    }
 }
 
 #personaje {
-    background-image: url("../img/loop/red-bird-removebg-preview.png");
+    background-image: url("../img/loop/red-bird2-removebg-preview.png");
     /* background: url(../img/avatar2.png);*/
-     width: 150px;
+    width: 150px;
     height: 178px;
     position: absolute;
     z-index: 5;
@@ -1994,12 +2010,12 @@ hr {
     100% {
         background-position: -1398px;
     }
-} 
+}
 
 #muerte {
     background-image: url("../img/loop/tvsea8doggj61-removebg-preview.png");
     /* background: url(../img/avatar2.png);*/
-     width: 150px;
+    width: 150px;
     height: 178px;
     position: absolute;
     z-index: 5;
@@ -2016,15 +2032,32 @@ hr {
     }
 }
 
-#bomba{
+#bomba {
     background-image: url("../img/loop/bomba-removebg-preview.png");
     /* background: url(../img/avatar2.png);*/
-     width: 1000px;
+    width: 1000px;
     height: 54px;
     position: absolute;
     z-index: 5;
     top: 200px;
     animation: bombita 11s linear infinite;
+    background-repeat: no-repeat;
+    /* left:800px; */
+}
+
+
+/* .estrella {} */
+
+#estrella {
+    background: url(../img/loop/estrella-removebg-preview.png);
+    /* width: 1000px; */
+    width: 72px;
+    height: 72px;
+    position: absolute;
+    z-index: 5;
+    top: 200px;
+    animation: estrella 1s steps(4) infinite;
+    /* animation: bombita 11s linear infinite; */
     background-repeat: no-repeat;
     /* left:800px; */
 }
@@ -2044,3 +2077,11 @@ hr {
     }
 }
 
+@keyframes estrella {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -267px;
+    }
+}
