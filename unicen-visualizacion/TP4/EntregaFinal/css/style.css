@@ -2051,25 +2051,34 @@ hr {
 #estrella {
     background: url(../img/loop/estrella-removebg-preview.png);
     /* width: 1000px; */
-     width: 72px;
+    width: 72px;
     height: 72px;
     position: absolute;
     z-index: 5;
     top: 200px;
-   animation: estrella 1s steps(4) infinite; 
+    animation: estrella 1s steps(4) infinite, bombit 11s linear infinite;
     /* animation: bombita 11s linear infinite; */
     background-repeat: no-repeat;
     /* left:800px; */
 }
 
-.elementos{
+@-webkit-keyframes bombit {
+    from {
+        left: 36em;
+    }
+    to {
+        left: 0em;
+    }
+}
+
+.elementos {
     height: 72px;
     position: absolute;
     z-index: 4;
     top: 200px;
-      width: 1000px;
-      animation: bombita 11s linear infinite;
-      background-repeat: no-repeat;
+    width: 1000px;
+    animation: bombita 11s linear infinite;
+    background-repeat: no-repeat;
 }
 
 @keyframes bombita {
