@@ -2001,6 +2001,7 @@ hr {
     z-index: 5;
     top: 200px;
     animation: caminar 1s steps(9) infinite;
+    border: 1px solid #9c2881;
 }
 
 @keyframes caminar {
@@ -2020,7 +2021,7 @@ hr {
     position: absolute;
     z-index: 5;
     top: 200px;
-    animation: boom 1s steps(4) infinite;
+    animation: boom 1s steps(4);
 }
 
 @keyframes boom {
@@ -2033,16 +2034,17 @@ hr {
 }
 
 #bomba {
-    background-image: url("../img/loop/bomba-removebg-preview.png");
+    background: url(../img/loop/bomba-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
-    width: 1000px;
+    width: 68px;
     height: 54px;
     position: absolute;
     z-index: 5;
     top: 200px;
-    animation: bombita 11s linear infinite;
+    animation: obstaculo 11s linear infinite;
     background-repeat: no-repeat;
     /* left:800px; */
+    border: 1px solid #00223e;
 }
 
 
@@ -2056,18 +2058,29 @@ hr {
     position: absolute;
     z-index: 5;
     top: 200px;
-    animation: estrella 1s steps(4) infinite, bombit 11s linear infinite;
+    animation: estrella 1s steps(4) infinite, obstaculo 11s linear infinite;
     /* animation: bombita 11s linear infinite; */
     background-repeat: no-repeat;
     /* left:800px; */
+    border: 1px solid #c21010;
 }
 
-@-webkit-keyframes bombit {
+
+/* @-webkit-keyframes obstaculo {
     from {
         left: 36em;
     }
     to {
         left: 0em;
+    }
+} */
+
+@-webkit-keyframes obstaculo {
+    from {
+        left: 1045px;
+    }
+    to {
+        left: 0px;
     }
 }
 
@@ -2103,4 +2116,8 @@ hr {
     100% {
         background-position: -267px;
     }
+}
+
+.paused {
+    animation-play-state: paused;
 }

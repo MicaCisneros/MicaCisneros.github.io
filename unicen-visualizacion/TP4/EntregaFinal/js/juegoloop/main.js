@@ -46,7 +46,9 @@ function caerPersonaje() {
         topPersona = topPersona + 10;
         personaje.style.top = topPersona + 'px';
         muerte.style.top = topPersona + 'px';
+        chequearColision();
     } else {
+        fin();
         juego.accionMuerte();
     }
 }
@@ -57,6 +59,15 @@ function moverPersonaje() {
         personaje.style.top = topPersona + 'px';
         muerte.style.top = topPersona + 'px';
     } else {
+        fin();
+        juego.accionMuerte();
+
+    }
+}
+
+function chequearColision() {
+    if (bomba.offsetLeft <= personaje.offsetLeft + personaje.clientWidth) {
+        fin();
         juego.accionMuerte();
     }
 }
@@ -65,4 +76,17 @@ function verificarPerdedor() {
     if (topPersona <= -30 || topPersona >= 300) {
         return false
     } else return true;
+}
+
+function fin() {
+    console.log('jsjs');
+    let nube = document.querySelector(".nubes");
+    let nube2 = document.querySelector(".nubes-2");
+    let arbusto = document.querySelector(".arbustos");
+    let piso = document.querySelector(".piso");
+
+    nube.style.animationPlayState = 'paused';
+    nube2.style.animationPlayState = 'paused';
+    arbusto.style.animationPlayState = 'paused';
+    piso.style.animationPlayState = 'paused';
 }

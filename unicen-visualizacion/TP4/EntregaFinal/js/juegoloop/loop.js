@@ -1,5 +1,5 @@
-class Loop{
-    constructor(personaje,muerte) {
+class Loop {
+    constructor(personaje, muerte) {
         this.personaje = personaje;
         this.muerte = muerte;
     }
@@ -7,10 +7,9 @@ class Loop{
 
 
 
-    accionMuerte(){
+    accionMuerte() {
         this.personaje.setAttribute("hidden", "")
         this.muerte.removeAttribute("hidden", "");
 
     }
 }
-

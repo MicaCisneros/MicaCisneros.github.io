@@ -7,7 +7,7 @@ class Estrella {
 
     generarEstrella() {
         this.estrella.setAttribute("id", "estrella");
-        this.estrella.style.top = Math.floor(Math.random() * (10 - 300 + 1) + 300) + "px";
+        this.estrella.style.top = Math.floor(Math.random() * (10 - 300 + 1) + 50) + "px";
         this.ocultar()
     }
 
