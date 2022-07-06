@@ -32,7 +32,8 @@ class Loop {
     }
 
     chequearColision() {
-        if (bomba.offsetLeft <= personaje.offsetLeft + personaje.clientWidth) {
+        console.log(bomba.offsetTop,personaje.offsetTop - personaje.clientHeight,bomba.offsetTop,personaje.offsetTop);
+        if (bomba.offsetLeft <= personaje.offsetLeft + personaje.clientWidth && bomba.offsetTop >= personaje.offsetTop - personaje.clientHeight && bomba.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
             this.fin();
             this.accionMuerte();
         }
