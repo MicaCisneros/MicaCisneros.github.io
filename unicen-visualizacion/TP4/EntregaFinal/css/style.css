@@ -2002,6 +2002,17 @@ hr {
     top: 200px;
     animation: caminar 1s steps(9) infinite;
 }
+/*
+#personaje {
+    background: url(../img/loop/mucielago-volando-removebg-preview.png);
+    
+    width: 200px;
+    height: 178px;
+    position: absolute;
+    z-index: 5;
+    top: 200px;
+    animation: caminar 1s steps(5) infinite;
+}*/
 
 @keyframes caminar {
     0% {
