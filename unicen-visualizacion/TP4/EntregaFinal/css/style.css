@@ -2003,6 +2003,8 @@ hr {
     animation: caminar 1s steps(9) infinite;
     border: 1px solid #9c2881;
 }
+
+
 /*
 #personaje {
     background: url(../img/loop/mucielago-volando-removebg-preview.png);
@@ -2131,4 +2133,33 @@ hr {
 
 .paused {
     animation-play-state: paused;
+}
+
+
+/* ESTILO JUEGO LOOP*/
+
+.contenedorSeccionLoop {
+    display: grid;
+    grid-template-columns: 100%;
+    background-color: #DDD7DD;
+}
+
+.divJuegoLoop {
+    margin-left: 200px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    background-color: rgb(192, 215, 223);
+}
+
+.detalleLoop {
+    margin-top: 520px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr 2fr 2fr;
+    /* margin-top: 50px; */
+    grid-column: 1;
+    grid-auto-rows: minmax(auto, auto);
 }
