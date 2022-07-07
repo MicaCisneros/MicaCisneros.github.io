@@ -2,7 +2,7 @@ class Estrella {
 
     constructor(estrella) {
         this.estrella = estrella;
-        this.posicion = estrella.getBoundingClientRect();
+        this.posicion = estrella.offsetTop;
     }
 
     generarEstrella() {

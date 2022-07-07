@@ -7,7 +7,7 @@ class Loop {
 
 
     caerPersonaje(){
-        if (this.personaje.verificarPerdedor()) {
+        if (!this.personaje.verificarPerdedor()) {
             this.personaje.caerPersonaje();
             this.chequearColision();
         } else {
@@ -17,7 +17,7 @@ class Loop {
     }
 
     moverPersonaje(){
-        if (this.personaje.verificarPerdedor()) {
+        if (!this.personaje.verificarPerdedor()) {
             this.personaje.moverPersonaje();
         } else {
             this.fin();

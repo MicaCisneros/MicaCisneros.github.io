@@ -18,9 +18,9 @@ let personaje = document.querySelector("#personaje");
 
 let muerte = document.querySelector("#muerte");
 muerte.setAttribute("hidden", "");
-let posicionPersona = personaje.getBoundingClientRect();
-console.log(posicionPersona);
-let topPersona = posicionPersona['top'];
+// let posicionPersona = personaje.getBoundingClientRect();
+// console.log(posicionPersona);
+let topPersona = personaje.offsetTop;
 console.log(topPersona);
 let persona = new Personaje(personaje, muerte, topPersona);
 /* OBSTACULOS */

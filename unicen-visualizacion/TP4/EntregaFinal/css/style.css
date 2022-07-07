@@ -1999,7 +1999,7 @@ hr {
     height: 178px;
     position: absolute;
     z-index: 5;
-    top: 200px;
+    top: 150px;
     animation: caminar 1s steps(9) infinite;
     border: 1px solid #9c2881;
 }

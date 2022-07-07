@@ -2,7 +2,7 @@ class Obstaculo {
 
     constructor(bomba) {
         this.bomba = bomba;
-        this.posicion = bomba.getBoundingClientRect();
+        this.posicion = bomba.offsetTop;
     }
 
     generarObstaculo() {
@@ -12,7 +12,7 @@ class Obstaculo {
     }
 
     ocultarBomba() {
-        if (this.posicion['y'] < 0) {
+        if (this.posicion < 0) {
             this.bomba.removeAttribute("id", "bomba");
         }
     }
