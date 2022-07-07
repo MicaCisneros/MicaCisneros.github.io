@@ -2026,8 +2026,19 @@ hr {
     }
 }
 
-#muerte {
-    background-image: url("../img/loop/tvsea8doggj61-removebg-preview.png");
+#muertePersonaje {
+    background: url(../img/loop/death-removebg-preview.png);
+    /* background: url(../img/avatar2.png);*/
+    width: 98px;
+    height: 110px;
+    position: absolute;
+    z-index: 5;
+    top: 200px;
+    /* animation: morirPersonaje 1s steps(4); */
+}
+
+#explosion {
+    background: url(../img/loop/tvsea8doggj61-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
     width: 150px;
     height: 178px;
@@ -2035,6 +2046,7 @@ hr {
     z-index: 5;
     top: 200px;
     animation: boom 1s steps(4);
+    left: 100px;
 }
 
 @keyframes boom {

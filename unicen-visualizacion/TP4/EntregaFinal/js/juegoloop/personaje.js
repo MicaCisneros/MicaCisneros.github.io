@@ -1,8 +1,8 @@
 class Personaje {
 
-    constructor(personaje,muerte,topPersona) {
+    constructor(personaje, muertePersonaje, topPersona) {
         this.personaje = personaje;
-        this.muerte = muerte;
+        this.muertePersonaje = muertePersonaje;
         this.topPersona = topPersona;
     }
 
@@ -10,14 +10,14 @@ class Personaje {
         console.log(this.topPersona);
         this.topPersona = this.topPersona + 10;
         personaje.style.top = this.topPersona + 'px';
-        muerte.style.top = this.topPersona + 'px';
+        this.muertePersonaje.style.top = this.topPersona + 'px';
     }
-    
+
     moverPersonaje() {
-        
+
         this.topPersona = this.topPersona - 10;
         personaje.style.top = this.topPersona + 'px';
-        muerte.style.top = this.topPersona + 'px';
+        this.muertePersonaje.style.top = this.topPersona + 'px';
     }
 
     verificarPerdedor() {
@@ -25,9 +25,9 @@ class Personaje {
             return true;
         } else return false;
     }
-    
-    morir(){
+
+    morir() {
         this.personaje.setAttribute("hidden", "");
-        this.muerte.removeAttribute("hidden", "");
+        this.muertePersonaje.removeAttribute("hidden", "");
     }
 }

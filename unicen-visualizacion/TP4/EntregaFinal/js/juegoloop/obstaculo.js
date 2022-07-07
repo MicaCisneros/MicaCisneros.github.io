@@ -17,4 +17,9 @@ class Obstaculo {
         }
     }
 
+    explotar(muerte) {
+        console.log(muerte)
+        this.bomba.setAttribute("hidden", "");
+        muerte.removeAttribute("hidden", "");
+    }
 }
