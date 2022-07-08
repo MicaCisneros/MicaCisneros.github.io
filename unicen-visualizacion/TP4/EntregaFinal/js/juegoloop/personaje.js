@@ -30,4 +30,14 @@ class Personaje {
         this.personaje.setAttribute("hidden", "");
         this.muertePersonaje.removeAttribute("hidden", "");
     }
+
+    // chequearColision(estrellaDiv, bomba) {
+    //     console.log('llega?');
+    //     if (this.offsetLeft + this.clientWidth > estrellaDiv.offsetLeft &&
+    //         this.offsetLeft < estrellaDiv.offsetleft + estrellaDiv.clientWidth &&
+    //         this.offsetbottom > estrellaDiv.offsetbottom - this.clientHeight &&
+    //         this.offsetbottom - this.clientHeight < estrellaDiv.offsetbottom) {
+    //         console.log('anda!!');
+    //     }
+    // }NO ANDAAAAAAAAAAAA
 }

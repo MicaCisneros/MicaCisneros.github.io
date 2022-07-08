@@ -44,7 +44,7 @@ let puntos = 0;
 
 
 /* JUEGO */
-let juego = new Loop(persona, explosion, bomba, obstaculo, estrellaDiv, muertePersonaje);
+let juego = new Loop(persona, explosion, bomba, obstaculo, estrellaDiv, muertePersonaje, puntos);
 let divJuego = document.querySelector("#game-loop");
 
 window.onkeyup = function(event) {

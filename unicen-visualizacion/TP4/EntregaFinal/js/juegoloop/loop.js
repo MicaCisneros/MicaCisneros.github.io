@@ -1,5 +1,5 @@
 class Loop {
-    constructor(personaje, explosion, bomba, obstaculo, estrellaDiv, muertePersonaje) {
+    constructor(personaje, explosion, bomba, obstaculo, estrellaDiv, muertePersonaje, puntos) {
         this.personaje = personaje;
         this.explosion = explosion;
         this.bomba = bomba;
@@ -7,6 +7,7 @@ class Loop {
         this.estrellaDiv = estrellaDiv;
         this.pausar = false;
         this.muertePersonaje = muertePersonaje;
+        this.puntos = puntos;
     }
 
 
@@ -36,12 +37,24 @@ class Loop {
     }
 
     chequearColision() {
-        console.log(bomba.offsetTop, personaje.offsetTop - personaje.clientHeight, bomba.offsetTop, personaje.offsetTop);
+
+        this.personaje.chequearColision(this.estrellaDiv, this.bomba);
+
+
+        console.log(this.estrellaDiv.offsetLeft, personaje.offsetLeft, personaje.clientWidth);
         if (bomba.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
             bomba.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
             bomba.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
             this.fin();
             this.accionMuerte();
+
+        } else if (this.estrellaDiv.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
+            this.estrellaDiv.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
+            this.estrellaDiv.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
+            console.log('sumar puntos');
+            this.puntos++;
+            console.log('puntos: ' + this.puntos);
+            this.fin();
         }
     }
 

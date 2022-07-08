@@ -18,7 +18,7 @@ class Obstaculo {
     }
 
     explotar(muerte) {
-        console.log(muerte)
+        // console.log(muerte)  VER PORQUE SIGUE IMPRIMIENDO CNDO MURIO
         this.bomba.setAttribute("hidden", "");
         muerte.removeAttribute("hidden", "");
     }
