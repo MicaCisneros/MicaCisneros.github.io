@@ -35,4 +35,8 @@ class Elemento{
         muerte.style.top = this.bomba.offsetTop + "px";
         muerte.removeAttribute("hidden", "");
     }
+
+    getId(){
+        return this.idObstaculo;
+    }
 }

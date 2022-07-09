@@ -39,7 +39,7 @@ let puntos = 0;
 
 
 /* JUEGO */
-let juego = new Loop(persona, obstaculos, muertePersonaje, puntos);
+let juego = new Loop(persona,explosion, obstaculos, muertePersonaje, puntos);
 // juego.generarObstaculos()
 let divJuego = document.querySelector("#game-loop");
 
@@ -64,14 +64,15 @@ jugar();
             }
         }, 1100);
         //chequeamos que no haya colision
-        // let interval = setInterval(() => {
-        //     //recorremos el arreglo de obstaculos y vamos preguntando si hubo colision en ese especifico objeto
-        //     for (let obs of obstaculos) {
-        //         if ((obs.colision(personajeSelect))) {
-        //             terminarJuego();
-        //         }
-        //     }
-        // }, 300);
+        let interval = setInterval(() => {
+            //recorremos el arreglo de obstaculos y vamos preguntando si hubo colision en ese especifico objeto
+            for (let obs of obstaculos) {
+                console.log(obs);
+                if ((juego.chequearColision(obs))) {
+                    terminarJuego();
+                }
+            }
+        }, 300);
 
 
     }
@@ -79,7 +80,6 @@ jugar();
     function generarObs(){
         if (obstaculos.length < 4) {
             let numero = ((Math.floor(Math.random() * 3)));
-            console.log("resultado", numero);
             let obstaculo1;
             switch (numero) {
                 case 0:
@@ -94,7 +94,6 @@ jugar();
             
         } else {
             let posicion = obstaculos[0].getPosicion();
-            console.log(posicion);
             if (posicion <= 50) {      
             obstaculos[0].ocultarElemento();
             obstaculos.splice(0, 1);

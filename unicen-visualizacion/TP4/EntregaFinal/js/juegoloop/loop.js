@@ -26,7 +26,7 @@ class Loop {
         if (!this.personaje.verificarPerdedor() && !this.pausar) {
             this.personaje.saltaPersonaje();
          }
-         
+
         //   else {
         //     this.fin();
         //     this.accionMuerte();
@@ -62,32 +62,39 @@ class Loop {
         this.estrella.generarEstrella();
     }
 
-    chequearColision() {
+    chequearColision(elemento) { //Aun no anda
 
         //this.personaje.chequearColision(this.estrellaDiv, this.bomba);
 
 
         //console.log(this.estrellaDiv.offsetLeft, personaje.offsetLeft, personaje.clientWidth);
-        if (bomba.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
-            bomba.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
-            bomba.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
-            this.obstaculo.explotar(this.explosion);
-            this.pierdeVida();
-            this.fin();
-            this.accionMuerte();
+        if (elemento.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
+            elemento.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
+            elemento.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
+            // this.elemento.explotar(this.explosion);
+            if(elemento.getId() == 0){
+                //this.pierdeVida();
+                this.fin();
+                this.accionMuerte();
+                elemento.ocultarElemento();
+            }else{
+                console.log('sumar puntos');
+                this.puntos++;
+                console.log('puntos: ' + this.puntos);
+                elemento.ocultarElemento();
+                // this.estrella.juntar();
+                // let posEstrella = Math.floor(Math.random() * (10 - 300 + 1) + 100) + "px";
+                // this.estrella = new Estrella(this.estrellaDiv, posEstrella);
+    
+    
+                // this.estrella.generarEstrella();
+            }
+        
 
-        } else if (this.estrellaDiv.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
-            this.estrellaDiv.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
-            this.estrellaDiv.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
-            console.log('sumar puntos');
-            this.puntos++;
-            console.log('puntos: ' + this.puntos);
-            this.estrella.juntar();
-            let posEstrella = Math.floor(Math.random() * (10 - 300 + 1) + 100) + "px";
-            this.estrella = new Estrella(this.estrellaDiv, posEstrella);
-
-
-            this.estrella.generarEstrella();
+        // } else if (this.estrellaDiv.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
+        //     this.estrellaDiv.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
+        //     this.estrellaDiv.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
+    
         }
     }
 
