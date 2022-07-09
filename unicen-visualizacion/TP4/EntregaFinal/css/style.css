@@ -1993,14 +1993,14 @@ hr {
 }
 
 #personaje {
-    background-image: url("../img/loop/red-bird2-removebg-preview.png");
+    background: url(../img/loop/nenacamina-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
-    width: 150px;
-    height: 178px;
+    width: 90px;
+    height: 175px;
     position: absolute;
     z-index: 5;
-    top: 150px;
-    animation: caminar 1s steps(9) infinite;
+    top: 200px;
+    animation: caminar 1s steps(6) infinite;
     border: 1px solid #9c2881;
 }
 
@@ -2022,19 +2022,48 @@ hr {
         background-position: 0px;
     }
     100% {
-        background-position: -1398px;
+        background-position: -662px;
     }
 }
 
 #muertePersonaje {
-    background: url(../img/loop/death-removebg-preview.png);
+    background: url(../img/loop/nenamuere-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
     width: 98px;
-    height: 110px;
+    height: 182px;
     position: absolute;
     z-index: 5;
     top: 200px;
-    /* animation: morirPersonaje 1s steps(4); */
+    animation: morirPersonaje 1s steps(2);
+}
+
+@keyframes caminar {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -241px;
+    }
+}
+
+#saltaPersonaje {
+    background: url(../img/loop/nenasalta-removebg-preview.png);
+    /* background: url(../img/avatar2.png);*/
+    width: 98px;
+    height: 181px;
+    position: absolute;
+    z-index: 5;
+    top: 200px;
+    animation: saltar 1s steps(3);
+}
+
+@keyframes saltar {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -387px;
+    }
 }
 
 #explosion {
