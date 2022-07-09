@@ -1,11 +1,10 @@
 class Loop {
-    constructor(personaje, explosion, bomba, estrellaDiv, muertePersonaje, puntos) {
+    constructor(personaje, explosion, obstaculos, muertePersonaje, puntos) {
         this.personaje = personaje;
         this.explosion = explosion;
-        this.bomba = bomba;
+        this.obstaculos = obstaculos;
         this.obstaculo = null;
         this.estrella = null;
-        this.estrellaDiv = estrellaDiv;
         this.pausar = false;
         this.muertePersonaje = muertePersonaje;
         this.puntos = puntos;
@@ -23,14 +22,15 @@ class Loop {
         }
     }
 
-    moverPersonaje() {
+    saltaPersonaje() {
         if (!this.personaje.verificarPerdedor() && !this.pausar) {
-            this.personaje.moverPersonaje();
-            this.chequearColision();
-        } else {
-            this.fin();
-            this.accionMuerte();
-        }
+            this.personaje.saltaPersonaje();
+         }
+         
+        //   else {
+        //     this.fin();
+        //     this.accionMuerte();
+        // }
     }
 
     accionMuerte() {

@@ -12,11 +12,17 @@ class Personaje {
     //     this.muertePersonaje.style.top = this.topPersona + 'px';
     // }
 
-    moverPersonaje() {
+    saltaPersonaje() {
+        this.personaje.removeAttribute("id","personaje");
+        this.personaje.setAttribute("id","saltaPersonaje");
 
-        this.topPersona = this.topPersona - 10;
-        personaje.style.top = this.topPersona + 'px';
-        this.muertePersonaje.style.top = this.topPersona + 'px';
+        let interval = setInterval(() => {
+            this.personaje.removeAttribute("id","saltaPersonaje");
+            this.personaje.setAttribute("id","personaje");
+           
+            clearInterval(interval);
+        }, 2000);
+      
     }
 
     verificarPerdedor() {

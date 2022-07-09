@@ -1995,12 +1995,13 @@ hr {
 #personaje {
     background: url(../img/loop/nenacamina-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
-    width: 90px;
+    width: 100px;
     height: 175px;
     position: absolute;
     z-index: 5;
-    top: 200px;
-    animation: caminar 1s steps(6) infinite;
+    top: 270px;
+    left: 50px;
+    animation: caminar 2s steps(6) infinite;
     border: 1px solid #9c2881;
 }
 
@@ -2033,36 +2034,47 @@ hr {
     height: 182px;
     position: absolute;
     z-index: 5;
+    left: 50px;
     top: 200px;
     animation: morirPersonaje 1s steps(2);
 }
 
-@keyframes caminar {
+/* @keyframes caminar {
     0% {
         background-position: 0px;
     }
     100% {
         background-position: -241px;
     }
-}
+} */
 
 #saltaPersonaje {
     background: url(../img/loop/nenasalta-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
-    width: 98px;
+    width: 100px;
     height: 181px;
     position: absolute;
     z-index: 5;
+    left: 50px;
     top: 200px;
-    animation: saltar 1s steps(3);
+    animation: stepSaltar 2s steps(3), saltar 1s infinite linear;
 }
 
-@keyframes saltar {
+@keyframes stepSaltar {
     0% {
         background-position: 0px;
     }
     100% {
-        background-position: -387px;
+        background-position: -370px;
+    }
+}
+
+@keyframes saltar {
+    0% {
+        top: 200px;
+    }
+    100% {
+        top: 220px;
     }
 }
 
@@ -2094,7 +2106,7 @@ hr {
     height: 54px;
     position: absolute;
     z-index: 5;
-    top: 200px;
+    top: 180px;
     animation: obstaculo 11s linear infinite;
     background-repeat: no-repeat;
     /* left:800px; */
@@ -2111,7 +2123,7 @@ hr {
     height: 72px;
     position: absolute;
     z-index: 5;
-    top: 200px;
+    top: 170px;
     left: 800px;
     animation: estrella 1s steps(4) infinite, obstaculo 11s linear infinite;
     background-repeat: no-repeat;
