@@ -6,11 +6,11 @@ class Personaje {
         this.topPersona = topPersona;
     }
 
-    caerPersonaje() {
-        this.topPersona = this.topPersona + 10;
-        personaje.style.top = this.topPersona + 'px';
-        this.muertePersonaje.style.top = this.topPersona + 'px';
-    }
+    // caerPersonaje() {
+    //     this.topPersona = this.topPersona + 10;
+    //     personaje.style.top = this.topPersona + 'px';
+    //     this.muertePersonaje.style.top = this.topPersona + 'px';
+    // }
 
     moverPersonaje() {
 

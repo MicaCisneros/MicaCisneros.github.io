@@ -8,7 +8,7 @@ class Estrella {
     generarEstrella() {
         this.estrella.setAttribute("id", "estrella");
         // this.estrella.style.left = "800px";
-        // this.estrella.setAttribute("animation", "obstaculo");
+        //this.estrella.setAttribute("animation", "obstaculo");
         // this.estrella.style.WebkitAnimation = "obstaculo 11s linear infinite"
         /* no andaa! no puedo ponerla en la posicion de X original*/
         // this.estrella.style.webkitAnimationPlayState = "initial";
