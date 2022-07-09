@@ -2083,8 +2083,8 @@ hr {
     position: absolute;
     z-index: 5;
     top: 200px;
+    left: 800px;
     animation: estrella 1s steps(4) infinite, obstaculo 11s linear infinite;
-    /* animation: bombita 11s linear infinite; */
     background-repeat: no-repeat;
     /* left:800px; */
     border: 1px solid #c21010;
@@ -2115,11 +2115,11 @@ hr {
     z-index: 4;
     top: 200px;
     width: 1000px;
-    animation: bombita 11s linear infinite;
+    animation: avanzar 11s linear infinite;
     background-repeat: no-repeat;
 }
 
-@keyframes bombita {
+@keyframes avanzar {
     0% {
         background-position: 800px;
     }
@@ -2147,7 +2147,7 @@ hr {
     animation-play-state: paused;
 }
 
-.vida{
+.vida {
     background-image: url("../img/loop/vidas.png");
     position: absolute;
     width: 40px;
@@ -2156,7 +2156,7 @@ hr {
     left: 0;
 }
 
-.vida2{
+.vida2 {
     background-image: url("../img/loop/vidas.png");
     position: absolute;
     width: 40px;
@@ -2165,7 +2165,7 @@ hr {
     left: 35px;
 }
 
-.vida3{
+.vida3 {
     background-image: url("../img/loop/vidas.png");
     position: absolute;
     width: 40px;
@@ -2174,7 +2174,7 @@ hr {
     left: 70px;
 }
 
-.vidas{
+.vidas {
     display: grid;
     top: 0;
 }
@@ -2207,4 +2207,3 @@ hr {
     grid-column: 1;
     grid-auto-rows: minmax(auto, auto);
 }
-

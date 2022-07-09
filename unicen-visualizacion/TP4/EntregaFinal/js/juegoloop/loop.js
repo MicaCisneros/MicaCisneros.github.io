@@ -35,24 +35,31 @@ class Loop {
 
     accionMuerte() {
         this.personaje.morir();
-        
+
     }
 
-    generarObstaculos(){
-        
+    generarObstaculos() {
+
+        this.generarEstrella();
+
         let posBomba = Math.floor(Math.random() * (10 - 300 + 1) + 100) + "px";
-        
-        let posEstrella = Math.floor(Math.random() * (10 - 300 + 1) + 100) + "px";
+
+
         // while(posBomba == posEstrella ){
         //     posEstrella = Math.floor(Math.random() * (10 - 300 + 1) + 50) + "px";
         //     posBomba = Math.floor(Math.random() * (10 - 300 + 1) + 50) + "px";
         // }
-        this.estrella = new Estrella(this.estrellaDiv,posEstrella);
-        this.estrella.generarEstrella();
-        
+
+
         this.obstaculo = new Obstaculo(this.bomba, posBomba);
         this.obstaculo.generarObstaculo();
 
+    }
+
+    generarEstrella() {
+        let posEstrella = Math.floor(Math.random() * (10 - 300 + 1) + 100) + "px";
+        this.estrella = new Estrella(this.estrellaDiv, posEstrella);
+        this.estrella.generarEstrella();
     }
 
     chequearColision() {
@@ -75,10 +82,16 @@ class Loop {
             console.log('sumar puntos');
             this.puntos++;
             console.log('puntos: ' + this.puntos);
+            this.estrella.juntar();
+            let posEstrella = Math.floor(Math.random() * (10 - 300 + 1) + 100) + "px";
+            this.estrella = new Estrella(this.estrellaDiv, posEstrella);
+
+
+            this.estrella.generarEstrella();
         }
     }
 
-    pierdeVida(){
+    pierdeVida() {
         // this.vidas=this.vidas-1;
         // let divVida = "vida"+this.vidas;
         // console.log("Anda",divVida);

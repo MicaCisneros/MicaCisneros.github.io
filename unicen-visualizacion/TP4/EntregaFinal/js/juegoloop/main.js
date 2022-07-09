@@ -9,15 +9,8 @@
 
 
 
-
-
-
-
 /* PERSONAJE */
 let personaje = document.querySelector("#personaje");
-
-
-
 let muertePersonaje = document.querySelector('#muertePersonaje');
 muertePersonaje.setAttribute("hidden", "");
 // let posicionPersona = personaje.getBoundingClientRect();

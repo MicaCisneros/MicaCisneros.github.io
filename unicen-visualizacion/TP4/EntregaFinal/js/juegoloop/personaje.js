@@ -20,7 +20,7 @@ class Personaje {
     }
 
     verificarPerdedor() {
-        if (this.topPersona <= -30 || this.topPersona >= 350) {
+        if ( /*this.topPersona <= -30 || */ this.topPersona >= 350) {
             return true;
         } else return false;
     }
