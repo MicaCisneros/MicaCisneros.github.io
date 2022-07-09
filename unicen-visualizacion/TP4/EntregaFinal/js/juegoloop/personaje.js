@@ -7,7 +7,6 @@ class Personaje {
     }
 
     caerPersonaje() {
-        console.log(this.topPersona);
         this.topPersona = this.topPersona + 10;
         personaje.style.top = this.topPersona + 'px';
         this.muertePersonaje.style.top = this.topPersona + 'px';

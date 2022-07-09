@@ -2102,7 +2102,7 @@ hr {
 
 @-webkit-keyframes obstaculo {
     from {
-        left: 1045px;
+        left: 800px;
     }
     to {
         left: 0px;
@@ -2147,6 +2147,38 @@ hr {
     animation-play-state: paused;
 }
 
+.vida{
+    background-image: url("../img/loop/vidas.png");
+    position: absolute;
+    width: 40px;
+    height: 35px;
+    z-index: 5;
+    left: 0;
+}
+
+.vida2{
+    background-image: url("../img/loop/vidas.png");
+    position: absolute;
+    width: 40px;
+    height: 35px;
+    z-index: 5;
+    left: 35px;
+}
+
+.vida3{
+    background-image: url("../img/loop/vidas.png");
+    position: absolute;
+    width: 40px;
+    height: 35px;
+    z-index: 5;
+    left: 70px;
+}
+
+.vidas{
+    display: grid;
+    top: 0;
+}
+
 
 /* ESTILO JUEGO LOOP*/
 
@@ -2175,3 +2207,4 @@ hr {
     grid-column: 1;
     grid-auto-rows: minmax(auto, auto);
 }
+

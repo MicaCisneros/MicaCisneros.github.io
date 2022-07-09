@@ -23,28 +23,28 @@ muertePersonaje.setAttribute("hidden", "");
 // let posicionPersona = personaje.getBoundingClientRect();
 // console.log(posicionPersona);
 let topPersona = personaje.offsetTop;
-console.log(topPersona);
 let persona = new Personaje(personaje, muertePersonaje, topPersona);
 
 
 /* OBSTACULOS */
 let bomba = document.querySelector(".divBomba");
-let obstaculo = new Obstaculo(bomba);
-obstaculo.generarObstaculo();
+//let obstaculo = new Obstaculo(bomba);
+//obstaculo.generarObstaculo();
 let explosion = document.querySelector("#explosion");
 explosion.setAttribute("hidden", "");
 
 /* COLECCIONABLES */
 let estrellaDiv = document.querySelector(".estrella");
-let estrella = new Estrella(estrellaDiv);
-estrella.generarEstrella();
+//let estrella = new Estrella(estrellaDiv);
+//estrella.generarEstrella();
 
 /*  PUNTOS  */
 let puntos = 0;
 
 
 /* JUEGO */
-let juego = new Loop(persona, explosion, bomba, obstaculo, estrellaDiv, muertePersonaje, puntos);
+let juego = new Loop(persona, explosion, bomba, estrellaDiv, muertePersonaje, puntos);
+juego.generarObstaculos()
 let divJuego = document.querySelector("#game-loop");
 
 window.onkeyup = function(event) {
