@@ -10,7 +10,7 @@
 
 
 /* PERSONAJE */
-let jugando = false;
+let jugando = true; //Para probar lo pongo en true, aunque deberia hacerlo al apretar un boton jugar
 let obstaculos = [];
 
 let personaje = document.querySelector("#personaje");
@@ -26,8 +26,8 @@ let persona = new Personaje(personaje, muertePersonaje, topPersona);
 // let bomba = document.querySelector(".divBomba");
 //let obstaculo = new Obstaculo(bomba);
 //obstaculo.generarObstaculo();
-let explosion = document.querySelector("#explosion");
-explosion.setAttribute("hidden", "");
+// let explosion = document.querySelector("#explosion");
+// explosion.setAttribute("hidden", "");
 
 /* COLECCIONABLES */
 // let estrellaDiv = document.querySelector(".estrella");
@@ -41,7 +41,7 @@ let puntos = 0;
 /* JUEGO */
 let intervaloCrearElementos = null;
 let intervaloChequearColision = null;
-let juego = new Loop(persona, explosion, obstaculos, muertePersonaje, puntos);
+let juego = new Loop(persona, obstaculos, muertePersonaje, puntos);
 // juego.generarObstaculos()
 let divJuego = document.querySelector("#game-loop");
 
@@ -49,7 +49,10 @@ window.onkeyup = function(event) {
 
         if (event.keyCode === 32 || event.keyCode === 38 || event.keyCode === 87) {
             // contempla barra espaciadora flechita arriba  y la W
-            juego.saltaPersonaje();
+            if(jugando == true){
+                juego.saltaPersonaje();
+            }
+            
         }
     }
     //divJuego.addEventListener('mousedown', moverPersonaje);
@@ -71,7 +74,7 @@ function jugar() {
 
         for (let ob of obstaculos) {
 
-            if ((ob.chequearColision(juego))) {
+            if ((ob.chequearColision(juego)) == 0) {
                 terminarJuego();
             }
         }
@@ -106,14 +109,30 @@ function generarObstaculos() {
 }
 
 function terminarJuego() {
-
+    jugando = false;
+    let nube = document.querySelector(".nubes");
+    let nube2 = document.querySelector(".nubes-2");
+    let arbusto = document.querySelector(".arbustos");
+    let piso = document.querySelector(".piso");
     console.log('terminar');
     obstaculos.forEach(elem => {
         elem.frenarAnimacion();
     });
+    persona.morir();
+    nube.style.animationPlayState = 'paused';
+    nube2.style.animationPlayState = 'paused';
+    arbusto.style.animationPlayState = 'paused';
+    piso.style.animationPlayState = 'paused';
+    let intervalPersonaje = setInterval(() => {
+        // clearInterval(intervaloSalto)
+        // piso.style.top = "360px";
+        // piso.style.top = "350px";
+        personaje.style.animationPlayState = 'paused';
+        clearInterval(intervalPersonaje);
+    }, 1000);
     clearInterval(intervaloCrearElementos);
     clearInterval(intervaloChequearColision);
-    jugando = false;
+    
 }
 
 // function caerPersonaje() {

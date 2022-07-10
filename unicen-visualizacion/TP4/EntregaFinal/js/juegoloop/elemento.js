@@ -17,6 +17,9 @@ class Elemento {
         this.contenedor.appendChild(this.divElemento);
     }
 
+    setId(id){
+        this.idObstaculo =id;
+    }
     getPosicion() {
         this.posicion = this.divElemento.offsetLeft;
         return this.posicion;
@@ -36,9 +39,12 @@ class Elemento {
         // this.generarObstaculo();
     }
 
-    explotar(muerte) {
-        this.divElemento.setAttribute("hidden", "");
-        muerte.removeAttribute("hidden", "");
+    explotar(tipo) {
+        this.divElemento.removeAttribute("id",this.tipo);
+        this.divElemento.setAttribute("id",tipo);
+        this.contenedor.appendChild(this.divElemento);
+        console.log(this.divElemento);
+        this.tipo = tipo;
     }
 
     getId() {

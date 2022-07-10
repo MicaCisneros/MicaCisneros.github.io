@@ -2001,7 +2001,7 @@ hr {
     z-index: 5;
     top: 270px;
     left: 50px;
-    animation: caminar 2s steps(6) infinite;
+    animation: caminar 1s steps(6) infinite;
     border: 1px solid #9c2881;
 }
 
@@ -2040,14 +2040,14 @@ hr {
 }
 
 
-/* @keyframes caminar {
+@keyframes morirPersonaje {
     0% {
         background-position: 0px;
     }
     100% {
-        background-position: -241px;
+        background-position: 241px;
     }
-} */
+} 
 
 #saltaPersonaje {
     background: url(../img/loop/nenasalta-removebg-preview.png);
@@ -2086,7 +2086,7 @@ hr {
     height: 178px;
     position: absolute;
     z-index: 5;
-    top: 280px;
+    top: 160px;
     animation: boom 1s steps(4);
     left: 100px;
 }
@@ -2108,7 +2108,7 @@ hr {
     position: absolute;
     z-index: 5;
     top: 180px;
-    animation: obstaculo 11s linear infinite;
+    animation: obstaculo 9s linear infinite;
     background-repeat: no-repeat;
     /* left:800px; */
     border: 1px solid #00223e;
@@ -2126,7 +2126,7 @@ hr {
     z-index: 5;
     top: 170px;
     left: 800px;
-    animation: estrella 1s steps(4) infinite, obstaculo 11s linear infinite;
+    animation: estrella 1s steps(4) infinite, obstaculo 9s linear infinite;
     background-repeat: no-repeat;
     /* left:800px; */
     border: 1px solid #c21010;
@@ -2189,7 +2189,7 @@ hr {
     animation-play-state: paused;
 }
 
-.vida {
+.vida1 {
     background-image: url("../img/loop/vidas.png");
     position: absolute;
     width: 40px;

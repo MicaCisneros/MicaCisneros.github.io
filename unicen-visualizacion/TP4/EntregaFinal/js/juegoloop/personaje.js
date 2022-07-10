@@ -42,8 +42,8 @@ class Personaje {
     }
 
     morir() {
-        this.personaje.setAttribute("hidden", "");
-        this.muertePersonaje.removeAttribute("hidden", "");
+        this.personaje.removeAttribute("id", "personaje");
+        this.personaje.setAttribute("id", "muertePersonaje");
     }
 
     // chequearColision(estrellaDiv, bomba) {

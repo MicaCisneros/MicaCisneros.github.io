@@ -1,7 +1,7 @@
 class Loop {
-    constructor(personaje, explosion, obstaculos, muertePersonaje, puntos) {
+    constructor(personaje, obstaculos, muertePersonaje, puntos) {
         this.personaje = personaje;
-        this.explosion = explosion;
+        this.explosion;
         this.obstaculos = obstaculos;
         this.obstaculo = null;
         this.estrella = null;
@@ -91,29 +91,33 @@ class Loop {
         if (divElemento.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
             divElemento.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
             divElemento.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
-            console.log('---------------------------')
                 // 
             if (elemento.getId() == 0) {
-                //this.pierdeVida();
-                elemento.explotar(this.explosion);
-                this.fin(divElemento);
-                this.accionMuerte();
-                elemento.ocultarElemento();
-                return true;
+                console.log("id",elemento.getId())
+                elemento.explotar("explosion");
+                this.pierdeVida();
+                elemento.setId(2);
+                // this.fin(divElemento);
+                // this.accionMuerte();
+                let interval = setInterval(() => {
+                    elemento.ocultarElemento();
+                    clearInterval(interval);
+                }, 4000);
+                
+                return this.vidas;
             } else {
                 console.log('sumar puntos');
                 this.puntos++;
                 console.log('puntos: ' + this.puntos);
-                elemento.ocultarElemento();
                 // this.estrella.juntar();
                 // let posEstrella = Math.floor(Math.random() * (10 - 300 + 1) + 100) + "px";
                 // this.estrella = new Estrella(this.estrellaDiv, posEstrella);
-
-                return false;
+                elemento.ocultarElemento();
+                return this.vidas;
                 // this.estrella.generarEstrella();
             }
 
-
+            
             // } else if (this.estrellaDiv.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
             //     this.estrellaDiv.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
             //     this.estrellaDiv.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
@@ -122,12 +126,14 @@ class Loop {
     }
 
     pierdeVida() {
-        // this.vidas=this.vidas-1;
-        // let divVida = "vida"+this.vidas;
-        // console.log("Anda",divVida);
-        // //document.querySelector()
+        console.log(this.vidas)
+        let divVida = "vida"+this.vidas;
+        let vida = document.querySelector("."+divVida);
+        vida.classList.remove(divVida);
+        this.vidas=this.vidas-1;
+        //document.querySelector()
 
-        // if(this.vidas = 0){
+        // if(this.vidas == 0){
         //     this.personaje.morir();
         // }
     }
