@@ -2035,9 +2035,10 @@ hr {
     position: absolute;
     z-index: 5;
     left: 50px;
-    top: 200px;
+    top: 270px;
     animation: morirPersonaje 1s steps(2);
 }
+
 
 /* @keyframes caminar {
     0% {
@@ -2085,7 +2086,7 @@ hr {
     height: 178px;
     position: absolute;
     z-index: 5;
-    top: 200px;
+    top: 280px;
     animation: boom 1s steps(4);
     left: 100px;
 }

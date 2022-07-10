@@ -39,7 +39,9 @@ let puntos = 0;
 
 
 /* JUEGO */
-let juego = new Loop(persona,explosion, obstaculos, muertePersonaje, puntos);
+let intervaloCrearElementos = null;
+let intervaloChequearColision = null;
+let juego = new Loop(persona, explosion, obstaculos, muertePersonaje, puntos);
 // juego.generarObstaculos()
 let divJuego = document.querySelector("#game-loop");
 
@@ -51,55 +53,68 @@ window.onkeyup = function(event) {
         }
     }
     //divJuego.addEventListener('mousedown', moverPersonaje);
-//Deberia llamarse al hacer click en un boton
+    //Deberia llamarse al hacer click en un boton
 jugar();
-    function jugar() {
-        jugando = true;
 
+function jugar() {
+    jugando = true;
 
-        //generamos nuevos obstaculos cada 1 segundo
-        let intObs = setInterval(() => {
-            if (jugando) {
-                generarObs();
-            }
-        }, 1100);
-        //chequeamos que no haya colision
-        let interval = setInterval(() => {
-            //recorremos el arreglo de obstaculos y vamos preguntando si hubo colision en ese especifico objeto
-            for (let obs of obstaculos) {
-                console.log(obs);
-                if ((juego.chequearColision(obs))) {
-                    terminarJuego();
-                }
-            }
-        }, 300);
+    //vamos creando obstaculos y coleccionables
+    intervaloCrearElementos = setInterval(() => {
+        if (jugando) {
+            generarObstaculos();
+        }
+    }, 1100);
 
+    //chequeamos colisiones en cada elemento del arreglo
+    intervaloChequearColision = setInterval(() => {
 
-    }
+        for (let ob of obstaculos) {
 
-    function generarObs(){
-        if (obstaculos.length < 4) {
-            let numero = ((Math.floor(Math.random() * 3)));
-            let obstaculo1;
-            switch (numero) {
-                case 0:
-                    obstaculo1 = new Elemento("estrella",1);
-                    obstaculos.push(obstaculo1);
-                    break;
-                case 1:
-                    obstaculo1 = new Elemento("bomba", 0);
-                    obstaculos.push(obstaculo1);
-                    break;
-            }
-            
-        } else {
-            let posicion = obstaculos[0].getPosicion();
-            if (posicion <= 50) {      
-            obstaculos[0].ocultarElemento();
-            obstaculos.splice(0, 1);
+            if ((ob.chequearColision(juego))) {
+                terminarJuego();
             }
         }
+
+    }, 300);
+
+
+}
+
+function generarObstaculos() {
+    if (obstaculos.length < 4) {
+        let num = ((Math.floor(Math.random() * 3)));
+        let obstaculo1;
+        switch (num) {
+            case 0:
+                obstaculo1 = new Elemento("estrella", 1);
+                obstaculos.push(obstaculo1);
+                break;
+            case 1:
+                obstaculo1 = new Elemento("bomba", 0);
+                obstaculos.push(obstaculo1);
+                break;
+        }
+
+    } else {
+        let posicion = obstaculos[0].getPosicion();
+        if (posicion <= 50) {
+            obstaculos[0].ocultarElemento();
+            obstaculos.splice(0, 1);
+        }
     }
+}
+
+function terminarJuego() {
+
+    console.log('terminar');
+    obstaculos.forEach(elem => {
+        elem.frenarAnimacion();
+    });
+    clearInterval(intervaloCrearElementos);
+    clearInterval(intervaloChequearColision);
+    jugando = false;
+}
 
 // function caerPersonaje() {
 //     juego.caerPersonaje();

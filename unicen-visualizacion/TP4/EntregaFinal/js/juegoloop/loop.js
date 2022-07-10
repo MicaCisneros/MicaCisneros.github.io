@@ -12,20 +12,20 @@ class Loop {
     }
 
 
-    caerPersonaje() {
-        if (!this.personaje.verificarPerdedor() && !this.pausar) {
-            this.personaje.caerPersonaje();
-            this.chequearColision();
-        } else {
-            this.fin();
-            this.accionMuerte();
-        }
-    }
+    // caerPersonaje() {
+    //     if (!this.personaje.verificarPerdedor() && !this.pausar) {
+    //         this.personaje.caerPersonaje();
+    //         this.chequearColision();
+    //     } else {
+    //         this.fin();
+    //         this.accionMuerte();
+    //     }
+    // }
 
     saltaPersonaje() {
         if (!this.personaje.verificarPerdedor() && !this.pausar) {
             this.personaje.saltaPersonaje();
-         }
+        }
 
         //   else {
         //     this.fin();
@@ -62,22 +62,45 @@ class Loop {
         this.estrella.generarEstrella();
     }
 
-    chequearColision(elemento) { //Aun no anda
+    chequearColision(divElemento, elemento) { //Aun no anda
+
+
+
+        // if (elemento.getBoundingClientRect().x + 10 <
+        //     this.personaje.getBoundingClientRect().right &&
+        //     elemento.getBoundingClientRect().x + elemento.getBoundingClientRect().width - 10 >
+        //     personaje.getBoundingClientRect().right) {
+        //     if (personaje.getBoundingClientRect().bottom >=
+        //         elemento.getBoundingClientRect().y + 10) {
+        //         console.log('lo logro');
+
+        //     }
+        // }
+
+
+
+
+
+
+
+
+
 
         //this.personaje.chequearColision(this.estrellaDiv, this.bomba);
-
-
         //console.log(this.estrellaDiv.offsetLeft, personaje.offsetLeft, personaje.clientWidth);
-        if (elemento.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
-            elemento.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
-            elemento.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
-            // this.elemento.explotar(this.explosion);
-            if(elemento.getId() == 0){
+        if (divElemento.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
+            divElemento.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
+            divElemento.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
+            console.log('---------------------------')
+                // 
+            if (elemento.getId() == 0) {
                 //this.pierdeVida();
-                this.fin();
+                elemento.explotar(this.explosion);
+                this.fin(divElemento);
                 this.accionMuerte();
                 elemento.ocultarElemento();
-            }else{
+                return true;
+            } else {
                 console.log('sumar puntos');
                 this.puntos++;
                 console.log('puntos: ' + this.puntos);
@@ -85,16 +108,16 @@ class Loop {
                 // this.estrella.juntar();
                 // let posEstrella = Math.floor(Math.random() * (10 - 300 + 1) + 100) + "px";
                 // this.estrella = new Estrella(this.estrellaDiv, posEstrella);
-    
-    
+
+                return false;
                 // this.estrella.generarEstrella();
             }
-        
 
-        // } else if (this.estrellaDiv.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
-        //     this.estrellaDiv.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
-        //     this.estrellaDiv.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
-    
+
+            // } else if (this.estrellaDiv.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
+            //     this.estrellaDiv.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
+            //     this.estrellaDiv.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
+
         }
     }
 
@@ -109,7 +132,7 @@ class Loop {
         // }
     }
 
-    fin() {
+    fin(divElemento) {
         let nube = document.querySelector(".nubes");
         let nube2 = document.querySelector(".nubes-2");
         let arbusto = document.querySelector(".arbustos");
@@ -121,8 +144,9 @@ class Loop {
         nube2.style.animationPlayState = 'paused';
         arbusto.style.animationPlayState = 'paused';
         piso.style.animationPlayState = 'paused';
-        estrellaDiv.style.animationPlayState = 'paused';
-        bomba.style.animationPlayState = 'paused';
+        // estrellaDiv.style.animationPlayState = 'paused';
+        // bomba.style.animationPlayState = 'paused';
+        divElemento.style.animationPlayState = 'paused';
         this.pausar = true;
     }
 }

@@ -1,9 +1,9 @@
-class Elemento{
+class Elemento {
 
-    constructor(tipo,idObstaculo) {
+    constructor(tipo, idObstaculo) {
         this.tipo = tipo;
         this.idObstaculo = idObstaculo;
-        this.clase = "."+tipo;
+        this.clase = "." + tipo;
         this.divElemento;
         this.contenedor;
         this.posicion = null;
@@ -17,26 +17,36 @@ class Elemento{
         this.contenedor.appendChild(this.divElemento);
     }
 
-    getPosicion(){
+    getPosicion() {
         this.posicion = this.divElemento.offsetLeft;
         return this.posicion;
     }
 
+    chequearColision(juego) {
+        let pausar = false;
+        pausar = juego.chequearColision(this.divElemento, this);
+        return pausar;
+
+    }
+
     ocultarElemento() {
-        
+
         // console.log("Posicion:",this.posicion)
-            this.divElemento.removeAttribute("id",this.tipo);
-            // this.generarObstaculo();
+        this.divElemento.removeAttribute("id", this.tipo);
+        // this.generarObstaculo();
     }
 
     explotar(muerte) {
-        // console.log(muerte)  VER PORQUE SIGUE IMPRIMIENDO CNDO MURIO
-        this.bomba.setAttribute("hidden", "");
-        muerte.style.top = this.bomba.offsetTop + "px";
+        this.divElemento.setAttribute("hidden", "");
         muerte.removeAttribute("hidden", "");
     }
 
-    getId(){
+    getId() {
         return this.idObstaculo;
     }
+
+    frenarAnimacion() {
+        this.divElemento.style.animationPlayState = 'paused';
+    }
+
 }
