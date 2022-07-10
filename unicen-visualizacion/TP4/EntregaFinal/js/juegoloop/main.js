@@ -79,7 +79,7 @@ function jugar() {
             }
         }
 
-    }, 300);
+    }, 800);
 
 
 }
@@ -115,9 +115,7 @@ function terminarJuego() {
     let arbusto = document.querySelector(".arbustos");
     let piso = document.querySelector(".piso");
     console.log('terminar');
-    obstaculos.forEach(elem => {
-        elem.frenarAnimacion();
-    });
+
     persona.morir();
     nube.style.animationPlayState = 'paused';
     nube2.style.animationPlayState = 'paused';
@@ -127,6 +125,9 @@ function terminarJuego() {
         // clearInterval(intervaloSalto)
         // piso.style.top = "360px";
         // piso.style.top = "350px";
+        obstaculos.forEach(elem => {
+            elem.frenarAnimacion();
+        });
         personaje.style.animationPlayState = 'paused';
         clearInterval(intervalPersonaje);
     }, 1000);

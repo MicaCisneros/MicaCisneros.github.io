@@ -2030,7 +2030,7 @@ hr {
 #muertePersonaje {
     background: url(../img/loop/nenamuere-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
-    width: 98px;
+    width: 100px;
     height: 182px;
     position: absolute;
     z-index: 5;
@@ -2086,7 +2086,7 @@ hr {
     height: 178px;
     position: absolute;
     z-index: 5;
-    top: 160px;
+    top: 150px;
     animation: boom 1s steps(4);
     left: 100px;
 }

@@ -42,8 +42,6 @@ class Elemento {
     explotar(tipo) {
         this.divElemento.removeAttribute("id",this.tipo);
         this.divElemento.setAttribute("id",tipo);
-        this.contenedor.appendChild(this.divElemento);
-        console.log(this.divElemento);
         this.tipo = tipo;
     }
 
