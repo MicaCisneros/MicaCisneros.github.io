@@ -32,7 +32,7 @@ class Personaje {
             // piso.style.top = "360px";
             // piso.style.top = "350px";
             clearInterval(interval);
-        }, 2000);
+        }, 1000);
     }
 
     verificarPerdedor() {

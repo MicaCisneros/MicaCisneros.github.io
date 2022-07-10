@@ -102,7 +102,7 @@ class Loop {
                 let interval = setInterval(() => {
                     elemento.ocultarElemento();
                     clearInterval(interval);
-                }, 3000);
+                }, 1000);
                 
                 return this.vidas;
             } else {

@@ -1993,16 +1993,16 @@ hr {
 }
 
 #personaje {
-    background: url(../img/loop/nenacamina-removebg-preview.png);
+    background: url(../img/loop/nenacamina4-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
     width: 100px;
     height: 175px;
     position: absolute;
     z-index: 5;
-    top: 270px;
+    top: 280px;
     left: 50px;
     animation: caminar 1s steps(6) infinite;
-    border: 1px solid #9c2881;
+    /* border: 1px solid #9c2881; */
 }
 
 
@@ -2023,19 +2023,19 @@ hr {
         background-position: 0px;
     }
     100% {
-        background-position: -662px;
+        background-position: 640px;
     }
 }
 
 #muertePersonaje {
-    background: url(../img/loop/nenamuere-removebg-preview.png);
+    background: url(../img/loop/nenamuere2-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
-    width: 100px;
+    width: 150px;
     height: 182px;
     position: absolute;
     z-index: 5;
     left: 50px;
-    top: 270px;
+    top: 290px;
     animation: morirPersonaje 1s steps(2);
 }
 
@@ -2045,7 +2045,7 @@ hr {
         background-position: 0px;
     }
     100% {
-        background-position: 241px;
+        background-position: -314px;
     }
 } 
 
@@ -2058,7 +2058,7 @@ hr {
     z-index: 5;
     left: 50px;
     top: 200px;
-    animation: stepSaltar 2s steps(3), saltar 1s infinite linear;
+    animation: stepSaltar 1s steps(3), saltar 1s infinite linear;
 }
 
 @keyframes stepSaltar {
@@ -2108,10 +2108,10 @@ hr {
     position: absolute;
     z-index: 5;
     top: 180px;
-    animation: obstaculo 9s linear infinite;
+    animation: obstaculo 5s linear infinite;
     background-repeat: no-repeat;
     /* left:800px; */
-    border: 1px solid #00223e;
+    /* border: 1px solid #00223e; */
 }
 
 
@@ -2126,10 +2126,10 @@ hr {
     z-index: 5;
     top: 170px;
     left: 800px;
-    animation: estrella 1s steps(4) infinite, obstaculo 9s linear infinite;
+    animation: estrella 1s steps(4) infinite, obstaculo 5s linear infinite;
     background-repeat: no-repeat;
     /* left:800px; */
-    border: 1px solid #c21010;
+    /* border: 1px solid #c21010; */
 }
 
 

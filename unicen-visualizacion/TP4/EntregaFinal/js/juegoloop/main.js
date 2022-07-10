@@ -79,7 +79,7 @@ function jugar() {
             }
         }
 
-    }, 800);
+    }, 600);
 
 
 }
@@ -130,7 +130,7 @@ function terminarJuego() {
         });
         personaje.style.animationPlayState = 'paused';
         clearInterval(intervalPersonaje);
-    }, 1000);
+    }, 900);
     clearInterval(intervaloCrearElementos);
     clearInterval(intervaloChequearColision);
     
