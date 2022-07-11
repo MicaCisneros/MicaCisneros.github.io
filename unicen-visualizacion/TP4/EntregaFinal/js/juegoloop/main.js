@@ -64,7 +64,7 @@ botonPlay.addEventListener('click', () => {
 
     // }, 8000);
 
-    timerJuego = setTimeout(ganar, 8000);
+    timerJuego = setTimeout(ganar, 80000);
     jugar();
     botonPlay.style.visibility = 'hidden';
     // timerVariable = setInterval(countUpTimer, 1000);
