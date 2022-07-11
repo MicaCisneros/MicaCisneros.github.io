@@ -62,7 +62,7 @@ jugar();
 function jugar() {
     jugando = true;
 
-    //vamos creando obstaculos y coleccionables
+    //creamos obstaculos
     intervaloCrearElementos = setInterval(() => {
         if (jugando) {
             generarObstaculos();
@@ -122,9 +122,6 @@ function terminarJuego() {
     arbusto.style.animationPlayState = 'paused';
     piso.style.animationPlayState = 'paused';
     let intervalPersonaje = setInterval(() => {
-        // clearInterval(intervaloSalto)
-        // piso.style.top = "360px";
-        // piso.style.top = "350px";
         obstaculos.forEach(elem => {
             elem.frenarAnimacion();
         });
@@ -135,7 +132,3 @@ function terminarJuego() {
     clearInterval(intervaloChequearColision);
     
 }
-
-// function caerPersonaje() {
-//     juego.caerPersonaje();
-// }
