@@ -1964,12 +1964,12 @@ hr {
 }
 
 .arbustos {
-    background-image: url("../img/loop/arbustos-removebg-preview.png");
+    background: url(../img/loop/arbustos-removebg-preview.png);
     animation: movimiento 40s linear infinite;
-    min-height: 400px;
+    min-height: 200px;
     width: 80%;
     height: 10%;
-    top: 200px;
+    top: 300px;
     z-index: 2;
 }
 
