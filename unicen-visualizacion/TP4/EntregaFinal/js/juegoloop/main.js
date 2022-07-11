@@ -7,67 +7,89 @@
  * end() apret esc, perdio o gano
  */
 
+ let jugando = false; //Para probar lo pongo en true, aunque deberia hacerlo al apretar un boton jugar
+ let obstaculos = [];
+ 
 
+ // let muertePersonaje = document.querySelector('#muertePersonaje');
+ // muertePersonaje.setAttribute("hidden", "");
+ // let posicionPersona = personaje.getBoundingClientRect();
+ // console.log(posicionPersona);
 
-/* PERSONAJE */
-let jugando = true; //Para probar lo pongo en true, aunque deberia hacerlo al apretar un boton jugar
-let obstaculos = [];
+ let personaje = document.querySelector("#personaje");
+ let topPersona = personaje.offsetTop;
+ let persona = new Personaje(personaje, topPersona);
+ 
+ 
+ /* OBSTACULOS */
+ // let bomba = document.querySelector(".divBomba");
+ //let obstaculo = new Obstaculo(bomba);
+ //obstaculo.generarObstaculo();
+ // let explosion = document.querySelector("#explosion");
+ // explosion.setAttribute("hidden", "");
+ 
+ /* COLECCIONABLES */
+ // let estrellaDiv = document.querySelector(".estrella");
+ //let estrella = new Estrella(estrellaDiv);
+ //estrella.generarEstrella();
+ 
+ /*  PUNTOS  */
+ let puntos = 0;
+ 
+ 
+ /* JUEGO */
+ let intervaloCrearElementos = null;
+ let intervaloChequearColision = null;
+ let juego = new Loop(persona, obstaculos, puntos);
+ // juego.generarObstaculos()
+ let divJuego = document.querySelector("#game-loop");
+ 
 
-let personaje = document.querySelector("#personaje");
-let muertePersonaje = document.querySelector('#muertePersonaje');
-muertePersonaje.setAttribute("hidden", "");
-// let posicionPersona = personaje.getBoundingClientRect();
-// console.log(posicionPersona);
-let topPersona = personaje.offsetTop;
-let persona = new Personaje(personaje, muertePersonaje, topPersona);
+ window.onkeyup = function(event) {
+ 
+         if (event.keyCode === 32 || event.keyCode === 38 || event.keyCode === 87) {
+             // contempla barra espaciadora flechita arriba  y la W
+             if (jugando == true) {
+                 juego.saltaPersonaje();
+             }
+ 
+         }
+     }
 
+ document.querySelector('.selectNena').addEventListener('click', e => {
+    persona.setPersonaje("nena");
+    let nena = document.querySelector('.selectNena');
+    nena.classList.add("seleccionado");
+    let nene = document.querySelector('.selectNene');
+    nene.classList.remove("seleccionado");
+ });
 
-/* OBSTACULOS */
-// let bomba = document.querySelector(".divBomba");
-//let obstaculo = new Obstaculo(bomba);
-//obstaculo.generarObstaculo();
-// let explosion = document.querySelector("#explosion");
-// explosion.setAttribute("hidden", "");
+ document.querySelector('.selectNene').addEventListener('click', e => {
+    persona.setPersonaje("nene");
+    let nena = document.querySelector('.selectNena');
+    nena.classList.remove("seleccionado");
+    let nene = document.querySelector('.selectNene');
+    nene.classList.add("seleccionado");
+ });
 
-/* COLECCIONABLES */
-// let estrellaDiv = document.querySelector(".estrella");
-//let estrella = new Estrella(estrellaDiv);
-//estrella.generarEstrella();
+document.querySelector('#jugar').addEventListener('click', e => {
+e.preventDefault();
 
-/*  PUNTOS  */
-let puntos = 0;
-
-
-/* JUEGO */
-let intervaloCrearElementos = null;
-let intervaloChequearColision = null;
-let juego = new Loop(persona, obstaculos, muertePersonaje, puntos);
-// juego.generarObstaculos()
-let divJuego = document.querySelector("#game-loop");
-
-window.onkeyup = function(event) {
-
-        if (event.keyCode === 32 || event.keyCode === 38 || event.keyCode === 87) {
-            // contempla barra espaciadora flechita arriba  y la W
-            if (jugando == true) {
-                juego.saltaPersonaje();
-            }
-
-        }
-    }
-    //divJuego.addEventListener('mousedown', moverPersonaje);
-    //Deberia llamarse al hacer click en un boton
-jugar();
+    let divJugar = document.querySelector(".elegirPersona");
+    divJugar.setAttribute("hidden","");
+    jugando = true;
+    jugar();
+});
 
 function jugar() {
     jugando = true;
-
+    persona.creoPersonaje();
     //creamos obstaculos
     intervaloCrearElementos = setInterval(() => {
         if (jugando) {
             generarObstaculos();
         }
-    }, 2000);
+    }, 2500);
 
     //chequeamos colisiones en cada elemento del arreglo
     intervaloChequearColision = setInterval(() => {
@@ -97,8 +119,8 @@ function generarObstaculos() {
             obstaculo1 = new Elemento("bomba", 0);
             obstaculos.push(obstaculo1);
             break;
-        case 3:
-            obstaculo1 = new Elemento("estrella", 2);
+        case 2:
+            obstaculo1 = new Elemento("estrella", 1);
             obstaculos.push(obstaculo1);
             break;
     }

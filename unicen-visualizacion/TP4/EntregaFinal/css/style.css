@@ -1992,7 +1992,30 @@ hr {
     }
 }
 
-#personaje {
+#personajenene {
+    background: url(../img/loop/nenecamina-removebg-preview.png);
+    /* background: url(../img/avatar2.png);*/
+    width: 90px;
+    height: 170px;
+    position: absolute;
+    z-index: 5;
+    top: 280px;
+    left: 50px;
+    animation: caminarNene 1s steps(6) infinite;
+    /* border: 1px solid #9c2881; */
+}
+
+@keyframes caminarNene {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -580px;
+    }
+}
+
+
+#personajenena {
     background: url(../img/loop/nenacamina4-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
     width: 100px;
@@ -2027,7 +2050,7 @@ hr {
     }
 }
 
-#muertePersonaje {
+#muertePersonajenena {
     background: url(../img/loop/nenamuere2-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
     width: 150px;
@@ -2048,7 +2071,29 @@ hr {
     }
 }
 
-#saltaPersonaje {
+#muertePersonajenene {
+    background: url(../img/loop/nenemuere-removebg-preview.png);
+    /* background: url(../img/avatar2.png);*/
+    width: 150px;
+    height: 182px;
+    position: absolute;
+    z-index: 5;
+    left: 50px;
+    top: 290px;
+    animation: morirPersonajeNene 1s steps(2);
+}
+
+@keyframes morirPersonajeNene {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -314px;
+    }
+}
+
+
+#saltaPersonajenena {
     background: url(../img/loop/nenasalta-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
     width: 100px;
@@ -2067,6 +2112,28 @@ hr {
     100% {
         background-position: -370px;
     }
+} 
+
+
+#saltaPersonajenene {
+    background: url(../img/loop/nenesalta-removebg-preview.png);
+    /* background: url(../img/avatar2.png);*/
+    width: 110px;
+    height: 160px;
+    position: absolute;
+    z-index: 5;
+    left: 50px;
+    top: 200px;
+    animation: stepSaltarNene 1s steps(3), saltar 1s infinite linear;
+}
+
+@keyframes stepSaltarNene {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -341px;
+    }
 }
 
 @keyframes saltar {
@@ -2080,6 +2147,7 @@ hr {
         top: 220px;
     }
 }
+
 
 #explosion {
     background: url(../img/loop/tvsea8doggj61-removebg-preview.png);
@@ -2283,4 +2351,43 @@ hr {
     left: 240px;
     top: 150px;
     visibility: hidden;
+}
+
+.selectNene{
+    background: url(../img/loop/neneSelect-removebg-preview.png);
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    z-index: 5;
+    left: 50px;
+    top: 100px;
+}
+
+.selectNena{
+    background: url(../img/loop/nenaSelect-removebg-preview.png);
+    position: absolute;
+    width: 98px;
+    height: 139px;
+    z-index: 5;
+    left: 250px;
+    top: 100px;
+}
+
+.elegirPersona{
+    background-color: #db66b8;
+    position: absolute;
+    z-index: 6;
+    width: 400px;
+    height: 300px;
+    left: 300px;
+    top: 150px;
+}
+
+.seleccionado{
+    border: solid 2px red;
+}
+#jugar{
+    border-radius: 20px;
+    width: 100px;
+    height: 50px;
 }
