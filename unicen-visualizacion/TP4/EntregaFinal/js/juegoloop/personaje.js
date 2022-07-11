@@ -1,9 +1,9 @@
 class Personaje {
 
-    constructor(personaje, muertePersonaje, topPersona) {
+    constructor(personaje, topPersona) {
         this.personaje = personaje;
-        this.muertePersonaje = muertePersonaje;
         this.topPersona = topPersona;
+        this.selectPersonaje = "nena";
     }
 
     // caerPersonaje() {
@@ -12,10 +12,14 @@ class Personaje {
     //     this.muertePersonaje.style.top = this.topPersona + 'px';
     // }
 
+    creoPersonaje(){
+        this.personaje.removeAttribute("id", "personaje");
+        this.personaje.setAttribute("id", "personaje" + this.selectPersonaje);
+    }
 
     saltaPersonaje() {
-        this.personaje.removeAttribute("id", "personaje");
-        this.personaje.setAttribute("id", "saltaPersonaje");
+        this.personaje.removeAttribute("id", "personaje" + this.selectPersonaje);
+        this.personaje.setAttribute("id", "saltaPersonaje" + this.selectPersonaje);
         // let piso = document.querySelector(".piso");
         // let num = 350;
         // let intervaloSalto = setInterval(() => {
@@ -27,8 +31,8 @@ class Personaje {
 
         let interval = setInterval(() => {
             // clearInterval(intervaloSalto)
-            this.personaje.removeAttribute("id", "saltaPersonaje");
-            this.personaje.setAttribute("id", "personaje");
+            this.personaje.removeAttribute("id", "saltaPersonaje" + this.selectPersonaje);
+            this.personaje.setAttribute("id", "personaje" + this.selectPersonaje);
             // piso.style.top = "360px";
             // piso.style.top = "350px";
             clearInterval(interval);
@@ -42,10 +46,13 @@ class Personaje {
     }
 
     morir() {
-        this.personaje.removeAttribute("id", "personaje");
-        this.personaje.setAttribute("id", "muertePersonaje");
+        this.personaje.removeAttribute("id", "personaje" + this.selectPersonaje);
+        this.personaje.setAttribute("id", "muertePersonaje" + this.selectPersonaje);
     }
 
+    setPersonaje(personaje){
+        this.selectPersonaje = personaje;
+    }
     // chequearColision(estrellaDiv, bomba) {
     //     console.log('llega?');
     //     if (this.offsetLeft + this.clientWidth > estrellaDiv.offsetLeft &&

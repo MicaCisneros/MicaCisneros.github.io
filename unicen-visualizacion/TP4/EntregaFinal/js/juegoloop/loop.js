@@ -1,12 +1,11 @@
 class Loop {
-    constructor(personaje, obstaculos, muertePersonaje, puntos) {
+    constructor(personaje, obstaculos, puntos) {
         this.personaje = personaje;
         this.explosion;
         this.obstaculos = obstaculos;
         this.obstaculo = null;
         this.estrella = null;
         this.pausar = false;
-        this.muertePersonaje = muertePersonaje;
         this.puntos = puntos;
         this.vidas = 3;
     }
