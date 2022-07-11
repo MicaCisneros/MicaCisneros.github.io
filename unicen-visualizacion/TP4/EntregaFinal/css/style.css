@@ -2039,7 +2039,6 @@ hr {
     animation: morirPersonaje 1s steps(2);
 }
 
-
 @keyframes morirPersonaje {
     0% {
         background-position: 0px;
@@ -2047,7 +2046,7 @@ hr {
     100% {
         background-position: -314px;
     }
-} 
+}
 
 #saltaPersonaje {
     background: url(../img/loop/nenasalta-removebg-preview.png);
@@ -2127,7 +2126,7 @@ hr {
     height: 72px;
     position: absolute;
     z-index: 5;
-    top: 170px;
+    top: 120px;
     left: 800px;
     animation: estrella 1s steps(4) infinite, obstaculo 5s linear infinite;
     background-repeat: no-repeat;
@@ -2198,7 +2197,7 @@ hr {
     width: 40px;
     height: 35px;
     z-index: 5;
-    left: 0;
+    left: 740px;
 }
 
 .vida2 {
@@ -2207,7 +2206,7 @@ hr {
     width: 40px;
     height: 35px;
     z-index: 5;
-    left: 35px;
+    left: 775px;
 }
 
 .vida3 {
@@ -2216,12 +2215,34 @@ hr {
     width: 40px;
     height: 35px;
     z-index: 5;
-    left: 70px;
+    left: 810px;
 }
 
 .vidas {
     display: grid;
     top: 0;
+}
+
+.estrellaPuntos {
+    background: url(../img/loop/estrella-removebg-preview.png);
+    /* width: 1000px; */
+    width: 72px;
+    height: 72px;
+    position: absolute;
+    z-index: 5;
+    left: 0px;
+}
+
+.cantPuntos {
+    width: 72px;
+    height: 72px;
+    position: absolute;
+    z-index: 5;
+    left: 55px;
+    top: 15px;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
 }
 
 
@@ -2251,4 +2272,15 @@ hr {
     /* margin-top: 50px; */
     grid-column: 1;
     grid-auto-rows: minmax(auto, auto);
+}
+
+.gameover {
+    background: url(../img/loop/go-removebg-preview.png);
+    position: absolute;
+    width: 414px;
+    height: 211px;
+    z-index: 5;
+    left: 240px;
+    top: 150px;
+    visibility: hidden;
 }

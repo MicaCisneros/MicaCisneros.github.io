@@ -62,38 +62,16 @@ class Loop {
         this.estrella.generarEstrella();
     }
 
-    chequearColision(divElemento, elemento) { //Aun no anda
-
-
-
-        // if (elemento.getBoundingClientRect().x + 10 <
-        //     this.personaje.getBoundingClientRect().right &&
-        //     elemento.getBoundingClientRect().x + elemento.getBoundingClientRect().width - 10 >
-        //     personaje.getBoundingClientRect().right) {
-        //     if (personaje.getBoundingClientRect().bottom >=
-        //         elemento.getBoundingClientRect().y + 10) {
-        //         console.log('lo logro');
-
-        //     }
-        // }
-
-
-
-
-
-
-
-
-
+    chequearColision(divElemento, elemento) {
 
         //this.personaje.chequearColision(this.estrellaDiv, this.bomba);
         //console.log(this.estrellaDiv.offsetLeft, personaje.offsetLeft, personaje.clientWidth);
         if (divElemento.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
             divElemento.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
             divElemento.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
-                // 
+            // 
             if (elemento.getId() == 0) {
-                console.log("id",elemento.getId())
+                console.log("id", elemento.getId())
                 elemento.explotar("explosion");
                 this.pierdeVida();
                 elemento.setId(2);
@@ -103,12 +81,14 @@ class Loop {
                     elemento.ocultarElemento();
                     clearInterval(interval);
                 }, 1000);
-                
+
                 return this.vidas;
             } else {
                 console.log('sumar puntos');
                 this.puntos++;
                 console.log('puntos: ' + this.puntos);
+                let puntosPantalla = document.querySelector(".cantPuntos");
+                puntosPantalla.innerHTML = 'X' + this.puntos;
                 // this.estrella.juntar();
                 // let posEstrella = Math.floor(Math.random() * (10 - 300 + 1) + 100) + "px";
                 // this.estrella = new Estrella(this.estrellaDiv, posEstrella);
@@ -117,7 +97,7 @@ class Loop {
                 // this.estrella.generarEstrella();
             }
 
-            
+
             // } else if (this.estrellaDiv.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
             //     this.estrellaDiv.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
             //     this.estrellaDiv.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
@@ -127,10 +107,10 @@ class Loop {
 
     pierdeVida() {
         console.log(this.vidas)
-        let divVida = "vida"+this.vidas;
-        let vida = document.querySelector("."+divVida);
+        let divVida = "vida" + this.vidas;
+        let vida = document.querySelector("." + divVida);
         vida.classList.remove(divVida);
-        this.vidas=this.vidas-1;
+        this.vidas = this.vidas - 1;
         //document.querySelector()
 
         // if(this.vidas == 0){

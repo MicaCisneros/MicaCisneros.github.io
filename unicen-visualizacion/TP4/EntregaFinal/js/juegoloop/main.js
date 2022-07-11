@@ -49,10 +49,10 @@ window.onkeyup = function(event) {
 
         if (event.keyCode === 32 || event.keyCode === 38 || event.keyCode === 87) {
             // contempla barra espaciadora flechita arriba  y la W
-            if(jugando == true){
+            if (jugando == true) {
                 juego.saltaPersonaje();
             }
-            
+
         }
     }
     //divJuego.addEventListener('mousedown', moverPersonaje);
@@ -67,7 +67,7 @@ function jugar() {
         if (jugando) {
             generarObstaculos();
         }
-    }, 1100);
+    }, 2000);
 
     //chequeamos colisiones en cada elemento del arreglo
     intervaloChequearColision = setInterval(() => {
@@ -85,27 +85,31 @@ function jugar() {
 }
 
 function generarObstaculos() {
-    if (obstaculos.length < 4) {
-        let num = ((Math.floor(Math.random() * 3)));
-        let obstaculo1;
-        switch (num) {
-            case 0:
-                obstaculo1 = new Elemento("estrella", 1);
-                obstaculos.push(obstaculo1);
-                break;
-            case 1:
-                obstaculo1 = new Elemento("bomba", 0);
-                obstaculos.push(obstaculo1);
-                break;
-        }
-
-    } else {
-        let posicion = obstaculos[0].getPosicion();
-        if (posicion <= 50) {
-            obstaculos[0].ocultarElemento();
-            obstaculos.splice(0, 1);
-        }
+    // if (obstaculos.length < 4) {
+    let num = ((Math.floor(Math.random() * 3)));
+    let obstaculo1;
+    switch (num) {
+        case 0:
+            obstaculo1 = new Elemento("estrella", 1);
+            obstaculos.push(obstaculo1);
+            break;
+        case 1:
+            obstaculo1 = new Elemento("bomba", 0);
+            obstaculos.push(obstaculo1);
+            break;
+        case 3:
+            obstaculo1 = new Elemento("estrella", 2);
+            obstaculos.push(obstaculo1);
+            break;
     }
+
+    // } else {
+    let posicion = obstaculos[0].getPosicion();
+    if (posicion <= 50) {
+        obstaculos[0].ocultarElemento();
+        obstaculos.splice(0, 1);
+    }
+    // }
 }
 
 function terminarJuego() {
@@ -130,5 +134,7 @@ function terminarJuego() {
     }, 900);
     clearInterval(intervaloCrearElementos);
     clearInterval(intervaloChequearColision);
-    
+    let gameover = document.querySelector(".gameover");
+    gameover.style.visibility = "visible";
+
 }
