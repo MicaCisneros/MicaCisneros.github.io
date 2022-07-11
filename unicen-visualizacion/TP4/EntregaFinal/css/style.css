@@ -1993,16 +1993,19 @@ hr {
 }
 
 #personaje {
-    background-image: url("../img/loop/red-bird2-removebg-preview.png");
+    background: url(../img/loop/nenacamina4-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
-    width: 150px;
-    height: 178px;
+    width: 100px;
+    height: 175px;
     position: absolute;
     z-index: 5;
-    top: 200px;
-    animation: caminar 1s steps(9) infinite;
-    border: 1px solid #9c2881;
+    top: 280px;
+    left: 50px;
+    animation: caminar 1s steps(6) infinite;
+    /* border: 1px solid #9c2881; */
 }
+
+
 /*
 #personaje {
     background: url(../img/loop/mucielago-volando-removebg-preview.png);
@@ -2020,19 +2023,74 @@ hr {
         background-position: 0px;
     }
     100% {
-        background-position: -1398px;
+        background-position: 640px;
     }
 }
 
-#muerte {
-    background-image: url("../img/loop/tvsea8doggj61-removebg-preview.png");
+#muertePersonaje {
+    background: url(../img/loop/nenamuere2-removebg-preview.png);
+    /* background: url(../img/avatar2.png);*/
+    width: 150px;
+    height: 182px;
+    position: absolute;
+    z-index: 5;
+    left: 50px;
+    top: 290px;
+    animation: morirPersonaje 1s steps(2);
+}
+
+@keyframes morirPersonaje {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -314px;
+    }
+}
+
+#saltaPersonaje {
+    background: url(../img/loop/nenasalta-removebg-preview.png);
+    /* background: url(../img/avatar2.png);*/
+    width: 100px;
+    height: 181px;
+    position: absolute;
+    z-index: 5;
+    left: 50px;
+    top: 200px;
+    animation: stepSaltar 1s steps(3), saltar 1s infinite linear;
+}
+
+@keyframes stepSaltar {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -370px;
+    }
+}
+
+@keyframes saltar {
+    0% {
+        top: 200px;
+    }
+    50% {
+        top: 210px;
+    }
+    100% {
+        top: 220px;
+    }
+}
+
+#explosion {
+    background: url(../img/loop/tvsea8doggj61-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
     width: 150px;
     height: 178px;
     position: absolute;
     z-index: 5;
-    top: 200px;
+    top: 150px;
     animation: boom 1s steps(4);
+    left: 100px;
 }
 
 @keyframes boom {
@@ -2051,11 +2109,11 @@ hr {
     height: 54px;
     position: absolute;
     z-index: 5;
-    top: 200px;
-    animation: obstaculo 11s linear infinite;
+    top: 180px;
+    animation: obstaculo 5s linear infinite;
     background-repeat: no-repeat;
     /* left:800px; */
-    border: 1px solid #00223e;
+    /* border: 1px solid #00223e; */
 }
 
 
@@ -2068,12 +2126,12 @@ hr {
     height: 72px;
     position: absolute;
     z-index: 5;
-    top: 200px;
-    animation: estrella 1s steps(4) infinite, obstaculo 11s linear infinite;
-    /* animation: bombita 11s linear infinite; */
+    top: 120px;
+    left: 800px;
+    animation: estrella 1s steps(4) infinite, obstaculo 5s linear infinite;
     background-repeat: no-repeat;
     /* left:800px; */
-    border: 1px solid #c21010;
+    /* border: 1px solid #c21010; */
 }
 
 
@@ -2088,7 +2146,7 @@ hr {
 
 @-webkit-keyframes obstaculo {
     from {
-        left: 1045px;
+        left: 800px;
     }
     to {
         left: 0px;
@@ -2101,11 +2159,11 @@ hr {
     z-index: 4;
     top: 200px;
     width: 1000px;
-    animation: bombita 11s linear infinite;
+    animation: avanzar 11s linear infinite;
     background-repeat: no-repeat;
 }
 
-@keyframes bombita {
+@keyframes avanzar {
     0% {
         background-position: 800px;
     }
@@ -2131,4 +2189,98 @@ hr {
 
 .paused {
     animation-play-state: paused;
+}
+
+.vida1 {
+    background-image: url("../img/loop/vidas.png");
+    position: absolute;
+    width: 40px;
+    height: 35px;
+    z-index: 5;
+    left: 740px;
+}
+
+.vida2 {
+    background-image: url("../img/loop/vidas.png");
+    position: absolute;
+    width: 40px;
+    height: 35px;
+    z-index: 5;
+    left: 775px;
+}
+
+.vida3 {
+    background-image: url("../img/loop/vidas.png");
+    position: absolute;
+    width: 40px;
+    height: 35px;
+    z-index: 5;
+    left: 810px;
+}
+
+.vidas {
+    display: grid;
+    top: 0;
+}
+
+.estrellaPuntos {
+    background: url(../img/loop/estrella-removebg-preview.png);
+    /* width: 1000px; */
+    width: 72px;
+    height: 72px;
+    position: absolute;
+    z-index: 5;
+    left: 0px;
+}
+
+.cantPuntos {
+    width: 72px;
+    height: 72px;
+    position: absolute;
+    z-index: 5;
+    left: 55px;
+    top: 15px;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+
+/* ESTILO JUEGO LOOP*/
+
+.contenedorSeccionLoop {
+    display: grid;
+    grid-template-columns: 100%;
+    background-color: #DDD7DD;
+}
+
+.divJuegoLoop {
+    margin-left: 200px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    background-color: rgb(192, 215, 223);
+}
+
+.detalleLoop {
+    margin-top: 520px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 2fr 2fr 2fr;
+    /* margin-top: 50px; */
+    grid-column: 1;
+    grid-auto-rows: minmax(auto, auto);
+}
+
+.gameover {
+    background: url(../img/loop/go-removebg-preview.png);
+    position: absolute;
+    width: 414px;
+    height: 211px;
+    z-index: 5;
+    left: 240px;
+    top: 150px;
+    visibility: hidden;
 }

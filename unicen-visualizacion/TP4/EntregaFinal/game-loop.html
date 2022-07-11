@@ -10,33 +10,233 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-
 <body>
-    <div id="game-loop">
+    <nav class="menu bg-violeta4">
+        <ul class="letra-verdana1 color-blanco">
+            <div class="logo">
+                <a href="home-log.html"> <img class="img-logo" src="img/logo-juegos.jpeg" alt=""></a>
 
-        <div class="fondo-loop cielo"> </div>
-        <div class="fondo-loop nubes"> </div>
-        <div class="fondo-loop nubes-2"> </div>
-        <div class="fondo-loop arbustos"> </div>
-        <div class="fondo-loop piso"> </div>
+            </div>
+            <div class="menuMobile">
+                <div class="opcionesMenu">
+                    <li> <a href="categoria.html"> Nuevos </a></li>
+                    <li> <a href="categoria.html"> Para ti </a></li>
+                    <li> <a href="categoria.html"> Chicas </a></li>
+                    <li> <a href="categoria.html"> Accion </a></li>
+                    <li> <a href="categoria.html"> Puzzle </a></li>
+                    <li class="usuarioMobile">Iniciar Sesion</li>
+                    <li class="usuarioMobile">Registrarse</li>
+                </div>
+                <div class="buscador dropdown">
+                    <input type="text" id="buscador-desplegable" class="input-buscador">
+                    <div class="dropdown-content bg-ligth1 ">
+                        <div class="dropdown-header bg-violeta5">
+                            <a href="categoria.html">
+                                <p>Categorias</p>
+                            </a>
+                            <a href="categoria.html"><i class="fas fa-long-arrow-right"></i></a>
+                        </div>
+                        <div class="dropdown-body-cat color-negro">
+                            <div class="dropdown-item ">
+                                <iframe class="dropdown-img bg-gris-oscuro" src="img/icon-cat-action.svg" scrolling="no">
+                                    <img class="" src="img/icon-cat-board.svg" alt="categoria"> 
+                                </iframe>
+                                <p>Accion</p>
+                            </div>
+                            <div class="dropdown-item">
+                                <iframe class="dropdown-img bg-gris-oscuro" src="img/icon-cat-classics.svg" scrolling="no">
+                                    <img class="dropdown-img" src="img/icon-cat-board.svg" alt="categoria"> 
+                                </iframe>
+                                <p>Clasicos</p>
+                            </div>
+                        </div>
+                        <div class="dropdown-header bg-violeta5">
+                            <a href="buscador.html">
+                                <p>Juegos</p>
+                            </a>
+                            <a href="buscador.html"><i class="fas fa-long-arrow-right"></i> </a>
+                        </div>
+                        <div class="dropdown-body-jue color-negro">
+                            <div class="dropdown-item">
+                                <img class="dropdown-img" src="img/juego18.jfif" alt="">
+                                <p>Among Us</p>
+                            </div>
+
+                            <div class="dropdown-item">
+                                <img class="dropdown-img" src="img/juego21.jfif" alt="">
+                                <p>Kirby</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="avatar ">
+                    <a href="perfilFavoritos.html"><img class="img-avatar" src="img/avatar1.png" alt=""></a>
+                </div>
+            </div>
+            <button class="icon-menu bg-violeta4"><i class="color-blanco menuResponsive fa-solid fa-bars"></i></button>
+        </ul>
+    </nav>
 
 
-        <div id="personaje"></div>
-        <div id="muerte"></div>
-        <div class="elementos">
-            <div class="divBomba"></div>
 
-            <div class="estrella"></div>
+    <!--   INICIO JUEGO LOOP -->
+    <section class="contenedorSeccionLoop">
+        <div class="divJuegoLoop">
+            <div id="game-loop">
+
+                <div class="vidas">
+                    <div class="vida vida1"></div>
+                    <div class="vida vida2"></div>
+                    <div class="vida vida3"></div>
+                </div>
+                <div class="puntos">
+                    <div class="estrellaPuntos"></div>
+                    <div class="cantPuntos"></div>
+                </div>
+
+                <div class="fondo-loop cielo"> </div>
+                <div class="fondo-loop nubes"> </div>
+                <div class="fondo-loop nubes-2"> </div>
+                <div class="fondo-loop arbustos"> </div>
+                <div class="fondo-loop piso"> </div>
+
+
+                <div id="personaje"></div>
+                <div id="muertePersonaje"></div>
+                <div class="elementos">
+                </div>
+                <div class="gameover"> </div>
+
+            </div>
+        </div>
+
+        <!--   FIN JUEGO LOOP   -->
+
+
+        <div id="contenedor-loader">
+
+            <div id="loader"></div>
+            <p id="texto-loader">Loading...</p>
+
+        </div>
+
+        <div class="detalleLoop">
+            <div class="cardHeader subDetalle margenDetalle">
+                <div class="imagenDetalle">
+                    <img class="imgDetalle" src="img/Juego4EnLinea.jpeg" alt="juego1">
+                </div>
+                <div class="tituloJuego">
+                    <h2 class="margenDetalle">4 En Linea</h2>
+                </div>
+                <div class="like">
+                    <div class="botonLike">
+                        <a class="btn-like" href=""><i class="iconoLike color-blanco fa-regular fa-thumbs-up" id="like"></i></a>
+                    </div>
+                    <a class="btn-dislike" href=""><i class="iconoLike color-blanco fa-regular fa-thumbs-down" id="dislike"></i></a>
+
+
+                </div>
+                <div class="contenedorFavoritos">
+                    <a class="botonFavoritos" href=""><i class="fa-solid fa-heart iconoFavoritos"></i></a>
+                </div>
+                <div class="contenedorCompartir">
+                    <button class="botonCompartir color-blanco bg-gris-oscuro"><i class="fa-solid fa-share-nodes"></i> Compartir</button>
+                </div>
+
+                <div class="contenedorEstrellas margenDetalle">
+                    <i class="estrella fa-solid fa-star"></i>
+                    <i class="estrella fa-solid fa-star"></i>
+                    <i class="estrella fa-solid fa-star"></i>
+                    <i class="estrella fa-solid fa-star"></i>
+                    <i class="estrella fa-solid fa-star"></i>
+                </div>
+            </div>
+            <div class="publicidad">
+                <img src="img/publicidad1.jpg" alt="">
+            </div>
+            <div class="publicidad2">
+                <img src="img/publicidad1.jpg" alt="">
+            </div>
+
+            <div class="infoJuego">
+                <h4 class="subDetalle2">Instrucciones</h4>
+                <p class="instruccionesJuego">Se juega siempre entre 2 jugadores y sobre un tablero de 7x6 casillas. En cada turno cada jugador coloca una ficha de su color en una columna y esta cae hasta la primera casilla disponible. El que consigue ubicar 4 fichas del mismo color
+                    seguidas en horizontal, vertical u oblicuo gana.</p>
+            </div>
+            <div class="videoJuego">
+                <h4 class="margenDetalle subDetalle2">Video ilustrativo</h4>
+                <iframe class="margenDetalle video" width="330" height="165" src="https://www.youtube.com/embed/KFn5v2BImGQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+            <h4 class="recomendadosTitulos margenDetalle subDetalle2">Juegos recomendados</h4>
+
+            <div class="recomendadosFila1 margenDetalle">
+                <img class="recomendado" src="img/juego1.jfif" alt="">
+                <img class="recomendado" src="img/juego2.jfif" alt="">
+                <img class="recomendado" src="img/juego4.jfif" alt="">
+                <img class="recomendado" src="img/juego5.jfif" alt="">
+                <img class="recomendado" src="img/juego7.jfif" alt="">
+                <img class="recomendado" src="img/juego7.jfif" alt="">
+            </div>
         </div>
 
 
-    </div>
+    </section>
+
+
+
+    <footer class="bg-violeta4">
+        <div class="enlacesFooter">
+
+            <ul class="color-blanco">
+                <a class="subtitulosFooter">Empresa</a>
+                <li>Condiciones de uso</li>
+                <li>Politicas de privacidad</li>
+                <li>Cookies</li>
+                <li>Consentimientos de cookies</li>
+            </ul>
+            <ul class="color-blanco">
+                <a class="subtitulosFooter">Idiomas</a>
+                <li>Español</li>
+                <li>Ingles</li>
+                <li>Frances</li>
+            </ul>
+            <ul class="color-blanco">
+                <a class="subtitulosFooter">Asistencia</a>
+                <li>Ayuda</li>
+                <li>FAQ</li>
+
+            </ul>
+        </div>
+        <div>
+            <div class="logoFooter">
+                <img src="img/logo-juegos.jpeg" alt="">
+            </div>
+
+            <div class="redesSociales">
+                <div>
+                    <i class="icono color-blanco fa-brands fa-instagram"></i>
+                </div>
+                <div>
+                    <i class="icono color-blanco fa-brands fa-facebook-square"></i>
+                </div>
+                <div>
+                    <i class="icono color-blanco fa-brands fa-youtube-square"></i>
+                </div>
+            </div>
+
+
+        </div>
+    </footer>
     <script src="js/juegoloop/personaje.js"></script>
-    <script src="js/juegoloop/estrella.js"></script>
-    <script src="js/juegoloop/obstaculo.js"></script>
+    <script src="js/juegoloop/elemento.js"></script>
     <script src="js/juegoloop/loop.js"></script>
     <script src="js/juegoloop/main.js"></script>
-    
+
+    <script src="js/funcionalidades.js"></script>
+    <script src="js/animacion-loader.js"></script>
+    <script src="js/buscador.js"></script>
 
 </body>
 
