@@ -1138,6 +1138,7 @@ footer a {
 }
 
 .botonPlay {
+    z-index: 6;
     display: flex;
     width: 100px;
     height: 40px;
@@ -1931,6 +1932,13 @@ hr {
     }
 }  */
 
+.iniciar-juego-loop {
+    position: absolute;
+    z-index: 6;
+    left: 250px;
+    top: -150px;
+}
+
 .fondo-loop {
     width: 80%;
     height: 10%;
@@ -2274,6 +2282,9 @@ hr {
     grid-auto-rows: minmax(auto, auto);
 }
 
+
+/*******************************  FIN DEL JUEGO WIN O GAME OVER  ******************/
+
 .gameover {
     background: url(../img/loop/go-removebg-preview.png);
     position: absolute;
@@ -2282,5 +2293,16 @@ hr {
     z-index: 5;
     left: 240px;
     top: 150px;
+    visibility: hidden;
+}
+
+.win {
+    background: url(../img/loop/cartelwin-removebg-preview.png);
+    position: absolute;
+    width: 611px;
+    height: 355px;
+    z-index: 5;
+    left: 150px;
+    top: 100px;
     visibility: hidden;
 }
