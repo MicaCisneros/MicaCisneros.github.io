@@ -29,6 +29,14 @@ let divJuego = document.querySelector("#game-loop");
 
 let ganador = false;
 
+let arrow_keys_handler = function(e) {
+    switch(e.code){
+        case "ArrowUp": case "ArrowDown": e.preventDefault(); break;
+        default: break; // do not block other keys
+    }
+  };
+  window.addEventListener("keydown", arrow_keys_handler, false);
+
 /* SALTO PERSONAJE */
 window.onkeyup = function(event) {
     if (event.keyCode === 32 || event.keyCode === 38 || event.keyCode === 87) {
@@ -157,7 +165,6 @@ function ganar() {
 
 }
 window.onkeyup = function(event) {
-
     if (event.keyCode === 32 || event.keyCode === 38 || event.keyCode === 87) {
         // contempla barra espaciadora flechita arriba  y la W
         if (jugando == true) {
