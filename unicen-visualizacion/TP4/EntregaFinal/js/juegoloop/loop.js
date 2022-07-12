@@ -144,4 +144,12 @@ class Loop {
     getPuntos(){
         return this.puntos;
     }
+
+    setPuntos(puntos){
+        this.puntos = puntos;
+    }
+
+    setVidas(vidas){
+        this.vidas = vidas;
+    }
 }

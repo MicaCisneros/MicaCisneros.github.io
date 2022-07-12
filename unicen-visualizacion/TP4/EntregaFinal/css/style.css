@@ -2085,7 +2085,7 @@ hr {
     background: url(../img/loop/nenemuere-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
     width: 150px;
-    height: 182px;
+    height: 154px;
     position: absolute;
     z-index: 5;
     left: 50px;
@@ -2098,7 +2098,7 @@ hr {
         background-position: 0px;
     }
     100% {
-        background-position: -314px;
+        background-position: -306px;
     }
 }
 
@@ -2353,13 +2353,13 @@ hr {
 /*******************************  FIN DEL JUEGO WIN O GAME OVER  ******************/
 
 .gameover {
-    background: url(../img/loop/go-removebg-preview.png);
+    background: url(../img/loop/cartelgameover-removebg-preview.png);
     position: absolute;
-    width: 414px;
-    height: 211px;
+    width: 446px;
+    height: 307px;
     z-index: 5;
     left: 240px;
-    top: 150px;
+    top: 0px;
     visibility: hidden;
 }
 
@@ -2406,7 +2406,7 @@ hr {
     border: solid 2px red;
 }
 
-#jugar {
+.jugar {
     position: absolute;
     top: 270px;
     left: 240px;
@@ -2415,6 +2415,14 @@ hr {
     height: 50px;
 }
 
+.reiniciar {
+    position: absolute;
+    top: 250px;
+    left: 220px;
+    border-radius: 20px;
+    width: 100px;
+    height: 50px;
+}
 .win {
     background: url(../img/loop/cartelwin-removebg-preview.png);
     position: absolute;
@@ -2450,13 +2458,12 @@ hr {
 .contenidoFin{
     position: absolute;
     z-index: 5;
-    left: 150px;
-    top: 150px;
+    left: 130px;
+    top: 160px;
 }
 
 .puntosFin{
     position: absolute;
-    z-index: 5;
-    left: 160px;
-    top: 150px;
+    left: 151px;
+    top: 10px;
 }

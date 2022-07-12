@@ -62,15 +62,27 @@ document.querySelector('.selectNene').addEventListener('click', e => {
     nene.classList.add("seleccionado");
 });
 
-document.querySelector('#jugar').addEventListener('click', e => {
+document.querySelector('.jugar').addEventListener('click', e => {
     e.preventDefault();
 
-    let divJugar = document.querySelector(".elegirPersona");
+    let divJugar = document.querySelector(".cartel");
     divJugar.setAttribute("hidden", "");
     jugando = true;
     timerJuego = setTimeout(ganar, 100000);
     jugar();
 });
+
+// document.querySelector('.reiniciar').addEventListener('click', e => {
+//     e.preventDefault();
+//     juego.setPuntos(0);
+//     juego.setVidas(3);
+//     let divJugar2 = document.querySelector(".gameover");
+//     divJugar2.setAttribute("hidden", "");
+//     jugando = true;
+//     timerJuego = setTimeout(ganar, 100000);
+//     jugar();
+// });
+
 
 
 /* PERSONAJE */
@@ -240,7 +252,8 @@ function terminarJuego(juegoGanado) {
 
     } else {
         obstaculos.forEach(elem => {
-            elem.frenarAnimacion();
+            elem[0].ocultarElemento();
+            elem.splice(0, 1);
         });
         personaje.style.animationPlayState = 'paused';
 
@@ -249,8 +262,9 @@ function terminarJuego(juegoGanado) {
 
     }
 
-    let divPuntos = document.querySelector(".puntos");
-    divPuntos.innerHTML =juego.getPuntos();
+    let divPuntos = document.querySelector(".contenidoFin");
+    let contenido = "Has obtenido " + juego.getPuntos() + " estrellas";
+    divPuntos.innerHTML =contenido;
 
 
 
