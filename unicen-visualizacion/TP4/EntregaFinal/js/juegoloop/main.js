@@ -153,7 +153,10 @@ let intervaloJuego = false;
 
 
 function ganar() {
-    terminarJuego(1);
+    if(jugando == true){
+        terminarJuego(1);
+    }
+    
 }
 window.onkeyup = function(event) {
 
@@ -259,7 +262,8 @@ function terminarJuego(juegoGanado) {
 
     }
 
-
+    let divPuntos = document.querySelector(".puntos");
+    divPuntos.innerHTML =juego.getPuntos();
 
 
 

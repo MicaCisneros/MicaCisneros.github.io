@@ -88,10 +88,16 @@ class Loop {
                 console.log('puntos: ' + this.puntos);
                 let puntosPantalla = document.querySelector(".cantPuntos");
                 puntosPantalla.innerHTML = 'X' + this.puntos;
+                elemento.explotar("estrellitas");
+                elemento.setId(2);
                 // this.estrella.juntar();
                 // let posEstrella = Math.floor(Math.random() * (10 - 300 + 1) + 100) + "px";
                 // this.estrella = new Estrella(this.estrellaDiv, posEstrella);
-                elemento.ocultarElemento();
+                let interval2 = setInterval(() => {
+                    elemento.ocultarElemento();
+                    clearInterval(interval2);
+                }, 1000);
+
                 return this.vidas;
                 // this.estrella.generarEstrella();
             }
@@ -133,5 +139,9 @@ class Loop {
         // bomba.style.animationPlayState = 'paused';
         divElemento.style.animationPlayState = 'paused';
         this.pausar = true;
+    }
+
+    getPuntos(){
+        return this.puntos;
     }
 }
