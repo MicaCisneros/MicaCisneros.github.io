@@ -2422,7 +2422,7 @@ hr {
     height: 355px;
     z-index: 5;
     left: 150px;
-    top: 100px;
+    top: 0px;
     visibility: hidden;
 }
 
