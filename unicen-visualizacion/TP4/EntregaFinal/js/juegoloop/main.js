@@ -1,17 +1,3 @@
-let nube = document.querySelector(".nubes");
-let nube2 = document.querySelector(".nubes-2");
-let arbusto = document.querySelector(".arbustos");
-let piso = document.querySelector(".piso");
-
-// document.addEventListener("DOMContentLoaded", function(e) {
-
-// nube.style.animationPlayState = 'paused';
-// nube2.style.animationPlayState = 'paused';
-// arbusto.style.animationPlayState = 'paused';
-// piso.style.animationPlayState = 'paused';
-
-// });
-
 let jugando = false;
 let obstaculos = [];
 
@@ -76,17 +62,9 @@ document.querySelector('.selectNene').addEventListener('click', e => {
     nene.classList.add("seleccionado");
 });
 
-//COMIENZA EL JUEGO
 document.querySelector('#jugar').addEventListener('click', e => {
     e.preventDefault();
 
-    //animamos el fondo
-    nube.classList.remove("seleccionado");
-    nube2.classList.remove("seleccionado");
-    arbusto.classList.remove("seleccionado");
-    piso.classList.remove("seleccionado");
-
-    //ocultamos el cartel de seleccion de personaje, seteamos el timer y comenzamos a jugar
     let divJugar = document.querySelector(".elegirPersona");
     divJugar.setAttribute("hidden", "");
     jugando = true;
@@ -153,10 +131,10 @@ let intervaloJuego = false;
 
 
 function ganar() {
-    if(jugando == true){
+    if (jugando == true) {
         terminarJuego(1);
     }
-    
+
 }
 window.onkeyup = function(event) {
 
@@ -198,6 +176,8 @@ function jugar() {
         }
 
     }, 600);
+
+
 }
 
 function generarObstaculos() {
@@ -230,11 +210,18 @@ function generarObstaculos() {
 
 function terminarJuego(juegoGanado) {
     jugando = false;
+    let nube = document.querySelector(".nubes");
+    let nube2 = document.querySelector(".nubes-2");
+    let arbusto = document.querySelector(".arbustos");
+    let piso = document.querySelector(".piso");
 
     nube.style.animationPlayState = 'paused';
     nube2.style.animationPlayState = 'paused';
     arbusto.style.animationPlayState = 'paused';
     piso.style.animationPlayState = 'paused';
+
+
+    console.log('terminar');
 
 
     if (juegoGanado == 0) {
@@ -263,7 +250,7 @@ function terminarJuego(juegoGanado) {
     }
 
     let divPuntos = document.querySelector(".puntos");
-    divPuntos.innerHTML =juego.getPuntos();
+    divPuntos.innerHTML = juego.getPuntos();
 
 
 
