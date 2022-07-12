@@ -1,13 +1,4 @@
-/**
- * iniciar() inicia personaje, puntaje, tiempo, fondo
- * procsarInput()  leer teclas
- * actualizarEstado() mover personaje
- * draw() dibujo escena, actualio posicion de las cosas
- * 
- * end() apret esc, perdio o gano
- */
-
-let jugando = false; //Para probar lo pongo en true, aunque deberia hacerlo al apretar un boton jugar
+let jugando = false;
 let obstaculos = [];
 
 
@@ -45,14 +36,13 @@ let juego = new Loop(persona, obstaculos, puntos);
 let divJuego = document.querySelector("#game-loop");
 
 
+/* SALTO PERSONAJE */
 window.onkeyup = function(event) {
-
     if (event.keyCode === 32 || event.keyCode === 38 || event.keyCode === 87) {
         // contempla barra espaciadora flechita arriba  y la W
         if (jugando == true) {
             juego.saltaPersonaje();
         }
-
     }
 }
 
@@ -78,7 +68,7 @@ document.querySelector('#jugar').addEventListener('click', e => {
     let divJugar = document.querySelector(".elegirPersona");
     divJugar.setAttribute("hidden", "");
     jugando = true;
-    timerJuego = setTimeout(ganar, 8000);
+    timerJuego = setTimeout(ganar, 100000);
     jugar();
 });
 
@@ -132,16 +122,11 @@ let intervaloJuego = false;
 // botonPlay.addEventListener('click', () => {
 
 //     jugando = true;
-//     // intervaloJuego = setInterval(() => {
-
-//     //     
-
-//     // }, 8000);
 
 //     timerJuego = setTimeout(ganar, 8000);
 //     jugar();
 //     botonPlay.style.visibility = 'hidden';
-//     // timerVariable = setInterval(countUpTimer, 1000);
+
 // });
 
 

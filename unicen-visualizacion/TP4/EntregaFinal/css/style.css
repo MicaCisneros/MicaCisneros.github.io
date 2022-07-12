@@ -1983,7 +1983,7 @@ hr {
 
 .piso {
     background: url(../img/loop/solopiso-removebg-preview.png);
-    animation: movimiento 20s linear infinite;
+    animation: movimiento 12s linear infinite;
     min-height: 149px;
     width: 80%;
     /* height: 10%; */
@@ -2419,6 +2419,6 @@ hr {
     height: 355px;
     z-index: 5;
     left: 150px;
-    top: 100px;
+    top: 0px;
     visibility: hidden;
 }
