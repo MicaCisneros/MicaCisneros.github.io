@@ -17,20 +17,28 @@ class Personaje {
         this.personaje.removeAttribute("id", "personaje");
         this.personaje.setAttribute("id", "saltaPersonaje");
         // let piso = document.querySelector(".piso");
+        // let arbusto = document.querySelector(".arbustos");
         // let num = 350;
         // let intervaloSalto = setInterval(() => {
         //     piso.style.top = "355px";
         //     piso.style.top = "360px";
         //     piso.style.top = "370px";
+        //     arbusto.style.top = "355px";
+        //     arbusto.style.top = "360px";
+        //     arbusto.style.top = "370px";
         // }, 200);
 
 
         let interval = setInterval(() => {
             // clearInterval(intervaloSalto)
+            // arbusto.style.top = "360px";
+            // arbusto.style.top = "350px";
             this.personaje.removeAttribute("id", "saltaPersonaje");
+            
             this.personaje.setAttribute("id", "personaje");
             // piso.style.top = "360px";
             // piso.style.top = "350px";
+            
             clearInterval(interval);
         }, 1000);
     }

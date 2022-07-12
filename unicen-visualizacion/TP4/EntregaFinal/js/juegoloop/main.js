@@ -67,7 +67,7 @@ function jugar() {
         if (jugando) {
             generarObstaculos();
         }
-    }, 2000);
+    }, 2500);
 
     //chequeamos colisiones en cada elemento del arreglo
     intervaloChequearColision = setInterval(() => {
@@ -97,8 +97,8 @@ function generarObstaculos() {
             obstaculo1 = new Elemento("bomba", 0);
             obstaculos.push(obstaculo1);
             break;
-        case 3:
-            obstaculo1 = new Elemento("estrella", 2);
+        case 2:
+            obstaculo1 = new Elemento("estrella", 1);
             obstaculos.push(obstaculo1);
             break;
     }
