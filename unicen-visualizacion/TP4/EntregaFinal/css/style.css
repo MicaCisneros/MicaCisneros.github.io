@@ -1997,6 +1997,7 @@ hr {
         background-position-x: -446px;
     }
 }
+
 .arbustos {
     background: url(../img/loop/arbustos-removebg-preview.png);
     background-repeat: repeat-x;
@@ -2130,9 +2131,9 @@ hr {
 }
 
 #saltaPersonajenena {
-    background: url(../img/loop/nenasalta-removebg-preview.png);
+    background: url(../img/loop/nenasalta2-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
-    width: 100px;
+    width: 155px;
     height: 181px;
     position: absolute;
     z-index: 5;
@@ -2146,7 +2147,7 @@ hr {
         background-position: 0px;
     }
     100% {
-        background-position: -370px;
+        background-position: -476px;
     }
 }
 
@@ -2386,7 +2387,7 @@ hr {
     height: 119px;
     z-index: 5;
     left: 200px;
-    top: 135px;
+    top: 145px;
 }
 
 .selectNena {
@@ -2396,7 +2397,7 @@ hr {
     height: 112px;
     z-index: 5;
     left: 300px;
-    top: 140px;
+    top: 150px;
 }
 
 .elegirPersona {
@@ -2410,16 +2411,17 @@ hr {
 }
 
 .seleccione {
-    top: 100px;
+    top: 110px;
     left: 140px;
     position: absolute;
     z-index: 6;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #292a77;
+    color: rgb(212, 154, 29);
+    -webkit-text-stroke: 1px #213652;
 }
 
 .seleccionado {
-    border: solid 2px red;
+    border: solid 2px rgb(212, 154, 29);
 }
 
 .jugar {
