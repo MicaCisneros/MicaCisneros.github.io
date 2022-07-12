@@ -1138,6 +1138,7 @@ footer a {
 }
 
 .botonPlay {
+    z-index: 6;
     display: flex;
     width: 100px;
     height: 40px;
@@ -1578,6 +1579,9 @@ footer a {
 /**************************************Mobile*****************************************/
 
 @media only screen and (max-width: 640px) {
+    .img-avatar{
+        display: none;
+    }
     .icon-menu {
         display: block;
     }
@@ -1931,6 +1935,13 @@ hr {
     }
 }  */
 
+.iniciar-juego-loop {
+    position: absolute;
+    z-index: 6;
+    left: 250px;
+    top: -150px;
+}
+
 .fondo-loop {
     width: 80%;
     height: 10%;
@@ -1965,7 +1976,7 @@ hr {
 
 .arbustos {
     background: url(../img/loop/arbustos-removebg-preview.png);
-    animation: movimiento 40s linear infinite;
+    animation: movimiento 35s linear infinite;
     min-height: 200px;
     width: 80%;
     height: 10%;
@@ -1975,7 +1986,7 @@ hr {
 
 .piso {
     background: url(../img/loop/solopiso-removebg-preview.png);
-    animation: movimiento 20s linear infinite;
+    animation: movimiento 15s linear infinite;
     min-height: 149px;
     width: 80%;
     /* height: 10%; */
@@ -1992,7 +2003,29 @@ hr {
     }
 }
 
-#personaje {
+#personajenene {
+    background: url(../img/loop/nenecamina-removebg-preview.png);
+    /* background: url(../img/avatar2.png);*/
+    width: 90px;
+    height: 170px;
+    position: absolute;
+    z-index: 5;
+    top: 280px;
+    left: 50px;
+    animation: caminarNene 1s steps(6) infinite;
+    /* border: 1px solid #9c2881; */
+}
+
+@keyframes caminarNene {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -580px;
+    }
+}
+
+#personajenena {
     background: url(../img/loop/nenacamina4-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
     width: 100px;
@@ -2028,7 +2061,7 @@ hr {
     }
 }
 
-#muertePersonaje {
+#muertePersonajenena {
     background: url(../img/loop/nenamuere2-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
     width: 150px;
@@ -2049,7 +2082,28 @@ hr {
     }
 }
 
-#saltaPersonaje {
+#muertePersonajenene {
+    background: url(../img/loop/nenemuere-removebg-preview.png);
+    /* background: url(../img/avatar2.png);*/
+    width: 150px;
+    height: 154px;
+    position: absolute;
+    z-index: 5;
+    left: 50px;
+    top: 290px;
+    animation: morirPersonajeNene 1s steps(2);
+}
+
+@keyframes morirPersonajeNene {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -306px;
+    }
+}
+
+#saltaPersonajenena {
     background: url(../img/loop/nenasalta-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
     width: 100px;
@@ -2067,6 +2121,27 @@ hr {
     }
     100% {
         background-position: -370px;
+    }
+}
+
+#saltaPersonajenene {
+    background: url(../img/loop/nenesalta-removebg-preview.png);
+    /* background: url(../img/avatar2.png);*/
+    width: 110px;
+    height: 160px;
+    position: absolute;
+    z-index: 5;
+    left: 50px;
+    top: 200px;
+    animation: stepSaltarNene 1s steps(3), saltar 1s infinite linear;
+}
+
+@keyframes stepSaltarNene {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -341px;
     }
 }
 
@@ -2275,13 +2350,121 @@ hr {
     grid-auto-rows: minmax(auto, auto);
 }
 
+
+/*******************************  FIN DEL JUEGO WIN O GAME OVER  ******************/
+
 .gameover {
-    background: url(../img/loop/go-removebg-preview.png);
+    background: url(../img/loop/cartelgameover-removebg-preview.png);
     position: absolute;
-    width: 414px;
-    height: 211px;
+    width: 446px;
+    height: 307px;
     z-index: 5;
     left: 240px;
-    top: 150px;
+    top: 0px;
     visibility: hidden;
+}
+
+.selectNene {
+    background: url(../img/loop/neneSelect-removebg-preview.png);
+    position: absolute;
+    width: 71px;
+    height: 119px;
+    z-index: 5;
+    left: 200px;
+    top: 135px;
+}
+
+.selectNena {
+    background: url(../img/loop/nenaSelect-removebg-preview.png);
+    position: absolute;
+    width: 73px;
+    height: 112px;
+    z-index: 5;
+    left: 300px;
+    top: 140px;
+}
+
+.elegirPersona {
+    background: url(../img/loop/cartelgrande-removebg-preview.png);
+    position: absolute;
+    z-index: 6;
+    width: 582px;
+    height: 369px;
+    left: 160px;
+    top: 0px;
+}
+
+.seleccione {
+    top: 100px;
+    left: 140px;
+    position: absolute;
+    z-index: 6;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #292a77;
+}
+
+.seleccionado {
+    border: solid 2px red;
+}
+
+.jugar {
+    position: absolute;
+    top: 270px;
+    left: 240px;
+    border-radius: 20px;
+    width: 100px;
+    height: 50px;
+}
+
+.reiniciar {
+    position: absolute;
+    top: 250px;
+    left: 220px;
+    border-radius: 20px;
+    width: 100px;
+    height: 50px;
+}
+.win {
+    background: url(../img/loop/cartelwin-removebg-preview.png);
+    position: absolute;
+    width: 611px;
+    height: 355px;
+    z-index: 5;
+    left: 150px;
+    top: 0px;
+    visibility: hidden;
+}
+
+#estrellitas{
+    background: url(../img/loop/estrellitas-removebg-preview.png);
+    /* width: 1000px; */
+    width: 100px;
+    height: 72px;
+    position: absolute;
+    z-index: 6;
+    top: 120px;
+    left: 100px;
+    animation: boomEstrella 1s steps(4);
+    background-repeat: no-repeat;
+}
+@keyframes boomEstrella {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -446px;
+    }
+}
+
+.contenidoFin{
+    position: absolute;
+    z-index: 5;
+    left: 130px;
+    top: 160px;
+}
+
+.puntosFin{
+    position: absolute;
+    left: 151px;
+    top: 10px;
 }

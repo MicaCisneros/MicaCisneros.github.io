@@ -1,12 +1,11 @@
 class Loop {
-    constructor(personaje, obstaculos, muertePersonaje, puntos) {
+    constructor(personaje, obstaculos, puntos) {
         this.personaje = personaje;
         this.explosion;
         this.obstaculos = obstaculos;
         this.obstaculo = null;
         this.estrella = null;
         this.pausar = false;
-        this.muertePersonaje = muertePersonaje;
         this.puntos = puntos;
         this.vidas = 3;
     }
@@ -83,16 +82,22 @@ class Loop {
                 }, 1000);
 
                 return this.vidas;
-            } else {
+            } else if(elemento.getId() == 1) {
                 console.log('sumar puntos');
                 this.puntos++;
                 console.log('puntos: ' + this.puntos);
                 let puntosPantalla = document.querySelector(".cantPuntos");
                 puntosPantalla.innerHTML = 'X' + this.puntos;
+                elemento.explotar("estrellitas");
+                elemento.setId(2);
                 // this.estrella.juntar();
                 // let posEstrella = Math.floor(Math.random() * (10 - 300 + 1) + 100) + "px";
                 // this.estrella = new Estrella(this.estrellaDiv, posEstrella);
-                elemento.ocultarElemento();
+                let interval2 = setInterval(() => {
+                    elemento.ocultarElemento();
+                    clearInterval(interval2);
+                }, 1000);
+
                 return this.vidas;
                 // this.estrella.generarEstrella();
             }
@@ -134,5 +139,17 @@ class Loop {
         // bomba.style.animationPlayState = 'paused';
         divElemento.style.animationPlayState = 'paused';
         this.pausar = true;
+    }
+
+    getPuntos(){
+        return this.puntos;
+    }
+
+    setPuntos(puntos){
+        this.puntos = puntos;
+    }
+
+    setVidas(vidas){
+        this.vidas = vidas;
     }
 }
