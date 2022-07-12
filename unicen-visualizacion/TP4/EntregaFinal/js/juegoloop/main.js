@@ -5,43 +5,29 @@ let arbusto = document.querySelector(".arbustos");
 let piso = document.querySelector(".piso");
 
 
-let jugando = false;
+
 let obstaculos = [];
 
-
-// let muertePersonaje = document.querySelector('#muertePersonaje');
-// muertePersonaje.setAttribute("hidden", "");
-// let posicionPersona = personaje.getBoundingClientRect();
-// console.log(posicionPersona);
 
 let personaje = document.querySelector("#personaje");
 let topPersona = personaje.offsetTop;
 let persona = new Personaje(personaje, topPersona);
 
 
-/* OBSTACULOS */
-// let bomba = document.querySelector(".divBomba");
-//let obstaculo = new Obstaculo(bomba);
-//obstaculo.generarObstaculo();
-// let explosion = document.querySelector("#explosion");
-// explosion.setAttribute("hidden", "");
-
-/* COLECCIONABLES */
-// let estrellaDiv = document.querySelector(".estrella");
-//let estrella = new Estrella(estrellaDiv);
-//estrella.generarEstrella();
-
 /*  PUNTOS  */
 let puntos = 0;
 
 
 /* JUEGO */
+let jugando = false;
 let intervaloCrearElementos = null;
 let intervaloChequearColision = null;
-let juego = new Loop(persona, obstaculos, puntos);
+let intervaloJuego = false;
+let juego = new Loop(persona, obstaculos, puntos,personaje);
 // juego.generarObstaculos()
 let divJuego = document.querySelector("#game-loop");
 
+let ganador = false;
 
 /* SALTO PERSONAJE */
 window.onkeyup = function(event) {
@@ -71,28 +57,38 @@ document.querySelector('.selectNene').addEventListener('click', e => {
 
 document.querySelector('.jugar').addEventListener('click', e => {
     e.preventDefault();
+    let divJugar = document.querySelector(".cartel");
+    divJugar.setAttribute("hidden", "");
+    iniciarJuego()
+});
+
+
+function iniciarJuego(){
     nube.classList.remove("paused");
     nube2.classList.remove("paused");
     piso.classList.remove("paused");
     arbusto.classList.remove("paused");
 
-    let divJugar = document.querySelector(".cartel");
-    divJugar.setAttribute("hidden", "");
+   
     jugando = true;
-    timerJuego = setTimeout(ganar, 100000);
+    timerJuego = setTimeout(ganar, 90000);
     jugar();
-});
+    
+}
 
-// document.querySelector('.reiniciar').addEventListener('click', e => {
-//     e.preventDefault();
-//     juego.setPuntos(0);
-//     juego.setVidas(3);
-//     let divJugar2 = document.querySelector(".gameover");
-//     divJugar2.setAttribute("hidden", "");
-//     jugando = true;
-//     timerJuego = setTimeout(ganar, 100000);
-//     jugar();
-// });
+document.querySelector('.reiniciar').addEventListener('click', e => {
+    e.preventDefault();
+    juego.setPuntos(0);
+    juego.setVidas(3);
+    juego.mostrarVidas();
+    personaje.style.animationPlayState = 'running';
+    
+    let divJugar2 = document.querySelector(".cartelfin");
+    divJugar2.style.visibility = "hidden";
+    
+    obstaculos = [];
+    iniciarJuego()
+});
 
 
 
@@ -107,8 +103,8 @@ document.querySelector('.jugar').addEventListener('click', e => {
 // // console.log(posicionPersona);
 // let topPersona = personaje.offsetTop;
 // let persona = new Personaje(personaje, muertePersonaje, topPersona);
-let botonPlay = document.querySelector('.botonPlay');
-let intervaloJuego = false;
+// let botonPlay = document.querySelector('.botonPlay');
+
 
 
 
@@ -154,8 +150,9 @@ let intervaloJuego = false;
 
 
 function ganar() {
+    ganador = true;
     if (jugando == true) {
-        terminarJuego(1);
+        terminarJuego(ganador);
     }
 
 }
@@ -194,7 +191,8 @@ function jugar() {
         for (let ob of obstaculos) {
 
             if ((ob.chequearColision(juego)) == 0) {
-                terminarJuego(0);
+                ganador = false;
+                terminarJuego(ganador);
             }
         }
 
@@ -234,50 +232,59 @@ function generarObstaculos() {
 function terminarJuego(juegoGanado) {
     jugando = false;
 
-
-    nube.style.animationPlayState = 'paused';
-    nube2.style.animationPlayState = 'paused';
-    arbusto.style.animationPlayState = 'paused';
-    piso.style.animationPlayState = 'paused';
-
+    nube.classList.add("paused");
+    nube2.classList.add("paused");
+    arbusto.classList.add("paused");
+    piso.classList.add("paused");
 
     console.log('terminar');
+    clearInterval(intervaloCrearElementos);
+    clearInterval(intervaloChequearColision);
 
+    clearInterval(intervaloJuego);
+    clearTimeout(timerJuego);
+    
 
-    if (juegoGanado == 0) {
+    if (juegoGanado == false) {
+       
         persona.morir();
-
-        let gameover = document.querySelector(".gameover");
+  
+        let gameover = document.querySelector(".cartelfin");
         gameover.style.visibility = "visible";
+        gameover.classList.add('gameover');
 
         let intervalPersonaje = setInterval(() => {
-            obstaculos.forEach(elem => {
-                elem.frenarAnimacion();
-            });
+            if(obstaculos.length != 0){
+                obstaculos.forEach(elem => {
+                    elem.ocultarElemento();
+                });
+                obstaculos.splice(0, obstaculos.length);
+            }
             personaje.style.animationPlayState = 'paused';
             clearInterval(intervalPersonaje);
         }, 900);
 
     } else {
-        obstaculos.forEach(elem => {
-            elem[0].ocultarElemento();
-            elem.splice(0, 1);
-        });
         personaje.style.animationPlayState = 'paused';
+        if(obstaculos.length != 0){
+            obstaculos.forEach(elem => {
+                elem.ocultarElemento();
+            });
+            obstaculos.splice(0, obstaculos.length);
+        }
 
-        let win = document.querySelector(".win");
+        
+        let win = document.querySelector(".cartelfin");
         win.style.visibility = "visible";
+        win.classList.add('win');
 
     }
+    let contenido = "Has obtenido " + juego.getPuntos() + " estrellas";
+    let divPuntos = document.querySelector(".contenidoFin");
+    divPuntos.innerHTML = contenido;
 
-    let divPuntos = document.querySelector(".puntos");
-    divPuntos.innerHTML = juego.getPuntos();
 
 
 
-    clearInterval(intervaloCrearElementos);
-    clearInterval(intervaloChequearColision);
-
-    clearInterval(intervaloJuego);
 
 }

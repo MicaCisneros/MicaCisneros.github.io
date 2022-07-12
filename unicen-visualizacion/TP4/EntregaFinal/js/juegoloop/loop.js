@@ -1,6 +1,7 @@
 class Loop {
-    constructor(personaje, obstaculos, puntos) {
+    constructor(personaje, obstaculos, puntos,divPersonaje) {
         this.personaje = personaje;
+        this.divPersonaje = divPersonaje;
         this.explosion;
         this.obstaculos = obstaculos;
         this.obstaculo = null;
@@ -62,19 +63,26 @@ class Loop {
     }
 
     chequearColision(divElemento, elemento) {
-
+        this.updatePosition()
         //this.personaje.chequearColision(this.estrellaDiv, this.bomba);
-        //console.log(this.estrellaDiv.offsetLeft, personaje.offsetLeft, personaje.clientWidth);
-        if (divElemento.offsetLeft <= personaje.offsetLeft + personaje.clientWidth &&
-            divElemento.offsetTop >= personaje.offsetTop - personaje.clientHeight &&
-            divElemento.offsetTop <= personaje.offsetTop - personaje.clientHeight + 100) {
-            // 
+        // if (
+        //     this.divPersonaje.left + this.divPersonaje.width > divElemento.left &&
+        //     this.divPersonaje.left < divElemento.left + divElemento.width &&
+        //     this.divPersonaje.bottom > divElemento.bottom - this.personaje.height &&
+        //     this.divPersonaje.bottom - this.personaje.height < divElemento.bottom
+        //   ){
+
+        if (divElemento.offsetLeft <= this.divPersonaje.offsetLeft + this.divPersonaje.clientWidth &&
+            divElemento.offsetTop >= this.divPersonaje.offsetTop - this.divPersonaje.clientHeight &&
+            divElemento.offsetTop <= this.divPersonaje.offsetTop - this.divPersonaje.clientHeight+100 || (this.personaje.getSalto() && 
+            divElemento.offsetLeft <= this.divPersonaje.offsetLeft + this.divPersonaje.clientWidth +10 && elemento.getId() == 1)) {
+            
             if (elemento.getId() == 0) {
                 console.log("id", elemento.getId())
                 elemento.explotar("explosion");
                 this.pierdeVida();
                 elemento.setId(2);
-                // this.fin(divElemento);
+                //this.fin(divElemento);
                 // this.accionMuerte();
                 let interval = setInterval(() => {
                     elemento.ocultarElemento();
@@ -109,6 +117,22 @@ class Loop {
 
         }
     }
+
+    updatePosition(){
+        return personaje.getBoundingClientRect().y;
+      } 
+
+    mostrarVidas(){
+        for(let i=1;i<=this.vidas;i++){
+            let contenido= ".divVida"+i;
+            console.log(contenido);
+            let contenidoVida = "vida"+i
+            let div = document.querySelector(contenido);
+            console.log(div);
+            div.classList.add(contenidoVida);
+        }
+    }
+
 
     pierdeVida() {
         console.log(this.vidas)

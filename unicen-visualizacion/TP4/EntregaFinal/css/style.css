@@ -1959,6 +1959,7 @@ hr {
 
 .nubes {
     background: url(../img/loop/nubes-12-removebg-preview.png);
+    background-size: auto;
     animation: movimiento 18s linear infinite;
     min-height: 162px;
     top: 60px;
@@ -1967,6 +1968,7 @@ hr {
 
 .nubes-2 {
     background: url(../img/loop/nubes-4-removebg-preview.png);
+    background-size: auto;
     animation: movimiento 40s linear infinite;
     z-index: 3;
     min-height: 198px;
@@ -1976,7 +1978,9 @@ hr {
 
 .arbustos {
     background: url(../img/loop/arbustos-removebg-preview.png);
-    animation: movimiento 35s linear infinite;
+    background-repeat: repeat-x;
+    background-size: auto;
+    animation: movimiento 20s linear infinite;
     min-height: 200px;
     width: 80%;
     height: 10%;
@@ -1986,7 +1990,9 @@ hr {
 
 .piso {
     background: url(../img/loop/solopiso-removebg-preview.png);
-    animation: movimiento 15s linear infinite;
+    background-repeat: repeat-x;
+    background-size: auto;
+    animation: movimiento 10s linear infinite;
     min-height: 149px;
     width: 80%;
     /* height: 10%; */
@@ -2202,7 +2208,7 @@ hr {
     height: 72px;
     position: absolute;
     z-index: 5;
-    top: 120px;
+    top: 30px;
     left: 800px;
     animation: estrella 1s steps(4) infinite, obstaculo 5s linear infinite;
     background-repeat: no-repeat;
@@ -2353,17 +2359,6 @@ hr {
 
 /*******************************  FIN DEL JUEGO WIN O GAME OVER  ******************/
 
-.gameover {
-    background: url(../img/loop/cartelgameover-removebg-preview.png);
-    position: absolute;
-    width: 446px;
-    height: 307px;
-    z-index: 5;
-    left: 240px;
-    top: 0px;
-    visibility: hidden;
-}
-
 .selectNene {
     background: url(../img/loop/neneSelect-removebg-preview.png);
     position: absolute;
@@ -2426,13 +2421,21 @@ hr {
 }
 .win {
     background: url(../img/loop/cartelwin-removebg-preview.png);
-    position: absolute;
     width: 611px;
     height: 355px;
     z-index: 5;
     left: 150px;
     top: 0px;
-    visibility: hidden;
+
+}
+
+.gameover {
+    background: url(../img/loop/cartelgameover-removebg-preview.png);
+    width: 446px;
+    height: 307px;
+    z-index: 5;
+    left: 240px;
+    top: 0px;
 }
 
 #estrellitas{
@@ -2467,4 +2470,9 @@ hr {
     position: absolute;
     left: 151px;
     top: 10px;
+}
+
+.cartelfin{
+    position: absolute;
+    visibility: hidden;
 }

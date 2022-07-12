@@ -4,6 +4,7 @@ class Personaje {
         this.personaje = personaje;
         this.topPersona = topPersona;
         this.selectPersonaje = "nena";
+        this.salto = false;
     }
 
     // caerPersonaje() {
@@ -18,6 +19,7 @@ class Personaje {
     }
 
     saltaPersonaje() {
+        this.salto=true;
         this.personaje.removeAttribute("id", "personaje" + this.selectPersonaje);
         this.personaje.setAttribute("id", "saltaPersonaje" + this.selectPersonaje);
         // let piso = document.querySelector(".piso");
@@ -39,7 +41,7 @@ class Personaje {
             this.personaje.setAttribute("id", "personaje" + this.selectPersonaje);
             // piso.style.top = "360px";
             // piso.style.top = "350px";
-            
+            this.salto=false;
             clearInterval(interval);
         }, 1000);
     }
@@ -58,6 +60,11 @@ class Personaje {
     setPersonaje(personaje){
         this.selectPersonaje = personaje;
     }
+
+    getSalto(){
+        return this.salto;
+    }
+
     // chequearColision(estrellaDiv, bomba) {
     //     console.log('llega?');
     //     if (this.offsetLeft + this.clientWidth > estrellaDiv.offsetLeft &&
