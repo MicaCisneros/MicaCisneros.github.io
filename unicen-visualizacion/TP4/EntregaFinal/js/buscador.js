@@ -10,7 +10,7 @@ document.getElementById("buscador-desplegable").addEventListener('keypress', eve
 //     div.classList.remove("display-show");
 // }
 
-document.getElementById("buscador-desplegable").addEventListener('focusout', (event) => {
-    let div = document.querySelector(".dropdown-content ");
-    div.classList.remove("display-show");
-});
+// document.getElementById("buscador-desplegable").addEventListener('onblur', (event) => {
+//     let div = document.querySelector(".dropdown-content ");
+//     div.classList.remove("display-show");
+// });

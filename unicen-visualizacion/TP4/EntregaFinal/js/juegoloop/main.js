@@ -89,6 +89,7 @@ document.querySelector('.reiniciar').addEventListener('click', e => {
     juego.setPuntos(0);
     juego.setVidas(3);
     juego.mostrarVidas();
+    juego.mostrarPuntosInicial();
     personaje.style.animationPlayState = 'running';
     
     let divJugar2 = document.querySelector(".cartelfin");
