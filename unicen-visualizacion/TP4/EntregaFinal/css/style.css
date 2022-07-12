@@ -2472,7 +2472,7 @@ hr {
     height: 72px;
     position: absolute;
     z-index: 6;
-    top: 120px;
+    top: 30px;
     left: 100px;
     animation: boomEstrella 1s steps(4);
     background-repeat: no-repeat;

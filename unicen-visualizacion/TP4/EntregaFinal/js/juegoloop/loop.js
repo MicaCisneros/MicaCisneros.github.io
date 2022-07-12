@@ -8,6 +8,7 @@ class Loop {
         this.estrella = null;
         this.pausar = false;
         this.puntos = puntos;
+        this.puntosPantalla = document.querySelector(".cantPuntos");
         this.vidas = 3;
     }
 
@@ -31,6 +32,10 @@ class Loop {
         //     this.fin();
         //     this.accionMuerte();
         // }
+    }
+
+    mostrarPuntosInicial(){
+        this.puntosPantalla.innerHTML = 'X' + this.puntos;
     }
 
     accionMuerte() {
@@ -94,8 +99,8 @@ class Loop {
                 console.log('sumar puntos');
                 this.puntos++;
                 console.log('puntos: ' + this.puntos);
-                let puntosPantalla = document.querySelector(".cantPuntos");
-                puntosPantalla.innerHTML = 'X' + this.puntos;
+                
+                this.puntosPantalla.innerHTML = 'X' + this.puntos;
                 elemento.explotar("estrellitas");
                 elemento.setId(2);
                 // this.estrella.juntar();
