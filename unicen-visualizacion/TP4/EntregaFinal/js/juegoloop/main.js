@@ -1,3 +1,10 @@
+//FONDO JUEGO
+let nube = document.querySelector(".nubes");
+let nube2 = document.querySelector(".nubes-2");
+let arbusto = document.querySelector(".arbustos");
+let piso = document.querySelector(".piso");
+
+
 let jugando = false;
 let obstaculos = [];
 
@@ -64,6 +71,10 @@ document.querySelector('.selectNene').addEventListener('click', e => {
 
 document.querySelector('.jugar').addEventListener('click', e => {
     e.preventDefault();
+    nube.classList.remove("paused");
+    nube2.classList.remove("paused");
+    piso.classList.remove("paused");
+    arbusto.classList.remove("paused");
 
     let divJugar = document.querySelector(".cartel");
     divJugar.setAttribute("hidden", "");
@@ -143,10 +154,10 @@ let intervaloJuego = false;
 
 
 function ganar() {
-    if(jugando == true){
+    if (jugando == true) {
         terminarJuego(1);
     }
-    
+
 }
 window.onkeyup = function(event) {
 
@@ -222,10 +233,7 @@ function generarObstaculos() {
 
 function terminarJuego(juegoGanado) {
     jugando = false;
-    let nube = document.querySelector(".nubes");
-    let nube2 = document.querySelector(".nubes-2");
-    let arbusto = document.querySelector(".arbustos");
-    let piso = document.querySelector(".piso");
+
 
     nube.style.animationPlayState = 'paused';
     nube2.style.animationPlayState = 'paused';
@@ -262,9 +270,8 @@ function terminarJuego(juegoGanado) {
 
     }
 
-    let divPuntos = document.querySelector(".contenidoFin");
-    let contenido = "Has obtenido " + juego.getPuntos() + " estrellas";
-    divPuntos.innerHTML =contenido;
+    let divPuntos = document.querySelector(".puntos");
+    divPuntos.innerHTML = juego.getPuntos();
 
 
 
