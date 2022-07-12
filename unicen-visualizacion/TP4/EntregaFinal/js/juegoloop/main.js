@@ -68,7 +68,11 @@ document.querySelector('#jugar').addEventListener('click', e => {
     let divJugar = document.querySelector(".elegirPersona");
     divJugar.setAttribute("hidden", "");
     jugando = true;
+<<<<<<< HEAD
     timerJuego = setTimeout(ganar, 100000);
+=======
+    timerJuego = setTimeout(ganar, 30000);
+>>>>>>> b71dc293dbfa45f122537d72d26f4d7bafb7b7f7
     jugar();
 });
 

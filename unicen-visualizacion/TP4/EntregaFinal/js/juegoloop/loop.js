@@ -82,7 +82,7 @@ class Loop {
                 }, 1000);
 
                 return this.vidas;
-            } else {
+            } else if(elemento.getId() == 1) {
                 console.log('sumar puntos');
                 this.puntos++;
                 console.log('puntos: ' + this.puntos);
