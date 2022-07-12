@@ -1579,7 +1579,7 @@ footer a {
 /**************************************Mobile*****************************************/
 
 @media only screen and (max-width: 640px) {
-    .img-avatar{
+    .img-avatar {
         display: none;
     }
     .icon-menu {
@@ -2063,7 +2063,6 @@ hr {
     left: 50px;
     animation: caminar 1s steps(6) infinite;
     /* border: 1px solid #9c2881; */
-    
 }
 
 
@@ -2426,20 +2425,28 @@ hr {
 .jugar {
     position: absolute;
     top: 270px;
-    left: 240px;
-    border-radius: 20px;
-    width: 100px;
+    left: 190px;
+    border: none;
+    /* border-radius: 20px; */
+    width: 200px;
     height: 50px;
+    background-color: #ddcf8100;
+}
+
+.start-game {
+    width: 180px;
 }
 
 .reiniciar {
     position: absolute;
-    top: 250px;
-    left: 220px;
-    border-radius: 20px;
-    width: 100px;
+    top: 185px;
+    left: 130px;
+    border: none;
+    width: 200px;
     height: 50px;
+    background-color: #acaaaa00;
 }
+
 .win {
     background: url(../img/loop/cartelwin-removebg-preview.png);
     width: 611px;
@@ -2447,7 +2454,6 @@ hr {
     z-index: 5;
     left: 150px;
     top: 0px;
-
 }
 
 .gameover {
@@ -2459,7 +2465,7 @@ hr {
     top: 0px;
 }
 
-#estrellitas{
+#estrellitas {
     background: url(../img/loop/estrellitas-removebg-preview.png);
     /* width: 1000px; */
     width: 100px;
@@ -2471,6 +2477,7 @@ hr {
     animation: boomEstrella 1s steps(4);
     background-repeat: no-repeat;
 }
+
 @keyframes boomEstrella {
     0% {
         background-position: 0px;
@@ -2480,20 +2487,20 @@ hr {
     }
 }
 
-.contenidoFin{
+.contenidoFin {
     position: absolute;
     z-index: 5;
-    left: 130px;
+    left: 120px;
     top: 160px;
 }
 
-.puntosFin{
+.puntosFin {
     position: absolute;
     left: 151px;
     top: 10px;
 }
 
-.cartelfin{
+.cartelfin {
     position: absolute;
     visibility: hidden;
 }
