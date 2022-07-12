@@ -1579,6 +1579,9 @@ footer a {
 /**************************************Mobile*****************************************/
 
 @media only screen and (max-width: 640px) {
+    .img-avatar{
+        display: none;
+    }
     .icon-menu {
         display: block;
     }
@@ -2385,13 +2388,15 @@ hr {
 }
 
 .elegirPersona{
-    background-color: #db66b8;
+    background-color: #ffffff;
     position: absolute;
     z-index: 6;
     width: 400px;
     height: 300px;
     left: 300px;
     top: 150px;
+    border-radius: solid 5px black;
+    
 }
 
 .seleccionado{

@@ -78,7 +78,7 @@ e.preventDefault();
     let divJugar = document.querySelector(".elegirPersona");
     divJugar.setAttribute("hidden","");
     jugando = true;
-    timerJuego = setTimeout(ganar, 8000);
+    timerJuego = setTimeout(ganar, 30000);
     jugar();
 });
 
