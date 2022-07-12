@@ -7,76 +7,76 @@
  * end() apret esc, perdio o gano
  */
 
- let jugando = false; //Para probar lo pongo en true, aunque deberia hacerlo al apretar un boton jugar
- let obstaculos = [];
- 
+let jugando = false; //Para probar lo pongo en true, aunque deberia hacerlo al apretar un boton jugar
+let obstaculos = [];
 
- // let muertePersonaje = document.querySelector('#muertePersonaje');
- // muertePersonaje.setAttribute("hidden", "");
- // let posicionPersona = personaje.getBoundingClientRect();
- // console.log(posicionPersona);
 
- let personaje = document.querySelector("#personaje");
- let topPersona = personaje.offsetTop;
- let persona = new Personaje(personaje, topPersona);
- 
- 
- /* OBSTACULOS */
- // let bomba = document.querySelector(".divBomba");
- //let obstaculo = new Obstaculo(bomba);
- //obstaculo.generarObstaculo();
- // let explosion = document.querySelector("#explosion");
- // explosion.setAttribute("hidden", "");
- 
- /* COLECCIONABLES */
- // let estrellaDiv = document.querySelector(".estrella");
- //let estrella = new Estrella(estrellaDiv);
- //estrella.generarEstrella();
- 
- /*  PUNTOS  */
- let puntos = 0;
- 
- 
- /* JUEGO */
- let intervaloCrearElementos = null;
- let intervaloChequearColision = null;
- let juego = new Loop(persona, obstaculos, puntos);
- // juego.generarObstaculos()
- let divJuego = document.querySelector("#game-loop");
- 
+// let muertePersonaje = document.querySelector('#muertePersonaje');
+// muertePersonaje.setAttribute("hidden", "");
+// let posicionPersona = personaje.getBoundingClientRect();
+// console.log(posicionPersona);
 
- window.onkeyup = function(event) {
- 
-         if (event.keyCode === 32 || event.keyCode === 38 || event.keyCode === 87) {
-             // contempla barra espaciadora flechita arriba  y la W
-             if (jugando == true) {
-                 juego.saltaPersonaje();
-             }
- 
-         }
-     }
+let personaje = document.querySelector("#personaje");
+let topPersona = personaje.offsetTop;
+let persona = new Personaje(personaje, topPersona);
 
- document.querySelector('.selectNena').addEventListener('click', e => {
+
+/* OBSTACULOS */
+// let bomba = document.querySelector(".divBomba");
+//let obstaculo = new Obstaculo(bomba);
+//obstaculo.generarObstaculo();
+// let explosion = document.querySelector("#explosion");
+// explosion.setAttribute("hidden", "");
+
+/* COLECCIONABLES */
+// let estrellaDiv = document.querySelector(".estrella");
+//let estrella = new Estrella(estrellaDiv);
+//estrella.generarEstrella();
+
+/*  PUNTOS  */
+let puntos = 0;
+
+
+/* JUEGO */
+let intervaloCrearElementos = null;
+let intervaloChequearColision = null;
+let juego = new Loop(persona, obstaculos, puntos);
+// juego.generarObstaculos()
+let divJuego = document.querySelector("#game-loop");
+
+
+window.onkeyup = function(event) {
+
+    if (event.keyCode === 32 || event.keyCode === 38 || event.keyCode === 87) {
+        // contempla barra espaciadora flechita arriba  y la W
+        if (jugando == true) {
+            juego.saltaPersonaje();
+        }
+
+    }
+}
+
+document.querySelector('.selectNena').addEventListener('click', e => {
     persona.setPersonaje("nena");
     let nena = document.querySelector('.selectNena');
     nena.classList.add("seleccionado");
     let nene = document.querySelector('.selectNene');
     nene.classList.remove("seleccionado");
- });
+});
 
- document.querySelector('.selectNene').addEventListener('click', e => {
+document.querySelector('.selectNene').addEventListener('click', e => {
     persona.setPersonaje("nene");
     let nena = document.querySelector('.selectNena');
     nena.classList.remove("seleccionado");
     let nene = document.querySelector('.selectNene');
     nene.classList.add("seleccionado");
- });
+});
 
 document.querySelector('#jugar').addEventListener('click', e => {
-e.preventDefault();
+    e.preventDefault();
 
     let divJugar = document.querySelector(".elegirPersona");
-    divJugar.setAttribute("hidden","");
+    divJugar.setAttribute("hidden", "");
     jugando = true;
     timerJuego = setTimeout(ganar, 30000);
     jugar();
