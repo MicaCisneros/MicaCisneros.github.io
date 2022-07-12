@@ -2022,7 +2022,6 @@ hr {
     }
 }
 
-
 #personajenena {
     background: url(../img/loop/nenacamina4-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
@@ -2100,7 +2099,6 @@ hr {
     }
 }
 
-
 #saltaPersonajenena {
     background: url(../img/loop/nenasalta-removebg-preview.png);
     /* background: url(../img/avatar2.png);*/
@@ -2120,8 +2118,7 @@ hr {
     100% {
         background-position: -370px;
     }
-} 
-
+}
 
 #saltaPersonajenene {
     background: url(../img/loop/nenesalta-removebg-preview.png);
@@ -2155,7 +2152,6 @@ hr {
         top: 220px;
     }
 }
-
 
 #explosion {
     background: url(../img/loop/tvsea8doggj61-removebg-preview.png);
@@ -2364,44 +2360,58 @@ hr {
     visibility: hidden;
 }
 
-.selectNene{
+.selectNene {
     background: url(../img/loop/neneSelect-removebg-preview.png);
     position: absolute;
-    width: 100px;
-    height: 150px;
+    width: 71px;
+    height: 119px;
     z-index: 5;
-    left: 50px;
-    top: 100px;
+    left: 200px;
+    top: 135px;
 }
 
-.selectNena{
+.selectNena {
     background: url(../img/loop/nenaSelect-removebg-preview.png);
     position: absolute;
-    width: 98px;
-    height: 139px;
+    width: 73px;
+    height: 112px;
     z-index: 5;
-    left: 250px;
-    top: 100px;
+    left: 300px;
+    top: 140px;
 }
 
-.elegirPersona{
-    background-color: #db66b8;
+.elegirPersona {
+    background: url(../img/loop/cartelgrande-removebg-preview.png);
     position: absolute;
     z-index: 6;
-    width: 400px;
-    height: 300px;
-    left: 300px;
-    top: 150px;
+    width: 582px;
+    height: 369px;
+    left: 160px;
+    top: 0px;
 }
 
-.seleccionado{
+.seleccione {
+    top: 100px;
+    left: 140px;
+    position: absolute;
+    z-index: 6;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #292a77;
+}
+
+.seleccionado {
     border: solid 2px red;
 }
-#jugar{
+
+#jugar {
+    position: absolute;
+    top: 270px;
+    left: 240px;
     border-radius: 20px;
     width: 100px;
     height: 50px;
 }
+
 .win {
     background: url(../img/loop/cartelwin-removebg-preview.png);
     position: absolute;
