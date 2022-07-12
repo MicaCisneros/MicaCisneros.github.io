@@ -1958,29 +1958,50 @@ hr {
 }
 
 .nubes {
-    background: url(../img/loop/nubes-12-removebg-preview.png);
+    background: url(../img/loop/nubes-4-removebg-preview.png);
     background-size: auto;
-    animation: movimiento 18s linear infinite;
+    animation: movimientoNubes1 10s linear infinite;
     min-height: 162px;
     top: 60px;
     z-index: 4;
+    background-repeat: repeat-x;
+    background-size: auto;
 }
 
 .nubes-2 {
     background: url(../img/loop/nubes-4-removebg-preview.png);
     background-size: auto;
-    animation: movimiento 40s linear infinite;
+    animation: movimientoNubes1 15s linear infinite;
     z-index: 3;
     min-height: 198px;
     /* top: 20px; */
+    background-repeat: repeat-x;
+    background-size: auto;
     filter: brightness(80%);
 }
 
+@keyframes movimientoNubes2 {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: -965px;
+    }
+}
+
+@keyframes movimientoNubes1 {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x: -446px;
+    }
+}
 .arbustos {
     background: url(../img/loop/arbustos-removebg-preview.png);
     background-repeat: repeat-x;
     background-size: auto;
-    animation: movimiento 20s linear infinite;
+    animation: movimiento 7s linear infinite;
     min-height: 200px;
     width: 80%;
     height: 10%;
@@ -1989,10 +2010,10 @@ hr {
 }
 
 .piso {
-    background: url(../img/loop/solopiso-removebg-preview.png);
+    background-image: url(../img/loop/solopiso-removebg-preview.png);
     background-repeat: repeat-x;
     background-size: auto;
-    animation: movimiento 10s linear infinite;
+    animation: movimiento 4s linear infinite;
     min-height: 149px;
     width: 80%;
     /* height: 10%; */
@@ -2005,7 +2026,7 @@ hr {
         background-position-x: 0px;
     }
     100% {
-        background-position-x: -1920px;
+        background-position-x: -589px;
     }
 }
 
@@ -2209,7 +2230,7 @@ hr {
     position: absolute;
     z-index: 5;
     top: 30px;
-    left: 800px;
+    left: 900px;
     animation: estrella 1s steps(4) infinite, obstaculo 5s linear infinite;
     background-repeat: no-repeat;
     /* left:800px; */
@@ -2228,7 +2249,7 @@ hr {
 
 @-webkit-keyframes obstaculo {
     from {
-        left: 800px;
+        left: 870px;
     }
     to {
         left: 0px;
@@ -2247,7 +2268,7 @@ hr {
 
 @keyframes avanzar {
     0% {
-        background-position: 800px;
+        background-position: 870px;
     }
     40% {
         background-position: 600px;
