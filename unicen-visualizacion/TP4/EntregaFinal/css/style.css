@@ -1976,7 +1976,7 @@ hr {
 
 .arbustos {
     background: url(../img/loop/arbustos-removebg-preview.png);
-    animation: movimiento 40s linear infinite;
+    animation: movimiento 35s linear infinite;
     min-height: 200px;
     width: 80%;
     height: 10%;
@@ -1986,7 +1986,7 @@ hr {
 
 .piso {
     background: url(../img/loop/solopiso-removebg-preview.png);
-    animation: movimiento 20s linear infinite;
+    animation: movimiento 15s linear infinite;
     min-height: 149px;
     width: 80%;
     /* height: 10%; */
@@ -2424,4 +2424,39 @@ hr {
     left: 150px;
     top: 100px;
     visibility: hidden;
+}
+
+#estrellitas{
+    background: url(../img/loop/estrellitas-removebg-preview.png);
+    /* width: 1000px; */
+    width: 100px;
+    height: 72px;
+    position: absolute;
+    z-index: 6;
+    top: 120px;
+    left: 100px;
+    animation: boomEstrella 1s steps(4);
+    background-repeat: no-repeat;
+}
+@keyframes boomEstrella {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -446px;
+    }
+}
+
+.contenidoFin{
+    position: absolute;
+    z-index: 5;
+    left: 150px;
+    top: 150px;
+}
+
+.puntosFin{
+    position: absolute;
+    z-index: 5;
+    left: 160px;
+    top: 150px;
 }
